@@ -1,0 +1,32 @@
+[rospy.client][INFO] 2025-10-17 13:17:43,777: init_node, name[/joystick_relay], pid[234]
+[xmlrpc][INFO] 2025-10-17 13:17:43,778: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-17 13:17:43,778: Started XML-RPC server [http://127.0.0.1:46509/]
+[rospy.init][INFO] 2025-10-17 13:17:43,779: ROS Slave URI: [http://127.0.0.1:46509/]
+[rospy.impl.masterslave][INFO] 2025-10-17 13:17:43,779: _ready: http://127.0.0.1:46509/
+[rospy.registration][INFO] 2025-10-17 13:17:43,783: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-17 13:17:43,783: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-17 13:17:43,879: registered with master
+[rospy.rosout][INFO] 2025-10-17 13:17:43,880: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-17 13:17:43,908: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-17 13:17:43,916: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-17 13:17:43,930: connected to core topic /clock
+[rospy.internal][INFO] 2025-10-17 13:17:44,129: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-10-17 13:17:44,260: topic[/joy_vel] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-17 13:17:44,261: topic[/joy_priority] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-17 13:17:46,429: topic[/clock] adding connection to [http://127.0.0.1:35813/], count 0
+[rospy.internal][INFO] 2025-10-17 14:24:35,981: topic[/joy_vel] adding connection to [/twist_mux], count 1
+[rospy.internal][INFO] 2025-10-17 14:24:35,982: topic[/joy_vel] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-10-17 14:24:36,307: topic[/joy_priority] removing connection to /twist_mux
+[rospy.impl.masterslave][INFO] 2025-10-17 14:24:36,640: external shutdown request from [/master]: [/joystick_relay] Reason: new node registered with same name
+[rospy.core][INFO] 2025-10-17 14:24:36,640: signal_shutdown [external shutdown request from [/master]: [[/joystick_relay] Reason: new node registered with same name]]
+[rospy.impl.masterslave][ERROR] 2025-10-17 14:24:36,713: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/masterslave.py", line 146, in validated_f
+    retval = f(*newArgs, **kwds)
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/masterslave.py", line 543, in requestTopic
+    for h in self.protocol_handlers:
+TypeError: 'NoneType' object is not iterable
+
+[rospy.internal][INFO] 2025-10-17 14:24:36,801: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-17 14:24:36,802: topic[/joy_vel] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-10-17 14:24:36,808: topic[/clock] removing connection to http://127.0.0.1:35813/
+[rospy.core][INFO] 2025-10-17 14:24:36,907: signal_shutdown [atexit]

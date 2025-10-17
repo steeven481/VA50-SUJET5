@@ -1,0 +1,42 @@
+[rospy.client][INFO] 2025-10-17 14:24:39,050: init_node, name[/default_controllers_spawner], pid[1315]
+[xmlrpc][INFO] 2025-10-17 14:24:39,050: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-17 14:24:39,051: Started XML-RPC server [http://127.0.0.1:45133/]
+[rospy.init][INFO] 2025-10-17 14:24:39,051: ROS Slave URI: [http://127.0.0.1:45133/]
+[rospy.impl.masterslave][INFO] 2025-10-17 14:24:39,051: _ready: http://127.0.0.1:45133/
+[rospy.registration][INFO] 2025-10-17 14:24:39,052: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-17 14:24:39,052: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-17 14:24:39,151: registered with master
+[rospy.rosout][INFO] 2025-10-17 14:24:39,152: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-17 14:24:39,162: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-17 14:24:39,166: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-17 14:24:39,173: connected to core topic /clock
+[rosout][INFO] 2025-10-17 14:24:39,187: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-10-17 14:24:39,209: topic[/clock] adding connection to [http://127.0.0.1:35813/], count 0
+[rosout][INFO] 2025-10-17 14:24:39,199: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-10-17 14:24:39,224: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-10-17 14:24:39,239: Loading controller: joint_state_controller
+[rospy.core][INFO] 2025-10-17 14:24:39,720: signal_shutdown [signal-2]
+[rosout][INFO] 2025-10-17 14:24:39,720: Shutting down spawner. Stopping and unloading controllers...
+[rospy.impl.masterslave][INFO] 2025-10-17 14:24:39,838: external shutdown request from [/master]: [/default_controllers_spawner] Reason: new node registered with same name
+[rospy.core][INFO] 2025-10-17 14:24:39,839: signal_shutdown [external shutdown request from [/master]: [[/default_controllers_spawner] Reason: new node registered with same name]]
+[rospy.impl.masterslave][ERROR] 2025-10-17 14:24:39,927: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/masterslave.py", line 146, in validated_f
+    retval = f(*newArgs, **kwds)
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/masterslave.py", line 543, in requestTopic
+    for h in self.protocol_handlers:
+TypeError: 'NoneType' object is not iterable
+
+[rosout][INFO] 2025-10-17 14:24:40,727: Stopping all controllers...
+[rosout][INFO] 2025-10-17 14:24:40,734: Unloading all loaded controllers...
+[rospy.internal][INFO] 2025-10-17 14:24:40,740: topic[/clock] removing connection to http://127.0.0.1:35813/
+[rospy.internal][INFO] 2025-10-17 14:24:40,741: topic[/clock] removing connection to http://127.0.0.1:35813/
+[rospy.topics][ERROR] 2025-10-17 14:24:40,742: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rosout][ERROR] 2025-10-17 14:24:40,842: Failed to load joint_state_controller
+[rosout][INFO] 2025-10-17 14:24:40,845: Loading controller: torso_controller
+[rospy.core][INFO] 2025-10-17 14:24:40,998: signal_shutdown [atexit]

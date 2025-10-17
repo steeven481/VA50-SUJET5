@@ -1,0 +1,36 @@
+[rospy.client][INFO] 2025-10-17 14:26:55,799: init_node, name[/tuck_arm], pid[299]
+[xmlrpc][INFO] 2025-10-17 14:26:55,799: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-17 14:26:55,800: Started XML-RPC server [http://127.0.0.1:42985/]
+[rospy.init][INFO] 2025-10-17 14:26:55,800: ROS Slave URI: [http://127.0.0.1:42985/]
+[rospy.impl.masterslave][INFO] 2025-10-17 14:26:55,800: _ready: http://127.0.0.1:42985/
+[rospy.registration][INFO] 2025-10-17 14:26:55,801: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-17 14:26:55,801: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-17 14:26:55,932: registered with master
+[rospy.rosout][INFO] 2025-10-17 14:26:55,932: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-17 14:26:55,940: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-17 14:26:55,942: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-17 14:26:55,944: connected to core topic /clock
+[rosout][INFO] 2025-10-17 14:26:55,948: Waiting for play_motion...
+[rospy.internal][INFO] 2025-10-17 14:26:56,187: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-10-17 14:26:59,020: topic[/clock] adding connection to [http://127.0.0.1:39147/], count 0
+[rospy.internal][INFO] 2025-10-17 14:27:04,066: topic[/play_motion/result] adding connection to [http://127.0.0.1:35675/], count 0
+[rospy.internal][INFO] 2025-10-17 14:27:04,103: topic[/play_motion/feedback] adding connection to [http://127.0.0.1:35675/], count 0
+[rospy.internal][INFO] 2025-10-17 14:27:04,112: topic[/play_motion/status] adding connection to [http://127.0.0.1:35675/], count 0
+[rospy.internal][INFO] 2025-10-17 14:27:04,239: topic[/play_motion/goal] adding connection to [/play_motion], count 0
+[rospy.internal][INFO] 2025-10-17 14:27:04,248: topic[/play_motion/cancel] adding connection to [/play_motion], count 0
+[rosout][INFO] 2025-10-17 14:27:04,250: ...connected.
+[rospy.internal][INFO] 2025-10-17 14:27:05,386: topic[/joint_states] adding connection to [http://127.0.0.1:39147/], count 0
+[rospy.internal][INFO] 2025-10-17 14:27:05,413: topic impl's ref count is zero, deleting topic /joint_states...
+[rospy.internal][INFO] 2025-10-17 14:27:05,414: topic[/joint_states] removing connection to http://127.0.0.1:39147/
+[rosout][INFO] 2025-10-17 14:27:13,915: Tuck arm...
+[rosout][INFO] 2025-10-17 14:27:44,833: Arm tucked.
+[rospy.core][INFO] 2025-10-17 14:27:44,843: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-10-17 14:27:44,857: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-17 14:27:44,857: topic[/play_motion/goal] removing connection to /play_motion
+[rospy.internal][INFO] 2025-10-17 14:27:44,858: topic[/play_motion/cancel] removing connection to /play_motion
+[rospy.internal][INFO] 2025-10-17 14:27:44,859: topic[/clock] removing connection to http://127.0.0.1:39147/
+[rospy.internal][INFO] 2025-10-17 14:27:44,865: topic[/play_motion/status] removing connection to http://127.0.0.1:35675/
+[rospy.internal][INFO] 2025-10-17 14:27:44,870: topic[/play_motion/result] removing connection to http://127.0.0.1:35675/
+[rospy.internal][INFO] 2025-10-17 14:27:44,875: topic[/play_motion/feedback] removing connection to http://127.0.0.1:35675/
+[rospy.internal][INFO] 2025-10-17 14:27:44,876: topic[/play_motion/feedback] removing connection to http://127.0.0.1:35675/
+[rospy.impl.masterslave][INFO] 2025-10-17 14:27:44,877: atexit

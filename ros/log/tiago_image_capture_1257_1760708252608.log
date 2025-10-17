@@ -1,0 +1,38 @@
+[rospy.client][INFO] 2025-10-17 15:37:33,036: init_node, name[/tiago_image_capture_1257_1760708252608], pid[1257]
+[xmlrpc][INFO] 2025-10-17 15:37:33,039: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-17 15:37:33,041: Started XML-RPC server [http://127.0.0.1:40837/]
+[rospy.init][INFO] 2025-10-17 15:37:33,042: ROS Slave URI: [http://127.0.0.1:40837/]
+[rospy.impl.masterslave][INFO] 2025-10-17 15:37:33,043: _ready: http://127.0.0.1:40837/
+[rospy.registration][INFO] 2025-10-17 15:37:33,044: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-17 15:37:33,044: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-17 15:37:33,146: registered with master
+[rospy.rosout][INFO] 2025-10-17 15:37:33,149: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-17 15:37:33,173: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-17 15:37:33,177: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-17 15:37:33,202: connected to core topic /clock
+[rosout][INFO] 2025-10-17 15:37:33,224: 🔍 Abonnement au topic: /xtion/rgb/image_raw
+[rospy.internal][INFO] 2025-10-17 15:37:33,282: topic[/clock] adding connection to [http://127.0.0.1:42871/], count 0
+[rosout][INFO] 2025-10-17 15:37:33,275: ⏳ Attente d'une image (timeout: 20s)...
+[rospy.internal][INFO] 2025-10-17 15:37:33,332: topic[/xtion/rgb/image_raw] adding connection to [http://127.0.0.1:42871/], count 0
+[rosout][INFO] 2025-10-17 15:37:33,375: 📸 Image reçue avec succès
+[rospy.internal][INFO] 2025-10-17 15:37:33,405: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-10-17 15:37:33,405: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:37:33,501: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:37:33,593: 📸 Image reçue avec succès
+[rosout][ERROR] 2025-10-17 15:37:33,635: ❌ Timeout: aucune image reçue
+[rosout][INFO] 2025-10-17 15:37:33,653: 🔍 Vérification de la publication sur le topic...
+[rosout][INFO] 2025-10-17 15:37:33,706: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:37:33,738: Topic existe: ('sensor_msgs/Image', '/xtion/rgb/image_raw', None)
+[rospy.core][INFO] 2025-10-17 15:37:33,749: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-10-17 15:37:33,754: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-17 15:37:33,756: topic[/clock] removing connection to http://127.0.0.1:42871/
+[rospy.internal][INFO] 2025-10-17 15:37:33,756: topic[/clock] removing connection to http://127.0.0.1:42871/
+[rospy.topics][ERROR] 2025-10-17 15:37:33,758: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.internal][INFO] 2025-10-17 15:37:33,762: topic[/xtion/rgb/image_raw] removing connection to http://127.0.0.1:42871/
+[rospy.impl.masterslave][INFO] 2025-10-17 15:37:33,768: atexit

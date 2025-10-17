@@ -1,0 +1,21 @@
+[rospy.client][INFO] 2025-10-11 17:20:14,167: init_node, name[/bringup_controllers_spawner_ft], pid[2203]
+[xmlrpc][INFO] 2025-10-11 17:20:14,167: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-11 17:20:14,168: Started XML-RPC server [http://127.0.0.1:38559/]
+[rospy.init][INFO] 2025-10-11 17:20:14,168: ROS Slave URI: [http://127.0.0.1:38559/]
+[rospy.impl.masterslave][INFO] 2025-10-11 17:20:14,168: _ready: http://127.0.0.1:38559/
+[rospy.registration][INFO] 2025-10-11 17:20:14,169: Registering with master node http://127.0.0.1:11311
+[xmlrpc][INFO] 2025-10-11 17:20:14,169: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-11 17:20:14,268: registered with master
+[rospy.rosout][INFO] 2025-10-11 17:20:14,269: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-11 17:20:14,280: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-11 17:20:14,284: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-11 17:20:14,300: connected to core topic /clock
+[rosout][INFO] 2025-10-11 17:20:14,314: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-10-11 17:20:14,396: topic[/clock] adding connection to [http://127.0.0.1:33211/], count 0
+[rospy.internal][INFO] 2025-10-11 17:20:14,576: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.core][INFO] 2025-10-11 17:20:14,588: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-10-11 17:20:14,591: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-11 17:20:14,592: topic[/clock] removing connection to http://127.0.0.1:33211/
+[rospy.impl.masterslave][INFO] 2025-10-11 17:20:14,592: signal-2
+[rosout][WARNING] 2025-10-11 17:20:15,197: Controller Spawner couldn't find the expected controller_manager ROS interface.
+[rospy.core][INFO] 2025-10-11 17:20:15,214: signal_shutdown [atexit]

@@ -1,0 +1,27 @@
+[rospy.client][INFO] 2025-10-11 17:20:14,231: init_node, name[/hand_controller_spawner], pid[2208]
+[xmlrpc][INFO] 2025-10-11 17:20:14,232: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-11 17:20:14,232: Started XML-RPC server [http://127.0.0.1:40945/]
+[rospy.init][INFO] 2025-10-11 17:20:14,236: ROS Slave URI: [http://127.0.0.1:40945/]
+[rospy.impl.masterslave][INFO] 2025-10-11 17:20:14,236: _ready: http://127.0.0.1:40945/
+[rospy.registration][INFO] 2025-10-11 17:20:14,238: Registering with master node http://127.0.0.1:11311
+[xmlrpc][INFO] 2025-10-11 17:20:14,240: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-11 17:20:14,337: registered with master
+[rospy.rosout][INFO] 2025-10-11 17:20:14,337: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-11 17:20:14,346: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-11 17:20:14,350: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-11 17:20:14,357: connected to core topic /clock
+[rosout][INFO] 2025-10-11 17:20:14,370: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-10-11 17:20:14,398: topic[/clock] adding connection to [http://127.0.0.1:33211/], count 0
+[rospy.core][INFO] 2025-10-11 17:20:14,517: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-10-11 17:20:14,522: topic[/clock] removing connection to http://127.0.0.1:33211/
+[rospy.internal][INFO] 2025-10-11 17:20:14,522: topic[/clock] removing connection to http://127.0.0.1:33211/
+[rospy.topics][ERROR] 2025-10-11 17:20:14,525: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.impl.masterslave][INFO] 2025-10-11 17:20:14,525: signal-2
+[rosout][WARNING] 2025-10-11 17:20:15,118: Controller Spawner couldn't find the expected controller_manager ROS interface.
+[rospy.core][INFO] 2025-10-11 17:20:15,123: signal_shutdown [atexit]

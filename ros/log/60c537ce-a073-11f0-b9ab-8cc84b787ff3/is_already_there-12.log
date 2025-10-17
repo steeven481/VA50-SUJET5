@@ -1,0 +1,22 @@
+[rospy.client][INFO] 2025-10-03 18:09:47,024: init_node, name[/is_already_there], pid[201]
+[xmlrpc][INFO] 2025-10-03 18:09:47,026: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-03 18:09:47,026: Started XML-RPC server [http://127.0.0.1:42109/]
+[rospy.init][INFO] 2025-10-03 18:09:47,026: ROS Slave URI: [http://127.0.0.1:42109/]
+[rospy.impl.masterslave][INFO] 2025-10-03 18:09:47,026: _ready: http://127.0.0.1:42109/
+[rospy.registration][INFO] 2025-10-03 18:09:47,030: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-03 18:09:47,030: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-03 18:09:47,126: registered with master
+[rospy.rosout][INFO] 2025-10-03 18:09:47,126: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-03 18:09:47,133: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-03 18:09:47,134: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-03 18:09:47,137: connected to core topic /clock
+[rospy.internal][INFO] 2025-10-03 18:09:47,392: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-10-03 18:09:48,037: topic[/clock] adding connection to [http://127.0.0.1:38825/], count 0
+[rospy.internal][INFO] 2025-10-03 18:09:49,524: topic[/joint_states] adding connection to [http://127.0.0.1:38825/], count 0
+[rospy.impl.masterslave][INFO] 2025-10-03 18:13:23,986: external shutdown request from [/master]: [/is_already_there] Reason: new node registered with same name
+[rospy.core][INFO] 2025-10-03 18:13:23,986: signal_shutdown [external shutdown request from [/master]: [[/is_already_there] Reason: new node registered with same name]]
+[rospy.internal][INFO] 2025-10-03 18:13:23,992: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-03 18:13:23,993: topic[/clock] removing connection to http://127.0.0.1:38825/
+[rospy.internal][INFO] 2025-10-03 18:13:23,993: topic[/clock] removing connection to http://127.0.0.1:38825/
+[rospy.internal][INFO] 2025-10-03 18:13:23,993: topic[/joint_states] removing connection to http://127.0.0.1:38825/
+[rospy.core][INFO] 2025-10-03 18:13:24,324: signal_shutdown [atexit]

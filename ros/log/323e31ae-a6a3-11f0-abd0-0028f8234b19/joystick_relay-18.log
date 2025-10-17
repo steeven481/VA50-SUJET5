@@ -1,0 +1,24 @@
+[rospy.client][INFO] 2025-10-11 15:07:13,913: init_node, name[/joystick_relay], pid[247]
+[xmlrpc][INFO] 2025-10-11 15:07:13,916: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-11 15:07:13,916: Started XML-RPC server [http://127.0.0.1:38831/]
+[rospy.impl.masterslave][INFO] 2025-10-11 15:07:13,917: _ready: http://127.0.0.1:38831/
+[rospy.init][INFO] 2025-10-11 15:07:13,917: ROS Slave URI: [http://127.0.0.1:38831/]
+[rospy.registration][INFO] 2025-10-11 15:07:13,921: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-11 15:07:13,921: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-11 15:07:14,018: registered with master
+[rospy.rosout][INFO] 2025-10-11 15:07:14,018: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-11 15:07:14,025: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-11 15:07:14,026: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-11 15:07:14,030: connected to core topic /clock
+[rospy.internal][INFO] 2025-10-11 15:07:14,299: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-10-11 15:07:14,349: topic[/joy_vel] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-11 15:07:14,355: topic[/joy_priority] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-11 15:07:16,973: topic[/clock] adding connection to [http://127.0.0.1:34719/], count 0
+[rospy.internal][INFO] 2025-10-11 17:00:43,070: topic[/clock] removing connection to http://127.0.0.1:34719/
+[rospy.core][INFO] 2025-10-11 17:07:23,242: signal_shutdown [signal-15]
+[rospy.internal][INFO] 2025-10-11 17:07:23,250: topic[/rosout] removing connection to /rosout
+[rospy.registration][WARNING] 2025-10-11 17:07:23,274: cannot unregister with master due to network issues
+[rospy.internal][INFO] 2025-10-11 17:07:23,274: topic[/joy_vel] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-10-11 17:07:23,275: topic[/joy_priority] removing connection to /twist_mux
+[rospy.impl.masterslave][INFO] 2025-10-11 17:07:23,276: signal-15
+[rospy.core][INFO] 2025-10-11 17:07:23,851: signal_shutdown [atexit]

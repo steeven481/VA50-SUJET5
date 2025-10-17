@@ -1,0 +1,2 @@
+
+-DCATKIN_ENABLE_TESTING=OFF -DDISABLE_PAL_FLAGS=ON -DCATKIN_DEVEL_PREFIX=/home/pal/ros_ws/devel -DCMAKE_INSTALL_PREFIX=/home/pal/ros_ws/install -G Unix Makefiles

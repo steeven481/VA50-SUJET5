@@ -1,0 +1,41 @@
+[roslaunch][INFO] 2025-10-11 17:04:17,192: Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+[roslaunch][INFO] 2025-10-11 17:04:17,198: Done checking log file disk usage. Usage is <1GB.
+[roslaunch][INFO] 2025-10-11 17:04:17,199: roslaunch starting with args ['roscore', '--core']
+[roslaunch][INFO] 2025-10-11 17:04:17,199: roslaunch env is environ({'ROS_VERSION': '1', 'DISABLE_ROS1_EOL_WARNINGS': '1', 'PKG_CONFIG_PATH': '/opt/pal/gallium/lib/pkgconfig:/opt/pal/gallium/lib/x86_64-linux-gnu/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig', 'ROS_PYTHON_VERSION': '3', 'HOSTNAME': 'epan-tiago-noetic-ssh', 'VISP_WS': '/home/pal/visp-ws', 'ROS_PACKAGE_PATH': '/home/pal/ros_ws/src:/opt/pal/gallium/share:/opt/ros/noetic/share', 'ROSLISP_PACKAGE_DIRECTORIES': '/home/pal/ros_ws/devel/share/common-lisp', 'PWD': '/home/pal/ros_ws', 'XAUTHORITY': '', 'TZ': 'Europe/Paris', 'ROS_IP': '127.0.0.1', 'HOME': '/home/pal', 'ROS_ETC_DIR': '/opt/ros/noetic/etc/ros', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'OROCOS_TARGET': 'gnulinux', 'CMAKE_PREFIX_PATH': '/home/pal/ros_ws/devel:/opt/pal/gallium:/opt/ros/noetic', 'GAZEBO_RESOURCE_PATH': '/home/pal/ros_ws/src/va50:', 'ROS_WORKSPACE': '/home/pal/ros_ws', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PYTHONPATH': '/opt/pal/gallium/lib/python3/dist-packages:/opt/ros/noetic/lib/python3/dist-packages', 'TERM': 'xterm', 'VISP_INPUT_IMAGE_PATH': '/home/pal/visp-ws/visp-images', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'pal', 'RTT_COMPONENT_PATH': '/opt/pal/gallium/lib/orocos', 'DISPLAY': ':1', 'SHLVL': '1', 'PAL_DISTRO': 'gallium', 'ROS_MASTER_URI': 'http://localhost:11311/', 'LD_LIBRARY_PATH': '/home/pal/ros_ws/devel/lib:/opt/pal/gallium/lib:/opt/pal/gallium/lib/x86_64-linux-gnu:/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu:/usr/local/lib', 'GAZEBO_MODEL_PATH': '/home/pal/ros_ws/src/va50/models:', 'PATH': '/opt/pal/gallium/bin:/opt/ros/noetic/bin:/opt/pal/gallium/lib/pal_debian_utils/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LUA_PATH': ';;/opt/pal/gallium/share/lua/5.1/?.lua;/opt/pal/gallium/share/lua/5.1/?.lua', 'DEBIAN_FRONTEND': 'noninteractive', 'ROS_ROOT': '/opt/ros/noetic/share/ros', 'ROS_DISTRO': 'noetic', 'QT_X11_NO_MITSHM': '1', '_': '/opt/ros/noetic/bin/roscore', 'LC_CTYPE': 'C.UTF-8', 'ROS_LOG_FILENAME': '/home/pal/.ros/log/323e31ae-a6a3-11f0-abd0-0028f8234b19/roslaunch-epan-tiago-noetic-ssh-1433.log'})
+[roslaunch][INFO] 2025-10-11 17:04:17,199: starting in server mode
+[roslaunch.parent][INFO] 2025-10-11 17:04:17,199: starting roslaunch parent run
+[roslaunch][INFO] 2025-10-11 17:04:17,200: loading roscore config file /opt/ros/noetic/etc/ros/roscore.xml
+[roslaunch][INFO] 2025-10-11 17:04:17,495: Added core node of type [rosout/rosout] in namespace [/]
+[roslaunch.pmon][INFO] 2025-10-11 17:04:17,496: start_process_monitor: creating ProcessMonitor
+[roslaunch.pmon][INFO] 2025-10-11 17:04:17,496: created process monitor <ProcessMonitor(ProcessMonitor-1, initial daemon)>
+[roslaunch.pmon][INFO] 2025-10-11 17:04:17,496: start_process_monitor: ProcessMonitor started
+[roslaunch.parent][INFO] 2025-10-11 17:04:17,496: starting parent XML-RPC server
+[roslaunch.server][INFO] 2025-10-11 17:04:17,496: starting roslaunch XML-RPC server
+[roslaunch.server][INFO] 2025-10-11 17:04:17,497: waiting for roslaunch XML-RPC server to initialize
+[xmlrpc][INFO] 2025-10-11 17:04:17,497: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-11 17:04:17,497: Started XML-RPC server [http://127.0.0.1:35579/]
+[xmlrpc][INFO] 2025-10-11 17:04:17,497: xml rpc node: starting XML-RPC server
+[roslaunch][INFO] 2025-10-11 17:04:17,509: started roslaunch server http://127.0.0.1:35579/
+[roslaunch.parent][INFO] 2025-10-11 17:04:17,509: ... parent XML-RPC server started
+[roslaunch][INFO] 2025-10-11 17:04:17,509: master.is_running[http://127.0.0.1:11311/]
+[roslaunch][ERROR] 2025-10-11 17:04:17,511: RLException: roscore cannot run as another roscore/master is already running. 
+Please kill other roscore/master processes before relaunching.
+The ROS_MASTER_URI is http://127.0.0.1:11311/
+[roslaunch][ERROR] 2025-10-11 17:04:17,511: The traceback for the exception was written to the log file
+[roslaunch][ERROR] 2025-10-11 17:04:17,512: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/roslaunch/__init__.py", line 347, in main
+    p.start()
+  File "/opt/ros/noetic/lib/python3/dist-packages/roslaunch/parent.py", line 316, in start
+    self.runner.launch()
+  File "/opt/ros/noetic/lib/python3/dist-packages/roslaunch/launch.py", line 676, in launch
+    self._setup()
+  File "/opt/ros/noetic/lib/python3/dist-packages/roslaunch/launch.py", line 651, in _setup
+    launched = self._launch_master()
+  File "/opt/ros/noetic/lib/python3/dist-packages/roslaunch/launch.py", line 410, in _launch_master
+    raise RLException("roscore cannot run as another roscore/master is already running. \nPlease kill other roscore/master processes before relaunching.\nThe ROS_MASTER_URI is %s"%(m.uri))
+roslaunch.core.RLException: roscore cannot run as another roscore/master is already running. 
+Please kill other roscore/master processes before relaunching.
+The ROS_MASTER_URI is http://127.0.0.1:11311/
+
+[rospy.core][INFO] 2025-10-11 17:04:17,512: signal_shutdown [atexit]

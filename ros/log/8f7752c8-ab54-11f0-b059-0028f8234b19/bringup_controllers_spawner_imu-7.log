@@ -1,0 +1,20 @@
+[rospy.client][INFO] 2025-10-17 14:26:56,111: init_node, name[/bringup_controllers_spawner_imu], pid[187]
+[xmlrpc][INFO] 2025-10-17 14:26:56,112: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-17 14:26:56,112: Started XML-RPC server [http://127.0.0.1:39401/]
+[rospy.impl.masterslave][INFO] 2025-10-17 14:26:56,112: _ready: http://127.0.0.1:39401/
+[rospy.init][INFO] 2025-10-17 14:26:56,112: ROS Slave URI: [http://127.0.0.1:39401/]
+[rospy.registration][INFO] 2025-10-17 14:26:56,113: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-17 14:26:56,113: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-17 14:26:56,214: registered with master
+[rospy.rosout][INFO] 2025-10-17 14:26:56,214: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-17 14:26:56,218: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-17 14:26:56,219: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-17 14:26:56,220: connected to core topic /clock
+[rosout][INFO] 2025-10-17 14:26:56,223: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-10-17 14:26:56,434: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-10-17 14:26:58,030: topic[/clock] adding connection to [http://127.0.0.1:39147/], count 0
+[rosout][INFO] 2025-10-17 14:26:58,360: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-10-17 14:26:58,409: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-10-17 14:26:58,437: Loading controller: imu_sensor_controller
+[rosout][INFO] 2025-10-17 14:26:58,575: Controller Spawner: Loaded controllers: imu_sensor_controller
+[rosout][INFO] 2025-10-17 14:26:58,638: Started controllers: imu_sensor_controller

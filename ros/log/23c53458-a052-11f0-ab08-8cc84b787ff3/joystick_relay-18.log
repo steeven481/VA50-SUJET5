@@ -1,0 +1,23 @@
+[rospy.client][INFO] 2025-10-03 14:11:51,247: init_node, name[/joystick_relay], pid[2746]
+[xmlrpc][INFO] 2025-10-03 14:11:51,250: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-03 14:11:51,250: Started XML-RPC server [http://127.0.0.1:46547/]
+[rospy.init][INFO] 2025-10-03 14:11:51,250: ROS Slave URI: [http://127.0.0.1:46547/]
+[rospy.impl.masterslave][INFO] 2025-10-03 14:11:51,250: _ready: http://127.0.0.1:46547/
+[rospy.registration][INFO] 2025-10-03 14:11:51,251: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-03 14:11:51,251: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-03 14:11:51,350: registered with master
+[rospy.rosout][INFO] 2025-10-03 14:11:51,350: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-03 14:11:51,353: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-03 14:11:51,354: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-03 14:11:51,355: connected to core topic /clock
+[rospy.internal][INFO] 2025-10-03 14:11:51,588: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-10-03 14:11:51,592: topic[/joy_vel] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-03 14:11:51,595: topic[/joy_priority] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-03 14:11:53,018: topic[/clock] adding connection to [http://127.0.0.1:35973/], count 0
+[rospy.internal][INFO] 2025-10-03 14:24:30,320: topic[/clock] removing connection to http://127.0.0.1:35973/
+[rospy.core][INFO] 2025-10-03 14:24:30,510: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-10-03 14:24:30,518: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-03 14:24:30,519: topic[/joy_vel] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-10-03 14:24:30,520: topic[/joy_priority] removing connection to /twist_mux
+[rospy.impl.masterslave][INFO] 2025-10-03 14:24:30,521: signal-2
+[rospy.core][INFO] 2025-10-03 14:24:31,111: signal_shutdown [atexit]

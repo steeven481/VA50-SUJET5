@@ -1,0 +1,68 @@
+[rospy.client][INFO] 2025-10-17 15:53:44,448: init_node, name[/tiago_image_capture_1203_1760709224320], pid[1203]
+[xmlrpc][INFO] 2025-10-17 15:53:44,448: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-17 15:53:44,449: Started XML-RPC server [http://127.0.0.1:43511/]
+[rospy.init][INFO] 2025-10-17 15:53:44,449: ROS Slave URI: [http://127.0.0.1:43511/]
+[rospy.impl.masterslave][INFO] 2025-10-17 15:53:44,449: _ready: http://127.0.0.1:43511/
+[rospy.registration][INFO] 2025-10-17 15:53:44,450: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-17 15:53:44,450: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-17 15:53:44,549: registered with master
+[rospy.rosout][INFO] 2025-10-17 15:53:44,550: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-17 15:53:44,554: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-17 15:53:44,555: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-17 15:53:44,558: connected to core topic /clock
+[rosout][INFO] 2025-10-17 15:53:44,563: 📁 Dossier de sauvegarde: /home/pal/ros_ws/data/images
+[rosout][INFO] 2025-10-17 15:53:44,566: 🔍 Abonnement au topic: /xtion/rgb/image_raw
+[rospy.internal][INFO] 2025-10-17 15:53:44,621: topic[/xtion/rgb/image_raw] adding connection to [http://127.0.0.1:36673/], count 0
+[rospy.internal][INFO] 2025-10-17 15:53:44,621: topic[/clock] adding connection to [http://127.0.0.1:36673/], count 0
+[rosout][INFO] 2025-10-17 15:53:44,629: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:44,664: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:44,696: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:44,735: 📸 Image reçue avec succès
+[rospy.internal][INFO] 2025-10-17 15:53:44,766: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-10-17 15:53:44,773: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:44,810: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:44,849: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:44,884: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:44,925: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:44,962: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,001: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,041: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,080: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,118: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,157: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,196: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,234: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,270: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,308: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,344: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,384: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,422: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,459: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,497: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,541: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,578: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,617: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,652: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,690: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,731: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,768: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,771: ⏳ Attente d'une image (timeout: 10s)...
+[rosout][INFO] 2025-10-17 15:53:45,807: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,843: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,880: 📸 Image reçue avec succès
+[rosout][INFO] 2025-10-17 15:53:45,890: 💾 Image sauvegardée: /home/pal/ros_ws/data/images/tiago_capture_20251017_155345.png
+[rosout][INFO] 2025-10-17 15:53:45,892: 📐 Taille: 640x480, Canaux: 3
+[rosout][INFO] 2025-10-17 15:53:45,894: ✅ Capture et sauvegarde réussies!
+[rospy.core][INFO] 2025-10-17 15:53:45,896: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-10-17 15:53:45,900: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-17 15:53:45,902: topic[/clock] removing connection to http://127.0.0.1:36673/
+[rospy.internal][INFO] 2025-10-17 15:53:45,902: topic[/clock] removing connection to http://127.0.0.1:36673/
+[rospy.topics][ERROR] 2025-10-17 15:53:45,902: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.internal][INFO] 2025-10-17 15:53:45,903: topic[/xtion/rgb/image_raw] removing connection to http://127.0.0.1:36673/
+[rospy.impl.masterslave][INFO] 2025-10-17 15:53:45,903: atexit

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/pal/ros_ws/devel/setup.sh

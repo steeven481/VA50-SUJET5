@@ -1,0 +1,30 @@
+[rospy.client][INFO] 2025-10-03 18:09:47,384: init_node, name[/bringup_controllers_spawner_ft], pid[193]
+[xmlrpc][INFO] 2025-10-03 18:09:47,385: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-03 18:09:47,385: Started XML-RPC server [http://127.0.0.1:46693/]
+[rospy.init][INFO] 2025-10-03 18:09:47,385: ROS Slave URI: [http://127.0.0.1:46693/]
+[rospy.impl.masterslave][INFO] 2025-10-03 18:09:47,385: _ready: http://127.0.0.1:46693/
+[rospy.registration][INFO] 2025-10-03 18:09:47,386: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-03 18:09:47,386: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-03 18:09:47,485: registered with master
+[rospy.rosout][INFO] 2025-10-03 18:09:47,486: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-03 18:09:47,489: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-03 18:09:47,489: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-03 18:09:47,491: connected to core topic /clock
+[rosout][INFO] 2025-10-03 18:09:47,492: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-10-03 18:09:47,652: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-10-03 18:09:49,061: topic[/clock] adding connection to [http://127.0.0.1:38825/], count 0
+[rosout][INFO] 2025-10-03 18:09:49,300: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-10-03 18:09:49,304: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-10-03 18:09:49,307: Loading controller: force_torque_sensor_controller
+[rosout][INFO] 2025-10-03 18:09:49,350: Controller Spawner: Loaded controllers: force_torque_sensor_controller
+[rosout][INFO] 2025-10-03 18:09:49,403: Started controllers: force_torque_sensor_controller
+[rospy.impl.masterslave][INFO] 2025-10-03 18:13:24,520: external shutdown request from [/master]: [/bringup_controllers_spawner_ft] Reason: new node registered with same name
+[rospy.core][INFO] 2025-10-03 18:13:24,520: signal_shutdown [external shutdown request from [/master]: [[/bringup_controllers_spawner_ft] Reason: new node registered with same name]]
+[rosout][INFO] 2025-10-03 18:13:24,520: Shutting down spawner. Stopping and unloading controllers...
+[rospy.internal][INFO] 2025-10-03 18:13:25,019: topic[/rosout] removing connection to /rosout
+[rosout][INFO] 2025-10-03 18:13:25,527: Stopping all controllers...
+[rosout][INFO] 2025-10-03 18:13:25,533: Unloading all loaded controllers...
+[rosout][INFO] 2025-10-03 18:13:25,533: Trying to unload force_torque_sensor_controller
+[rosout][INFO] 2025-10-03 18:13:25,547: Succeeded in unloading force_torque_sensor_controller
+[rospy.internal][INFO] 2025-10-03 18:13:25,550: topic[/clock] removing connection to http://127.0.0.1:38825/
+[rospy.core][INFO] 2025-10-03 18:13:25,586: signal_shutdown [atexit]

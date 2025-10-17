@@ -1,0 +1,16 @@
+[rospy.client][INFO] 2025-10-03 17:26:57,533: init_node, name[/joystick_relay], pid[23441]
+[xmlrpc][INFO] 2025-10-03 17:26:57,533: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-03 17:26:57,534: Started XML-RPC server [http://127.0.0.1:37161/]
+[rospy.init][INFO] 2025-10-03 17:26:57,534: ROS Slave URI: [http://127.0.0.1:37161/]
+[rospy.impl.masterslave][INFO] 2025-10-03 17:26:57,534: _ready: http://127.0.0.1:37161/
+[rospy.registration][INFO] 2025-10-03 17:26:57,534: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-03 17:26:57,534: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-03 17:26:57,634: registered with master
+[rospy.rosout][INFO] 2025-10-03 17:26:57,634: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-03 17:26:57,637: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-03 17:26:57,637: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-03 17:26:57,639: connected to core topic /clock
+[rospy.internal][INFO] 2025-10-03 17:26:57,893: topic[/joy_vel] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-03 17:26:57,895: topic[/joy_priority] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-03 17:26:58,057: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-10-03 17:26:59,417: topic[/clock] adding connection to [http://127.0.0.1:40793/], count 0

@@ -1,0 +1,31 @@
+[rospy.client][INFO] 2025-10-11 17:20:13,321: init_node, name[/joystick_relay], pid[2253]
+[xmlrpc][INFO] 2025-10-11 17:20:13,322: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-11 17:20:13,322: Started XML-RPC server [http://127.0.0.1:35775/]
+[rospy.impl.masterslave][INFO] 2025-10-11 17:20:13,322: _ready: http://127.0.0.1:35775/
+[rospy.init][INFO] 2025-10-11 17:20:13,323: ROS Slave URI: [http://127.0.0.1:35775/]
+[rospy.registration][INFO] 2025-10-11 17:20:13,336: Registering with master node http://127.0.0.1:11311
+[xmlrpc][INFO] 2025-10-11 17:20:13,352: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-11 17:20:13,438: registered with master
+[rospy.rosout][INFO] 2025-10-11 17:20:13,438: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-11 17:20:13,460: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-11 17:20:13,462: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-11 17:20:13,469: connected to core topic /clock
+[rospy.internal][INFO] 2025-10-11 17:20:13,521: topic[/clock] adding connection to [http://127.0.0.1:33211/], count 0
+[rospy.internal][INFO] 2025-10-11 17:20:13,691: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-10-11 17:20:13,825: topic[/joy_vel] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-11 17:20:13,826: topic[/joy_priority] adding connection to [/twist_mux], count 0
+[rospy.core][INFO] 2025-10-11 17:20:14,211: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-10-11 17:20:14,230: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-11 17:20:14,231: topic[/joy_vel] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-10-11 17:20:14,231: topic[/joy_priority] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-10-11 17:20:14,232: topic[/clock] removing connection to http://127.0.0.1:33211/
+[rospy.internal][INFO] 2025-10-11 17:20:14,233: topic[/clock] removing connection to http://127.0.0.1:33211/
+[rospy.topics][ERROR] 2025-10-11 17:20:14,233: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.impl.masterslave][INFO] 2025-10-11 17:20:14,234: signal-2
+[rospy.core][INFO] 2025-10-11 17:20:14,814: signal_shutdown [atexit]
