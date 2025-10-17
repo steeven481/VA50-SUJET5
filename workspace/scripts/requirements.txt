@@ -1,0 +1,3 @@
+opencv-python
+rospkg
+catkin-pkg
