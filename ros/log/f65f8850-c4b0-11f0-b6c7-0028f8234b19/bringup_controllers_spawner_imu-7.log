@@ -1,0 +1,30 @@
+[rospy.client][INFO] 2025-11-18 20:01:22,601: init_node, name[/bringup_controllers_spawner_imu], pid[187]
+[xmlrpc][INFO] 2025-11-18 20:01:22,602: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-18 20:01:22,602: Started XML-RPC server [http://127.0.0.1:37507/]
+[rospy.init][INFO] 2025-11-18 20:01:22,602: ROS Slave URI: [http://127.0.0.1:37507/]
+[rospy.impl.masterslave][INFO] 2025-11-18 20:01:22,602: _ready: http://127.0.0.1:37507/
+[rospy.registration][INFO] 2025-11-18 20:01:22,603: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-18 20:01:22,603: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-18 20:01:22,702: registered with master
+[rospy.rosout][INFO] 2025-11-18 20:01:22,702: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-18 20:01:22,710: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-18 20:01:22,712: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-18 20:01:22,714: connected to core topic /clock
+[rosout][INFO] 2025-11-18 20:01:22,719: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-11-18 20:01:22,927: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-18 20:01:24,864: topic[/clock] adding connection to [http://127.0.0.1:45173/], count 0
+[rosout][INFO] 2025-11-18 20:01:25,147: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-11-18 20:01:25,166: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-11-18 20:01:25,175: Loading controller: imu_sensor_controller
+[rosout][INFO] 2025-11-18 20:01:25,275: Controller Spawner: Loaded controllers: imu_sensor_controller
+[rosout][INFO] 2025-11-18 20:01:25,329: Started controllers: imu_sensor_controller
+[rospy.impl.masterslave][INFO] 2025-11-18 20:28:10,876: external shutdown request from [/master]: [/bringup_controllers_spawner_imu] Reason: new node registered with same name
+[rospy.core][INFO] 2025-11-18 20:28:10,876: signal_shutdown [external shutdown request from [/master]: [[/bringup_controllers_spawner_imu] Reason: new node registered with same name]]
+[rosout][INFO] 2025-11-18 20:28:10,877: Shutting down spawner. Stopping and unloading controllers...
+[rospy.internal][INFO] 2025-11-18 20:28:11,261: topic[/rosout] removing connection to /rosout
+[rosout][INFO] 2025-11-18 20:28:11,932: Stopping all controllers...
+[rosout][INFO] 2025-11-18 20:28:11,972: Unloading all loaded controllers...
+[rosout][INFO] 2025-11-18 20:28:11,976: Trying to unload imu_sensor_controller
+[rosout][INFO] 2025-11-18 20:28:12,027: Succeeded in unloading imu_sensor_controller
+[rospy.internal][INFO] 2025-11-18 20:28:12,043: topic[/clock] removing connection to http://127.0.0.1:45173/
+[rospy.core][INFO] 2025-11-18 20:28:12,102: signal_shutdown [atexit]

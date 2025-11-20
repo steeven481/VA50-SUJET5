@@ -1,0 +1,42 @@
+[rospy.client][INFO] 2025-11-20 10:13:35,065: init_node, name[/tiago_simple_image_capture_1185_1763630014620], pid[1185]
+[xmlrpc][INFO] 2025-11-20 10:13:35,068: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-20 10:13:35,071: Started XML-RPC server [http://127.0.0.1:45379/]
+[rospy.init][INFO] 2025-11-20 10:13:35,072: ROS Slave URI: [http://127.0.0.1:45379/]
+[rospy.impl.masterslave][INFO] 2025-11-20 10:13:35,073: _ready: http://127.0.0.1:45379/
+[rospy.registration][INFO] 2025-11-20 10:13:35,075: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-20 10:13:35,075: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-20 10:13:35,174: registered with master
+[rospy.rosout][INFO] 2025-11-20 10:13:35,175: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-20 10:13:35,210: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-20 10:13:35,220: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-20 10:13:35,232: connected to core topic /clock
+[rospy.internal][INFO] 2025-11-20 10:13:35,281: topic[/clock] adding connection to [http://127.0.0.1:37811/], count 0
+[rospy.internal][INFO] 2025-11-20 10:13:35,333: topic[/xtion/rgb/image_raw] adding connection to [http://127.0.0.1:37811/], count 0
+[rospy.internal][INFO] 2025-11-20 10:13:35,439: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-20 10:13:35,570: topic[/head_controller/command] adding connection to [/gazebo], count 0
+[rospy.internal][INFO] 2025-11-20 10:13:35,579: topic[/torso_controller/command] adding connection to [/gazebo], count 0
+[rosout][INFO] 2025-11-20 10:13:44,127: Début de la capture panoramique
+[rosout][INFO] 2025-11-20 10:13:44,142: Position 1/4
+[rosout][INFO] 2025-11-20 10:13:44,144: Torse déplacé: height=0.15
+[rosout][INFO] 2025-11-20 10:13:50,724: Tête déplacée: pan=0.0, tilt=-0.7
+[rosout][INFO] 2025-11-20 10:14:00,777: Image sauvegardée: /home/pal/ros_ws/data/images/table_position_1_20251120_101400.png
+[rosout][INFO] 2025-11-20 10:14:04,694: Position 2/4
+[rosout][INFO] 2025-11-20 10:14:04,702: Torse déplacé: height=0.15
+[rosout][INFO] 2025-11-20 10:14:10,625: Tête déplacée: pan=0.4, tilt=-0.6
+[rosout][INFO] 2025-11-20 10:14:20,427: Image sauvegardée: /home/pal/ros_ws/data/images/table_position_2_20251120_101420.png
+[rosout][INFO] 2025-11-20 10:14:23,599: Position 3/4
+[rosout][INFO] 2025-11-20 10:14:23,619: Torse déplacé: height=0.15
+[rosout][INFO] 2025-11-20 10:14:29,627: Tête déplacée: pan=-0.4, tilt=-0.6
+[rosout][INFO] 2025-11-20 10:14:39,466: Image sauvegardée: /home/pal/ros_ws/data/images/table_position_3_20251120_101439.png
+[rosout][INFO] 2025-11-20 10:14:42,485: Position 4/4
+[rosout][INFO] 2025-11-20 10:14:42,512: Torse déplacé: height=0.2
+[rosout][INFO] 2025-11-20 10:14:49,282: Tête déplacée: pan=0.0, tilt=-0.4
+[rosout][INFO] 2025-11-20 10:14:58,856: Image sauvegardée: /home/pal/ros_ws/data/images/table_position_4_20251120_101458.png
+[rosout][INFO] 2025-11-20 10:15:01,699: Capture terminée
+[rospy.core][INFO] 2025-11-20 10:15:01,726: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-11-20 10:15:01,760: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-20 10:15:01,764: topic[/head_controller/command] removing connection to /gazebo
+[rospy.internal][INFO] 2025-11-20 10:15:01,766: topic[/torso_controller/command] removing connection to /gazebo
+[rospy.internal][INFO] 2025-11-20 10:15:01,768: topic[/clock] removing connection to http://127.0.0.1:37811/
+[rospy.internal][INFO] 2025-11-20 10:15:01,769: topic[/xtion/rgb/image_raw] removing connection to http://127.0.0.1:37811/
+[rospy.impl.masterslave][INFO] 2025-11-20 10:15:01,771: atexit

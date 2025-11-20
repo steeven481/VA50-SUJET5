@@ -1,0 +1,24 @@
+[rospy.client][INFO] 2025-11-19 21:34:39,484: init_node, name[/gripper_controllers_spawner], pid[178]
+[xmlrpc][INFO] 2025-11-19 21:34:39,484: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-19 21:34:39,485: Started XML-RPC server [http://127.0.0.1:42005/]
+[rospy.init][INFO] 2025-11-19 21:34:39,485: ROS Slave URI: [http://127.0.0.1:42005/]
+[rospy.impl.masterslave][INFO] 2025-11-19 21:34:39,485: _ready: http://127.0.0.1:42005/
+[rospy.registration][INFO] 2025-11-19 21:34:39,486: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-19 21:34:39,486: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-19 21:34:39,585: registered with master
+[rospy.rosout][INFO] 2025-11-19 21:34:39,585: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-19 21:34:39,590: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-19 21:34:39,591: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-19 21:34:39,593: connected to core topic /clock
+[rosout][INFO] 2025-11-19 21:34:39,596: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-11-19 21:34:39,752: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-19 21:34:41,785: topic[/clock] adding connection to [http://127.0.0.1:36571/], count 0
+[rosout][INFO] 2025-11-19 21:36:18,586: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-11-19 21:36:18,599: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-11-19 21:36:18,609: Loading controller: gripper_controller
+[rosout][INFO] 2025-11-19 21:36:18,991: Controller Spawner: Loaded controllers: gripper_controller
+[rosout][INFO] 2025-11-19 21:36:19,075: Started controllers: gripper_controller
+[rospy.core][INFO] 2025-11-19 21:41:23,806: signal_shutdown [signal-2]
+[rosout][INFO] 2025-11-19 21:41:23,811: Shutting down spawner. Stopping and unloading controllers...
+[rospy.internal][INFO] 2025-11-19 21:41:23,999: topic[/clock] removing connection to http://127.0.0.1:36571/
+[rospy.core][INFO] 2025-11-19 21:41:38,846: signal_shutdown [signal-15]

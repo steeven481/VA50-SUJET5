@@ -1,0 +1,30 @@
+[rospy.client][INFO] 2025-11-09 13:45:08,437: init_node, name[/hand_controller_spawner], pid[244]
+[xmlrpc][INFO] 2025-11-09 13:45:08,437: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-09 13:45:08,438: Started XML-RPC server [http://127.0.0.1:41009/]
+[rospy.impl.masterslave][INFO] 2025-11-09 13:45:08,438: _ready: http://127.0.0.1:41009/
+[rospy.init][INFO] 2025-11-09 13:45:08,438: ROS Slave URI: [http://127.0.0.1:41009/]
+[rospy.registration][INFO] 2025-11-09 13:45:08,444: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-09 13:45:08,445: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-09 13:45:08,539: registered with master
+[rospy.rosout][INFO] 2025-11-09 13:45:08,539: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-09 13:45:08,542: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-09 13:45:08,543: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-09 13:45:08,544: connected to core topic /clock
+[rosout][INFO] 2025-11-09 13:45:08,547: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-11-09 13:45:08,721: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-09 13:45:10,467: topic[/clock] adding connection to [http://127.0.0.1:36161/], count 0
+[rosout][INFO] 2025-11-09 13:45:11,564: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-11-09 13:45:11,571: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-11-09 13:45:11,575: Loading controller: hand_controller
+[rosout][INFO] 2025-11-09 13:45:11,695: Controller Spawner: Loaded controllers: hand_controller
+[rosout][INFO] 2025-11-09 13:45:12,487: Started controllers: hand_controller
+[rospy.impl.masterslave][INFO] 2025-11-09 13:53:08,143: external shutdown request from [/master]: [/hand_controller_spawner] Reason: new node registered with same name
+[rospy.core][INFO] 2025-11-09 13:53:08,144: signal_shutdown [external shutdown request from [/master]: [[/hand_controller_spawner] Reason: new node registered with same name]]
+[rosout][INFO] 2025-11-09 13:53:08,144: Shutting down spawner. Stopping and unloading controllers...
+[rospy.internal][INFO] 2025-11-09 13:53:08,613: topic[/rosout] removing connection to /rosout
+[rosout][INFO] 2025-11-09 13:53:09,186: Stopping all controllers...
+[rosout][INFO] 2025-11-09 13:53:09,194: Unloading all loaded controllers...
+[rosout][INFO] 2025-11-09 13:53:09,196: Trying to unload hand_controller
+[rosout][INFO] 2025-11-09 13:53:09,213: Succeeded in unloading hand_controller
+[rospy.internal][INFO] 2025-11-09 13:53:09,219: topic[/clock] removing connection to http://127.0.0.1:36161/
+[rospy.core][INFO] 2025-11-09 13:53:09,266: signal_shutdown [atexit]

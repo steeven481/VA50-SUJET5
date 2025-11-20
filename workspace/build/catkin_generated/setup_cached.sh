@@ -7,5 +7,5 @@
 # new environment variables
 
 # modified environment variables
-export LUA_PATH=';;/opt/pal/gallium/share/lua/5.1/?.lua;/opt/pal/gallium/share/lua/5.1/?.lua;/opt/pal/gallium/share/lua/5.1/?.lua'
+export LUA_PATH=';;/opt/pal/gallium/share/lua/5.1/?.lua;/opt/pal/gallium/share/lua/5.1/?.lua;/opt/pal/gallium/share/lua/5.1/?.lua;/opt/pal/gallium/share/lua/5.1/?.lua'
 export PWD='/home/pal/ros_ws/build'

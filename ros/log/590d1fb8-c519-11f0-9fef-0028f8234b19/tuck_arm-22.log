@@ -1,0 +1,44 @@
+[rospy.client][INFO] 2025-11-19 08:28:42,065: init_node, name[/tuck_arm], pid[272]
+[xmlrpc][INFO] 2025-11-19 08:28:42,067: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-19 08:28:42,069: Started XML-RPC server [http://127.0.0.1:35179/]
+[rospy.init][INFO] 2025-11-19 08:28:42,070: ROS Slave URI: [http://127.0.0.1:35179/]
+[rospy.impl.masterslave][INFO] 2025-11-19 08:28:42,070: _ready: http://127.0.0.1:35179/
+[rospy.registration][INFO] 2025-11-19 08:28:42,073: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-19 08:28:42,074: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-19 08:28:42,171: registered with master
+[rospy.rosout][INFO] 2025-11-19 08:28:42,172: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-19 08:28:42,278: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-19 08:28:42,288: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-19 08:28:42,303: connected to core topic /clock
+[rosout][INFO] 2025-11-19 08:28:42,321: Waiting for play_motion...
+[rospy.internal][INFO] 2025-11-19 08:28:42,502: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-19 08:28:45,767: topic[/clock] adding connection to [http://127.0.0.1:35475/], count 0
+[rospy.internal][INFO] 2025-11-19 08:28:59,845: topic[/play_motion/result] adding connection to [http://127.0.0.1:33631/], count 0
+[rospy.internal][INFO] 2025-11-19 08:28:59,939: topic[/play_motion/feedback] adding connection to [http://127.0.0.1:33631/], count 0
+[rospy.internal][INFO] 2025-11-19 08:28:59,946: topic[/play_motion/status] adding connection to [http://127.0.0.1:33631/], count 0
+[rospy.internal][INFO] 2025-11-19 08:29:00,058: topic[/play_motion/goal] adding connection to [/play_motion], count 0
+[rospy.internal][INFO] 2025-11-19 08:29:00,060: topic[/play_motion/cancel] adding connection to [/play_motion], count 0
+[rosout][INFO] 2025-11-19 08:29:00,066: ...connected.
+[rospy.internal][INFO] 2025-11-19 08:29:00,933: topic[/joint_states] adding connection to [http://127.0.0.1:35475/], count 0
+[rospy.internal][INFO] 2025-11-19 08:29:01,005: topic impl's ref count is zero, deleting topic /joint_states...
+[rospy.internal][INFO] 2025-11-19 08:29:01,006: topic[/joint_states] removing connection to http://127.0.0.1:35475/
+[rosout][INFO] 2025-11-19 08:29:11,609: Tuck arm...
+[rosout][INFO] 2025-11-19 08:29:50,664: Arm tucked.
+[rospy.core][INFO] 2025-11-19 08:29:50,690: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-11-19 08:29:50,726: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-19 08:29:50,730: topic[/play_motion/goal] removing connection to /play_motion
+[rospy.internal][INFO] 2025-11-19 08:29:50,733: topic[/play_motion/cancel] removing connection to /play_motion
+[rospy.internal][INFO] 2025-11-19 08:29:50,734: topic[/clock] removing connection to http://127.0.0.1:35475/
+[rospy.internal][INFO] 2025-11-19 08:29:50,736: topic[/play_motion/status] removing connection to http://127.0.0.1:33631/
+[rospy.internal][INFO] 2025-11-19 08:29:50,741: topic[/play_motion/result] removing connection to http://127.0.0.1:33631/
+[rospy.internal][INFO] 2025-11-19 08:29:50,744: topic[/play_motion/result] removing connection to http://127.0.0.1:33631/
+[rospy.topics][ERROR] 2025-11-19 08:29:50,754: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.internal][INFO] 2025-11-19 08:29:50,758: topic[/play_motion/feedback] removing connection to http://127.0.0.1:33631/
+[rospy.internal][INFO] 2025-11-19 08:29:50,760: topic[/play_motion/feedback] removing connection to http://127.0.0.1:33631/
+[rospy.impl.masterslave][INFO] 2025-11-19 08:29:50,763: atexit

@@ -1,0 +1,30 @@
+[rospy.client][INFO] 2025-11-09 13:53:05,573: init_node, name[/spawn_model], pid[1329]
+[xmlrpc][INFO] 2025-11-09 13:53:05,582: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-09 13:53:05,582: Started XML-RPC server [http://127.0.0.1:43333/]
+[rospy.init][INFO] 2025-11-09 13:53:05,583: ROS Slave URI: [http://127.0.0.1:43333/]
+[rospy.impl.masterslave][INFO] 2025-11-09 13:53:05,583: _ready: http://127.0.0.1:43333/
+[rospy.registration][INFO] 2025-11-09 13:53:05,585: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-09 13:53:05,585: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-09 13:53:05,683: registered with master
+[rospy.rosout][INFO] 2025-11-09 13:53:05,683: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-09 13:53:05,719: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-09 13:53:05,730: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-09 13:53:05,745: connected to core topic /clock
+[rosout][INFO] 2025-11-09 13:53:05,792: Loading model XML from ros parameter
+[rosout][INFO] 2025-11-09 13:53:05,820: Waiting for service /gazebo/spawn_urdf_model
+[rospy.internal][INFO] 2025-11-09 13:53:05,917: topic[/clock] adding connection to [http://127.0.0.1:36161/], count 0
+[rospy.internal][INFO] 2025-11-09 13:53:05,882: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-11-09 13:53:05,919: Calling service /gazebo/spawn_urdf_model
+[rosout][INFO] 2025-11-09 13:53:06,061: Spawn status: SpawnModel: Failure - entity already exists.
+[rospy.core][INFO] 2025-11-09 13:53:06,093: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-11-09 13:53:06,100: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-09 13:53:06,102: topic[/clock] removing connection to http://127.0.0.1:36161/
+[rospy.internal][INFO] 2025-11-09 13:53:06,104: topic[/clock] removing connection to http://127.0.0.1:36161/
+[rospy.topics][ERROR] 2025-11-09 13:53:06,108: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.impl.masterslave][INFO] 2025-11-09 13:53:06,108: atexit

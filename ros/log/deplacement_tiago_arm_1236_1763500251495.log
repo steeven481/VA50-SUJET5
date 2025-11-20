@@ -1,0 +1,25 @@
+[rospy.client][INFO] 2025-11-18 22:10:51,860: init_node, name[/deplacement_tiago_arm_1236_1763500251495], pid[1236]
+[xmlrpc][INFO] 2025-11-18 22:10:51,861: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-18 22:10:51,862: Started XML-RPC server [http://127.0.0.1:46081/]
+[rospy.impl.masterslave][INFO] 2025-11-18 22:10:51,864: _ready: http://127.0.0.1:46081/
+[rospy.init][INFO] 2025-11-18 22:10:51,863: ROS Slave URI: [http://127.0.0.1:46081/]
+[rospy.registration][INFO] 2025-11-18 22:10:51,871: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-18 22:10:51,871: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-18 22:10:51,971: registered with master
+[rospy.rosout][INFO] 2025-11-18 22:10:51,972: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-18 22:10:51,997: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-18 22:10:52,003: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-18 22:10:52,006: connected to core topic /clock
+[rospy.internal][INFO] 2025-11-18 22:10:53,048: topic[/clock] adding connection to [http://127.0.0.1:43375/], count 0
+[rospy.internal][INFO] 2025-11-18 22:10:54,571: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-18 22:10:54,686: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-11-18 22:10:54,696: topic[/collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-11-18 22:10:58,197: Mouvement du bras exécuté avec succès.
+[rosout][WARNING] 2025-11-18 22:11:00,724: Aucune image reçue depuis la caméra !
+[rospy.core][INFO] 2025-11-18 22:11:00,735: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-11-18 22:11:00,760: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-18 22:11:00,761: topic[/collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-11-18 22:11:00,762: topic[/attached_collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-11-18 22:11:00,763: topic[/clock] removing connection to http://127.0.0.1:43375/
+[rospy.impl.masterslave][INFO] 2025-11-18 22:11:00,763: atexit
+[rospy.internal][INFO] 2025-11-18 22:11:00,764: topic[/clock] removing connection to http://127.0.0.1:43375/

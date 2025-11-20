@@ -1,0 +1,113 @@
+[rospy.client][INFO] 2025-11-09 14:37:34,219: init_node, name[/dynamic_footprint_publisher], pid[3040]
+[xmlrpc][INFO] 2025-11-09 14:37:34,220: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-09 14:37:34,223: Started XML-RPC server [http://127.0.0.1:33229/]
+[rospy.init][INFO] 2025-11-09 14:37:34,225: ROS Slave URI: [http://127.0.0.1:33229/]
+[rospy.impl.masterslave][INFO] 2025-11-09 14:37:34,225: _ready: http://127.0.0.1:33229/
+[rospy.registration][INFO] 2025-11-09 14:37:34,231: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-09 14:37:34,233: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-09 14:37:34,327: registered with master
+[rospy.rosout][INFO] 2025-11-09 14:37:34,328: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-09 14:37:34,418: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-09 14:37:34,423: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-09 14:37:34,439: connected to core topic /clock
+[rospy.internal][INFO] 2025-11-09 14:37:34,572: topic[/clock] adding connection to [http://127.0.0.1:38381/], count 0
+[rosout][INFO] 2025-11-09 14:37:34,580: [[0.27, 0.0], [0.26888134748351344, 0.024552412823388676], [0.2655346594411104, 0.04890137662166105], [0.2599876675839058, 0.07284512821239655], [0.25228633603338124, 0.09618526212914255], [0.24249448044819796, 0.11872837467159458], [0.23069323922755192, 0.14028766650956706], [0.21698040117284415, 0.16068449056107323], [0.2014695951788751, 0.179749832318309], [0.18428934866903662, 0.1973257103550935], [0.16558202257660343, 0.21326648541072085], [0.14550263169720543, 0.22744006720274115], [0.1242175601874111, 0.23972900896864133], [0.10190318285320589, 0.25003148066670744], [0.0787444036528027, 0.2582621127718204], [0.05493312352421106, 0.2643527036742272], [0.03066665023362811, 0.26825278481955844], [0.006146063421148409, 0.26993003890716427], [-0.01842545160846132, 0.26937056768144557], [-0.04284428754318803, 0.2665790070971768], [-0.06690810221808319, 0.2615784889045247], [-0.0904174952861665, 0.2544104489720815], [-0.11317766051249957, 0.24513428393620795], [-0.1350000000000003, 0.23382685902179828], [-0.1557036869710144, 0.22058187111281918], [-0.17511716415494438, 0.20550907235042026], [-0.1930795653658231, 0.18873336069212793], [-0.20944204849019363, 0.17039374496803394], [-0.22406902883973706, 0.15064219300985066], [-0.23683930264870068, 0.12964237239759682], [-0.24764705140647253, 0.10756829425848476], [-0.2564027187030864, 0.08460287135591771], [-0.2630337523218395, 0.060936402416726335], [-0.2674852054298094, 0.036764995255986005], [-0.2697201918846165, 0.01228894176589956], [-0.26972019188461643, -0.012288941765900813], [-0.26748520542980925, -0.03676499525598724], [-0.2630337523218392, -0.060936402416727556], [-0.256402718703086, -0.0846028713559189], [-0.24764705140647203, -0.1075682942584859], [-0.23683930264870007, -0.1296423723975979], [-0.22406902883973637, -0.1506421930098517], [-0.20944204849019282, -0.17039374496803492], [-0.19307956536582224, -0.1887333606921288], [-0.17511716415494352, -0.205509072350421], [-0.15570368697101358, -0.22058187111281977], [-0.1349999999999995, -0.23382685902179873], [-0.11317766051249886, -0.24513428393620823], [-0.09041749528616588, -0.25441044897208165], [-0.06690810221808267, -0.2615784889045248], [-0.04284428754318763, -0.26657900709717686], [-0.018425451608461027, -0.2693705676814456], [0.006146063421148582, -0.26993003890716427], [0.030666650233628162, -0.26825278481955844], [0.054933123524210994, -0.26435270367422725], [0.07874440365280252, -0.2582621127718205], [0.10190318285320561, -0.25003148066670755], [0.12421756018741072, -0.2397290089686415], [0.14550263169720495, -0.2274400672027414], [0.16558202257660296, -0.2132664854107212], [0.18428934866903612, -0.19732571035509397], [0.20146959517887458, -0.17974983231830954], [0.2169804011728436, -0.16068449056107395], [0.23069323922755142, -0.1402876665095679], [0.24249448044819752, -0.11872837467159553], [0.2522863360333808, -0.09618526212914362], [0.25998766758390546, -0.07284512821239775], [0.26553465944111015, -0.04890137662166236], [0.26888134748351333, -0.024552412823390088], [0.27, -1.5049777830206114e-15]]
+[rospy.internal][INFO] 2025-11-09 14:37:34,633: topic[/tf_stream/status] adding connection to [http://127.0.0.1:38383/], count 0
+[rospy.internal][INFO] 2025-11-09 14:37:34,664: topic[/tf_stream/feedback] adding connection to [http://127.0.0.1:38383/], count 0
+[rospy.internal][INFO] 2025-11-09 14:37:34,670: topic[/tf_stream/result] adding connection to [http://127.0.0.1:38383/], count 0
+[rospy.internal][INFO] 2025-11-09 14:37:34,776: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-09 14:37:34,878: topic[/tf_stream/cancel] adding connection to [/tf_lookup], count 0
+[rospy.internal][INFO] 2025-11-09 14:37:34,880: topic[/tf_stream/goal] adding connection to [/tf_lookup], count 0
+[rospy.core][INFO] 2025-11-09 14:37:35,942: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-11-09 14:37:35,963: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-09 14:37:35,964: topic[/tf_stream/goal] removing connection to /tf_lookup
+[rospy.internal][INFO] 2025-11-09 14:37:35,965: topic[/tf_stream/cancel] removing connection to /tf_lookup
+[rospy.internal][INFO] 2025-11-09 14:37:35,967: topic[/clock] removing connection to http://127.0.0.1:38381/
+[rospy.internal][INFO] 2025-11-09 14:37:35,968: topic[/tf_stream/status] removing connection to http://127.0.0.1:38383/
+[rospy.internal][INFO] 2025-11-09 14:37:35,969: topic[/tf_stream/status] removing connection to http://127.0.0.1:38383/
+[rospy.topics][ERROR] 2025-11-09 14:37:35,970: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.internal][INFO] 2025-11-09 14:37:35,970: topic[/tf_stream/result] removing connection to http://127.0.0.1:38383/
+[rospy.internal][INFO] 2025-11-09 14:37:35,970: topic[/tf_stream/result] removing connection to http://127.0.0.1:38383/
+[rospy.topics][ERROR] 2025-11-09 14:37:35,971: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.internal][INFO] 2025-11-09 14:37:35,971: topic[/tf_stream/feedback] removing connection to http://127.0.0.1:38383/
+[rospy.internal][INFO] 2025-11-09 14:37:35,971: topic[/tf_stream/feedback] removing connection to http://127.0.0.1:38383/
+[rospy.topics][ERROR] 2025-11-09 14:37:35,972: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.impl.masterslave][INFO] 2025-11-09 14:37:35,973: signal-2
+[rospy.core][INFO] 2025-11-09 14:37:37,029: signal_shutdown [atexit]
+[rospy.client][INFO] 2025-11-09 14:37:57,097: init_node, name[/dynamic_footprint_publisher], pid[3539]
+[xmlrpc][INFO] 2025-11-09 14:37:57,097: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-09 14:37:57,098: Started XML-RPC server [http://127.0.0.1:41555/]
+[rospy.init][INFO] 2025-11-09 14:37:57,098: ROS Slave URI: [http://127.0.0.1:41555/]
+[rospy.impl.masterslave][INFO] 2025-11-09 14:37:57,098: _ready: http://127.0.0.1:41555/
+[rospy.registration][INFO] 2025-11-09 14:37:57,099: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-09 14:37:57,100: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-09 14:37:57,204: registered with master
+[rospy.rosout][INFO] 2025-11-09 14:37:57,204: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-09 14:37:57,218: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-09 14:37:57,222: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-09 14:37:57,227: connected to core topic /clock
+[rospy.internal][INFO] 2025-11-09 14:37:57,264: topic[/clock] adding connection to [http://127.0.0.1:38381/], count 0
+[rosout][INFO] 2025-11-09 14:37:57,340: [[0.27, 0.0], [0.26888134748351344, 0.024552412823388676], [0.2655346594411104, 0.04890137662166105], [0.2599876675839058, 0.07284512821239655], [0.25228633603338124, 0.09618526212914255], [0.24249448044819796, 0.11872837467159458], [0.23069323922755192, 0.14028766650956706], [0.21698040117284415, 0.16068449056107323], [0.2014695951788751, 0.179749832318309], [0.18428934866903662, 0.1973257103550935], [0.16558202257660343, 0.21326648541072085], [0.14550263169720543, 0.22744006720274115], [0.1242175601874111, 0.23972900896864133], [0.10190318285320589, 0.25003148066670744], [0.0787444036528027, 0.2582621127718204], [0.05493312352421106, 0.2643527036742272], [0.03066665023362811, 0.26825278481955844], [0.006146063421148409, 0.26993003890716427], [-0.01842545160846132, 0.26937056768144557], [-0.04284428754318803, 0.2665790070971768], [-0.06690810221808319, 0.2615784889045247], [-0.0904174952861665, 0.2544104489720815], [-0.11317766051249957, 0.24513428393620795], [-0.1350000000000003, 0.23382685902179828], [-0.1557036869710144, 0.22058187111281918], [-0.17511716415494438, 0.20550907235042026], [-0.1930795653658231, 0.18873336069212793], [-0.20944204849019363, 0.17039374496803394], [-0.22406902883973706, 0.15064219300985066], [-0.23683930264870068, 0.12964237239759682], [-0.24764705140647253, 0.10756829425848476], [-0.2564027187030864, 0.08460287135591771], [-0.2630337523218395, 0.060936402416726335], [-0.2674852054298094, 0.036764995255986005], [-0.2697201918846165, 0.01228894176589956], [-0.26972019188461643, -0.012288941765900813], [-0.26748520542980925, -0.03676499525598724], [-0.2630337523218392, -0.060936402416727556], [-0.256402718703086, -0.0846028713559189], [-0.24764705140647203, -0.1075682942584859], [-0.23683930264870007, -0.1296423723975979], [-0.22406902883973637, -0.1506421930098517], [-0.20944204849019282, -0.17039374496803492], [-0.19307956536582224, -0.1887333606921288], [-0.17511716415494352, -0.205509072350421], [-0.15570368697101358, -0.22058187111281977], [-0.1349999999999995, -0.23382685902179873], [-0.11317766051249886, -0.24513428393620823], [-0.09041749528616588, -0.25441044897208165], [-0.06690810221808267, -0.2615784889045248], [-0.04284428754318763, -0.26657900709717686], [-0.018425451608461027, -0.2693705676814456], [0.006146063421148582, -0.26993003890716427], [0.030666650233628162, -0.26825278481955844], [0.054933123524210994, -0.26435270367422725], [0.07874440365280252, -0.2582621127718205], [0.10190318285320561, -0.25003148066670755], [0.12421756018741072, -0.2397290089686415], [0.14550263169720495, -0.2274400672027414], [0.16558202257660296, -0.2132664854107212], [0.18428934866903612, -0.19732571035509397], [0.20146959517887458, -0.17974983231830954], [0.2169804011728436, -0.16068449056107395], [0.23069323922755142, -0.1402876665095679], [0.24249448044819752, -0.11872837467159553], [0.2522863360333808, -0.09618526212914362], [0.25998766758390546, -0.07284512821239775], [0.26553465944111015, -0.04890137662166236], [0.26888134748351333, -0.024552412823390088], [0.27, -1.5049777830206114e-15]]
+[rospy.internal][INFO] 2025-11-09 14:37:57,434: topic[/tf_stream/status] adding connection to [http://127.0.0.1:41153/], count 0
+[rospy.internal][INFO] 2025-11-09 14:37:57,434: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-09 14:37:57,474: topic[/tf_stream/feedback] adding connection to [http://127.0.0.1:41153/], count 0
+[rospy.internal][INFO] 2025-11-09 14:37:57,478: topic[/tf_stream/result] adding connection to [http://127.0.0.1:41153/], count 0
+[rospy.internal][INFO] 2025-11-09 14:37:57,617: topic[/tf_stream/goal] adding connection to [/tf_lookup], count 0
+[rospy.internal][INFO] 2025-11-09 14:37:57,723: topic[/tf_stream/cancel] adding connection to [/tf_lookup], count 0
+[rospy.core][INFO] 2025-11-09 14:37:57,941: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-11-09 14:37:57,972: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-09 14:37:57,974: topic[/tf_stream/goal] removing connection to /tf_lookup
+[rospy.internal][INFO] 2025-11-09 14:37:57,975: topic[/tf_stream/cancel] removing connection to /tf_lookup
+[rospy.internal][INFO] 2025-11-09 14:37:57,976: topic[/clock] removing connection to http://127.0.0.1:38381/
+[rospy.internal][INFO] 2025-11-09 14:37:57,977: topic[/clock] removing connection to http://127.0.0.1:38381/
+[rospy.topics][ERROR] 2025-11-09 14:37:57,980: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.internal][INFO] 2025-11-09 14:37:57,981: topic[/tf_stream/status] removing connection to http://127.0.0.1:41153/
+[rospy.internal][INFO] 2025-11-09 14:37:57,981: topic[/tf_stream/status] removing connection to http://127.0.0.1:41153/
+[rospy.topics][ERROR] 2025-11-09 14:37:57,981: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.internal][INFO] 2025-11-09 14:37:57,983: topic[/tf_stream/result] removing connection to http://127.0.0.1:41153/
+[rospy.internal][INFO] 2025-11-09 14:37:57,984: topic[/tf_stream/feedback] removing connection to http://127.0.0.1:41153/
+[rospy.impl.masterslave][INFO] 2025-11-09 14:37:57,987: signal-2
+[rospy.core][INFO] 2025-11-09 14:37:59,242: signal_shutdown [atexit]
+[rospy.client][INFO] 2025-11-09 14:38:16,633: init_node, name[/dynamic_footprint_publisher], pid[3972]
+[xmlrpc][INFO] 2025-11-09 14:38:16,634: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-09 14:38:16,637: Started XML-RPC server [http://127.0.0.1:44425/]
+[rospy.init][INFO] 2025-11-09 14:38:16,637: ROS Slave URI: [http://127.0.0.1:44425/]
+[rospy.impl.masterslave][INFO] 2025-11-09 14:38:16,637: _ready: http://127.0.0.1:44425/
+[rospy.registration][INFO] 2025-11-09 14:38:16,639: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-09 14:38:16,643: xml rpc node: starting XML-RPC server
+[rospy.core][INFO] 2025-11-09 14:38:16,708: signal_shutdown [signal-2]
+[rospy.init][INFO] 2025-11-09 14:38:17,320: registered with master
+[rospy.core][WARNING] 2025-11-09 14:38:17,320: add_shutdown_hook called after shutdown
+[rospy.impl.masterslave][INFO] 2025-11-09 14:38:17,321: already shutdown
+[rospy.client][WARNING] 2025-11-09 14:38:17,321: aborting node initialization as shutdown has been triggered
+[rospy.core][INFO] 2025-11-09 14:38:17,572: signal_shutdown [atexit]

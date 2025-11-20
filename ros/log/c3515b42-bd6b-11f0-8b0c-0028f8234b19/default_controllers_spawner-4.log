@@ -1,0 +1,69 @@
+[rospy.client][INFO] 2025-11-09 14:37:35,702: init_node, name[/default_controllers_spawner], pid[2953]
+[xmlrpc][INFO] 2025-11-09 14:37:35,703: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-09 14:37:35,704: Started XML-RPC server [http://127.0.0.1:33343/]
+[rospy.init][INFO] 2025-11-09 14:37:35,704: ROS Slave URI: [http://127.0.0.1:33343/]
+[rospy.impl.masterslave][INFO] 2025-11-09 14:37:35,704: _ready: http://127.0.0.1:33343/
+[rospy.registration][INFO] 2025-11-09 14:37:35,706: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-09 14:37:35,706: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-09 14:37:35,805: registered with master
+[rospy.rosout][INFO] 2025-11-09 14:37:35,807: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-09 14:37:35,842: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-09 14:37:35,849: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-09 14:37:35,864: connected to core topic /clock
+[rosout][INFO] 2025-11-09 14:37:35,876: Controller Spawner: Waiting for service controller_manager/load_controller
+[rosout][INFO] 2025-11-09 14:37:35,888: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-11-09 14:37:35,899: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-11-09 14:37:35,913: Loading controller: joint_state_controller
+[rospy.internal][INFO] 2025-11-09 14:37:35,946: topic[/clock] adding connection to [http://127.0.0.1:38381/], count 0
+[rospy.core][INFO] 2025-11-09 14:37:36,766: signal_shutdown [signal-2]
+[rosout][INFO] 2025-11-09 14:37:36,766: Shutting down spawner. Stopping and unloading controllers...
+[rospy.impl.masterslave][INFO] 2025-11-09 14:37:36,976: external shutdown request from [/master]: [/default_controllers_spawner] Reason: new node registered with same name
+[rospy.core][INFO] 2025-11-09 14:37:36,976: signal_shutdown [external shutdown request from [/master]: [[/default_controllers_spawner] Reason: new node registered with same name]]
+[rosout][INFO] 2025-11-09 14:37:37,776: Stopping all controllers...
+[rosout][INFO] 2025-11-09 14:37:37,784: Unloading all loaded controllers...
+[rospy.internal][INFO] 2025-11-09 14:37:37,790: topic[/clock] removing connection to http://127.0.0.1:38381/
+[rosout][ERROR] 2025-11-09 14:37:37,890: Failed to load joint_state_controller
+[rosout][INFO] 2025-11-09 14:37:37,893: Loading controller: torso_controller
+[rospy.core][INFO] 2025-11-09 14:37:38,168: signal_shutdown [atexit]
+[rospy.client][INFO] 2025-11-09 14:37:58,678: init_node, name[/default_controllers_spawner], pid[3481]
+[xmlrpc][INFO] 2025-11-09 14:37:58,679: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-09 14:37:58,679: Started XML-RPC server [http://127.0.0.1:34081/]
+[rospy.impl.masterslave][INFO] 2025-11-09 14:37:58,680: _ready: http://127.0.0.1:34081/
+[rospy.registration][INFO] 2025-11-09 14:37:58,681: Registering with master node http://localhost:11311/
+[rospy.init][INFO] 2025-11-09 14:37:58,682: ROS Slave URI: [http://127.0.0.1:34081/]
+[xmlrpc][INFO] 2025-11-09 14:37:58,682: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-09 14:37:58,685: registered with master
+[rospy.rosout][INFO] 2025-11-09 14:37:58,686: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-09 14:37:58,696: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-09 14:37:58,698: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-09 14:37:58,703: connected to core topic /clock
+[rosout][INFO] 2025-11-09 14:37:58,717: Controller Spawner: Waiting for service controller_manager/load_controller
+[rosout][INFO] 2025-11-09 14:37:58,724: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-11-09 14:37:58,733: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-11-09 14:37:58,741: Loading controller: joint_state_controller
+[rospy.internal][INFO] 2025-11-09 14:37:58,766: topic[/clock] adding connection to [http://127.0.0.1:38381/], count 0
+[rosout][INFO] 2025-11-09 14:37:58,771: Loading controller: torso_controller
+[rospy.internal][INFO] 2025-11-09 14:37:58,839: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.core][INFO] 2025-11-09 14:37:58,865: signal_shutdown [signal-2]
+[rosout][INFO] 2025-11-09 14:37:58,912: Shutting down spawner. Stopping and unloading controllers...
+[rosout][INFO] 2025-11-09 14:37:59,922: Stopping all controllers...
+[rosout][INFO] 2025-11-09 14:37:59,926: Unloading all loaded controllers...
+[rosout][INFO] 2025-11-09 14:37:59,928: Trying to unload joint_state_controller
+[rosout][INFO] 2025-11-09 14:37:59,934: Succeeded in unloading joint_state_controller
+[rospy.internal][INFO] 2025-11-09 14:37:59,939: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-09 14:37:59,940: topic[/clock] removing connection to http://127.0.0.1:38381/
+[rospy.impl.masterslave][INFO] 2025-11-09 14:37:59,940: signal-2
+[rospy.core][INFO] 2025-11-09 14:38:00,830: signal_shutdown [atexit]
+[rospy.client][INFO] 2025-11-09 14:38:17,518: init_node, name[/default_controllers_spawner], pid[3923]
+[rospy.core][WARNING] 2025-11-09 14:38:17,519: add_shutdown_hook called after shutdown
+[rospy.core][WARNING] 2025-11-09 14:38:17,519: add_shutdown_hook called after shutdown
+[rospy.init][INFO] 2025-11-09 14:38:17,519: ROS Slave URI: [None]
+[rospy.init][INFO] 2025-11-09 14:38:17,519: registered with master
+[rospy.core][WARNING] 2025-11-09 14:38:17,519: add_shutdown_hook called after shutdown
+[rospy.client][WARNING] 2025-11-09 14:38:17,519: aborting node initialization as shutdown has been triggered
+[xmlrpc][INFO] 2025-11-09 14:38:17,524: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-09 14:38:17,525: Started XML-RPC server [http://127.0.0.1:46779/]
+[rospy.impl.masterslave][INFO] 2025-11-09 14:38:17,525: _ready: http://127.0.0.1:46779/
+[rospy.registration][INFO] 2025-11-09 14:38:17,526: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-09 14:38:17,526: xml rpc node: starting XML-RPC server
+[rospy.core][INFO] 2025-11-09 14:38:17,706: signal_shutdown [atexit]

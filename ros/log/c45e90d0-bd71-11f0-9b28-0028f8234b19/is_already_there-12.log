@@ -1,0 +1,26 @@
+[rospy.client][INFO] 2025-11-09 14:41:20,804: init_node, name[/is_already_there], pid[200]
+[xmlrpc][INFO] 2025-11-09 14:41:20,804: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-09 14:41:20,805: Started XML-RPC server [http://127.0.0.1:38377/]
+[rospy.init][INFO] 2025-11-09 14:41:20,805: ROS Slave URI: [http://127.0.0.1:38377/]
+[rospy.impl.masterslave][INFO] 2025-11-09 14:41:20,805: _ready: http://127.0.0.1:38377/
+[rospy.registration][INFO] 2025-11-09 14:41:20,806: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-09 14:41:20,806: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-09 14:41:20,905: registered with master
+[rospy.rosout][INFO] 2025-11-09 14:41:20,906: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-09 14:41:20,913: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-09 14:41:20,914: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-09 14:41:20,921: connected to core topic /clock
+[rospy.internal][INFO] 2025-11-09 14:41:21,104: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-09 14:41:22,312: topic[/clock] adding connection to [http://127.0.0.1:40909/], count 0
+[rospy.internal][INFO] 2025-11-09 14:41:23,941: topic[/joint_states] adding connection to [http://127.0.0.1:40909/], count 0
+[rospy.core][INFO] 2025-11-09 15:46:52,668: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-11-09 15:46:52,710: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-09 15:46:52,711: topic[/clock] removing connection to http://127.0.0.1:40909/
+[rospy.internal][INFO] 2025-11-09 15:46:52,712: topic[/joint_states] removing connection to http://127.0.0.1:40909/
+[rospy.impl.masterslave][INFO] 2025-11-09 15:46:52,712: signal-2
+[rospy.internal][ERROR] 2025-11-09 15:46:52,718: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 739, in receive_once
+    sock.setblocking(1)
+OSError: [Errno 9] Bad file descriptor
+
+[rospy.core][INFO] 2025-11-09 15:46:53,277: signal_shutdown [atexit]

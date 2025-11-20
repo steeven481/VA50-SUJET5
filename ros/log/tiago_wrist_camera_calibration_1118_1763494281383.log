@@ -1,0 +1,60 @@
+[rospy.client][INFO] 2025-11-18 20:31:21,512: init_node, name[/tiago_wrist_camera_calibration_1118_1763494281383], pid[1118]
+[xmlrpc][INFO] 2025-11-18 20:31:21,512: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-18 20:31:21,513: Started XML-RPC server [http://127.0.0.1:37011/]
+[rospy.init][INFO] 2025-11-18 20:31:21,513: ROS Slave URI: [http://127.0.0.1:37011/]
+[rospy.impl.masterslave][INFO] 2025-11-18 20:31:21,513: _ready: http://127.0.0.1:37011/
+[rospy.registration][INFO] 2025-11-18 20:31:21,514: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-18 20:31:21,514: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-18 20:31:21,614: registered with master
+[rospy.rosout][INFO] 2025-11-18 20:31:21,614: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-18 20:31:21,621: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-18 20:31:21,622: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-18 20:31:21,625: connected to core topic /clock
+[rospy.internal][INFO] 2025-11-18 20:31:22,025: topic[/clock] adding connection to [http://127.0.0.1:36823/], count 0
+[rospy.internal][INFO] 2025-11-18 20:31:23,087: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-11-18 20:31:23,090: Tiago Camera Calibration initialisé
+[rospy.internal][INFO] 2025-11-18 20:31:23,125: topic[/xtion/rgb/image_raw] adding connection to [http://127.0.0.1:36823/], count 0
+[rospy.internal][INFO] 2025-11-18 20:31:23,191: topic[/collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-11-18 20:31:23,192: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-11-18 20:31:25,344: === PROCÉDURE DE CALIBRATION SÉCURISÉE ===
+[rosout][INFO] 2025-11-18 20:31:25,347: 1. Position de départ sûre
+[rosout][INFO] 2025-11-18 20:31:37,101: 2. Capture depuis positions d'articulations
+[rosout][INFO] 2025-11-18 20:31:37,115: === CAPTURE DEPUIS POSITIONS D'ARTICULATIONS ===
+[rosout][INFO] 2025-11-18 20:31:37,122: Position 1/6
+[rosout][INFO] 2025-11-18 20:31:42,875: Image sauvegardée: /home/pal/calibration_images/calib_joint_00.png
+[rosout][INFO] 2025-11-18 20:31:44,657: Image sauvegardée: /home/pal/calibration_images/calib_joint_01.png
+[rosout][INFO] 2025-11-18 20:31:46,530: Image sauvegardée: /home/pal/calibration_images/calib_joint_02.png
+[rosout][INFO] 2025-11-18 20:31:47,946: ✓ 3 images capturées
+[rosout][INFO] 2025-11-18 20:31:47,950: Position 2/6
+[rosout][INFO] 2025-11-18 20:31:58,730: Image sauvegardée: /home/pal/calibration_images/calib_joint_03.png
+[rosout][INFO] 2025-11-18 20:32:00,455: Image sauvegardée: /home/pal/calibration_images/calib_joint_04.png
+[rosout][INFO] 2025-11-18 20:32:02,270: Image sauvegardée: /home/pal/calibration_images/calib_joint_05.png
+[rosout][INFO] 2025-11-18 20:32:03,884: ✓ 6 images capturées
+[rosout][INFO] 2025-11-18 20:32:03,910: Position 3/6
+[rosout][ERROR] 2025-11-18 20:32:03,925: Erreur mouvement: Error setting joint target. Is the target within bounds?
+[rosout][WARNING] 2025-11-18 20:32:03,939: Échec du mouvement vers la position 3
+[rosout][INFO] 2025-11-18 20:32:03,942: Position 4/6
+[rosout][ERROR] 2025-11-18 20:32:03,948: Erreur mouvement: Error setting joint target. Is the target within bounds?
+[rosout][WARNING] 2025-11-18 20:32:03,965: Échec du mouvement vers la position 4
+[rosout][INFO] 2025-11-18 20:32:03,975: Position 5/6
+[rosout][INFO] 2025-11-18 20:32:14,589: Image sauvegardée: /home/pal/calibration_images/calib_joint_06.png
+[rosout][INFO] 2025-11-18 20:32:16,241: Image sauvegardée: /home/pal/calibration_images/calib_joint_07.png
+[rosout][INFO] 2025-11-18 20:32:17,914: Image sauvegardée: /home/pal/calibration_images/calib_joint_08.png
+[rosout][INFO] 2025-11-18 20:32:19,365: ✓ 9 images capturées
+[rosout][INFO] 2025-11-18 20:32:19,373: Position 6/6
+[rosout][ERROR] 2025-11-18 20:32:19,406: Erreur mouvement: Error setting joint target. Is the target within bounds?
+[rosout][WARNING] 2025-11-18 20:32:19,428: Échec du mouvement vers la position 6
+[rosout][INFO] 2025-11-18 20:32:19,433: 3. Capture depuis poses simples
+[rosout][INFO] 2025-11-18 20:32:19,444: === CAPTURE DEPUIS POSES SIMPLES ===
+[rosout][INFO] 2025-11-18 20:32:19,458: Pose: centre_devant
+[rosout][WARNING] 2025-11-18 20:33:09,668: Échec de la pose centre_devant
+[rosout][INFO] 2025-11-18 20:33:09,683: Pose: gauche_devant
+[rospy.core][INFO] 2025-11-18 20:34:41,393: signal_shutdown [signal-15]
+[rospy.internal][INFO] 2025-11-18 20:34:41,427: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-18 20:34:41,430: topic[/collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-11-18 20:34:41,432: topic[/attached_collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-11-18 20:34:41,436: topic[/clock] removing connection to http://127.0.0.1:36823/
+[rospy.internal][INFO] 2025-11-18 20:34:41,439: topic[/xtion/rgb/image_raw] removing connection to http://127.0.0.1:36823/
+[rospy.impl.masterslave][INFO] 2025-11-18 20:34:41,443: signal-15
+[rosout][WARNING] 2025-11-18 20:34:41,997: Échec de la pose gauche_devant
+[rosout][INFO] 2025-11-18 20:34:42,014: Pose: droite_devant

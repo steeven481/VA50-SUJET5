@@ -1,0 +1,80 @@
+[rospy.client][INFO] 2025-11-18 20:03:05,448: init_node, name[/tiago_wrist_camera_calibration_1204_1763492585314], pid[1204]
+[xmlrpc][INFO] 2025-11-18 20:03:05,455: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-18 20:03:05,456: Started XML-RPC server [http://127.0.0.1:40645/]
+[rospy.impl.masterslave][INFO] 2025-11-18 20:03:05,456: _ready: http://127.0.0.1:40645/
+[rospy.init][INFO] 2025-11-18 20:03:05,456: ROS Slave URI: [http://127.0.0.1:40645/]
+[rospy.registration][INFO] 2025-11-18 20:03:05,457: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-18 20:03:05,457: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-18 20:03:05,557: registered with master
+[rospy.rosout][INFO] 2025-11-18 20:03:05,558: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-18 20:03:05,564: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-18 20:03:05,565: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-18 20:03:05,567: connected to core topic /clock
+[rospy.internal][INFO] 2025-11-18 20:03:05,953: topic[/clock] adding connection to [http://127.0.0.1:45173/], count 0
+[rospy.internal][INFO] 2025-11-18 20:03:07,172: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-18 20:03:07,279: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-11-18 20:03:07,279: topic[/collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-11-18 20:03:09,188: topic impl's ref count is zero, deleting topic /wrist_camera/color/image_raw...
+[rospy.internal][INFO] 2025-11-18 20:03:11,203: topic impl's ref count is zero, deleting topic /wrist_kinect/color/image_raw...
+[rospy.internal][INFO] 2025-11-18 20:03:13,210: topic impl's ref count is zero, deleting topic /arm_camera/image_raw...
+[rospy.internal][INFO] 2025-11-18 20:03:15,222: topic impl's ref count is zero, deleting topic /camera/color/image_raw...
+[rosout][WARNING] 2025-11-18 20:03:15,234: Aucune caméra poignet détectée. Utilisation de la caméra par défaut.
+[rosout][INFO] 2025-11-18 20:03:15,262: Utilisation de la caméra: /xtion/rgb/image_raw
+[rosout][INFO] 2025-11-18 20:03:15,304: Tiago Wrist Camera Calibration initialisé
+[rospy.internal][INFO] 2025-11-18 20:03:15,340: topic[/xtion/rgb/image_raw] adding connection to [http://127.0.0.1:45173/], count 0
+[rosout][INFO] 2025-11-18 20:03:21,848: === PROCÉDURE COMPLÈTE DE CALIBRATION ===
+[rosout][INFO] 2025-11-18 20:03:21,855: 1. Position de départ
+[rosout][WARNING] 2025-11-18 20:03:26,925: Échec du déplacement du bras
+[rosout][INFO] 2025-11-18 20:03:37,608: 2. Capture manuelle
+[rosout][INFO] 2025-11-18 20:03:37,615: === DÉBUT DE LA CAPTURE POUR CALIBRATION ===
+[rosout][INFO] 2025-11-18 20:03:37,620: Position: centre_haut
+[rosout][WARNING] 2025-11-18 20:03:42,693: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:03:45,810: Échec du déplacement vers centre_haut
+[rosout][INFO] 2025-11-18 20:03:45,832: Position: centre_moyen
+[rosout][WARNING] 2025-11-18 20:03:50,905: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:03:53,905: Échec du déplacement vers centre_moyen
+[rosout][INFO] 2025-11-18 20:03:53,931: Position: centre_bas
+[rosout][WARNING] 2025-11-18 20:03:58,970: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:04:01,958: Échec du déplacement vers centre_bas
+[rosout][INFO] 2025-11-18 20:04:01,971: Position: droite_moyen
+[rosout][WARNING] 2025-11-18 20:04:07,087: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:04:10,745: Échec du déplacement vers droite_moyen
+[rosout][INFO] 2025-11-18 20:04:10,748: Position: droite_haut
+[rosout][WARNING] 2025-11-18 20:04:15,862: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:04:18,668: Échec du déplacement vers droite_haut
+[rosout][INFO] 2025-11-18 20:04:18,687: Position: gauche_moyen
+[rosout][WARNING] 2025-11-18 20:04:23,739: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:04:26,794: Échec du déplacement vers gauche_moyen
+[rosout][INFO] 2025-11-18 20:04:26,819: Position: gauche_haut
+[rosout][WARNING] 2025-11-18 20:04:31,917: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:04:34,656: Échec du déplacement vers gauche_haut
+[rosout][INFO] 2025-11-18 20:04:34,666: Position: avant_centre
+[rosout][WARNING] 2025-11-18 20:04:39,757: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:04:44,417: Échec du déplacement vers avant_centre
+[rosout][INFO] 2025-11-18 20:04:44,433: Position: avant_droite
+[rosout][WARNING] 2025-11-18 20:04:49,614: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:04:53,313: Échec du déplacement vers avant_droite
+[rosout][INFO] 2025-11-18 20:04:53,319: Position: avant_gauche
+[rosout][WARNING] 2025-11-18 20:04:58,479: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:05:02,715: Échec du déplacement vers avant_gauche
+[rosout][INFO] 2025-11-18 20:05:02,724: Position: inclinaison_1
+[rosout][WARNING] 2025-11-18 20:05:22,116: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:05:26,874: Échec du déplacement vers inclinaison_1
+[rosout][INFO] 2025-11-18 20:05:26,880: Position: inclinaison_2
+[rosout][WARNING] 2025-11-18 20:05:31,997: Échec du déplacement du bras
+[rosout][WARNING] 2025-11-18 20:05:35,973: Échec du déplacement vers inclinaison_2
+[rosout][INFO] 2025-11-18 20:05:35,998: Capture terminée: 0 images sauvegardées
+[rosout][INFO] 2025-11-18 20:05:36,004: 3. Capture automatique
+[rosout][INFO] 2025-11-18 20:05:36,029: === CAPTURE AUTOMATIQUE INTELLIGENTE ===
+[rosout][INFO] 2025-11-18 20:05:36,048: Test position 1/60
+[rosout][WARNING] 2025-11-18 20:05:41,073: Échec du déplacement du bras
+[rosout][INFO] 2025-11-18 20:05:46,214: Test position 2/60
+[rosout][WARNING] 2025-11-18 20:05:51,310: Échec du déplacement du bras
+[rosout][INFO] 2025-11-18 20:05:56,167: Test position 3/60
+[rosout][WARNING] 2025-11-18 20:06:01,278: Échec du déplacement du bras
+[rosout][INFO] 2025-11-18 20:06:06,383: Test position 4/60
+[rosout][WARNING] 2025-11-18 20:06:11,538: Échec du déplacement du bras
+[rosout][INFO] 2025-11-18 20:06:15,246: Test position 5/60
+[rosout][WARNING] 2025-11-18 20:06:20,341: Échec du déplacement du bras
+[rosout][INFO] 2025-11-18 20:06:25,117: Test position 6/60
+[rosout][WARNING] 2025-11-18 20:06:30,143: Échec du déplacement du bras

@@ -1,0 +1,21 @@
+[rospy.client][INFO] 2025-11-18 20:28:10,771: init_node, name[/bringup_controllers_spawner_imu], pid[1286]
+[xmlrpc][INFO] 2025-11-18 20:28:10,772: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-18 20:28:10,772: Started XML-RPC server [http://127.0.0.1:45837/]
+[rospy.impl.masterslave][INFO] 2025-11-18 20:28:10,772: _ready: http://127.0.0.1:45837/
+[rospy.registration][INFO] 2025-11-18 20:28:10,774: Registering with master node http://localhost:11311/
+[rospy.init][INFO] 2025-11-18 20:28:10,774: ROS Slave URI: [http://127.0.0.1:45837/]
+[rospy.init][INFO] 2025-11-18 20:28:10,774: registered with master
+[rospy.rosout][INFO] 2025-11-18 20:28:10,775: initializing /rosout core topic
+[xmlrpc][INFO] 2025-11-18 20:28:10,775: xml rpc node: starting XML-RPC server
+[rospy.rosout][INFO] 2025-11-18 20:28:10,794: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-18 20:28:10,810: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-18 20:28:10,818: connected to core topic /clock
+[rospy.internal][INFO] 2025-11-18 20:28:10,896: topic[/clock] adding connection to [http://127.0.0.1:45173/], count 0
+[rosout][INFO] 2025-11-18 20:28:10,922: Controller Spawner: Waiting for service controller_manager/load_controller
+[rosout][INFO] 2025-11-18 20:28:11,005: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rospy.impl.masterslave][INFO] 2025-11-18 20:28:11,098: external shutdown request from [/master]: [/bringup_controllers_spawner_imu] Reason: new node registered with same name
+[rospy.core][INFO] 2025-11-18 20:28:11,099: signal_shutdown [external shutdown request from [/master]: [[/bringup_controllers_spawner_imu] Reason: new node registered with same name]]
+[rospy.internal][INFO] 2025-11-18 20:28:11,158: topic[/clock] removing connection to http://127.0.0.1:45173/
+[rosout][INFO] 2025-11-18 20:28:11,108: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][WARNING] 2025-11-18 20:28:11,177: Controller Spawner couldn't find the expected controller_manager ROS interface.
+[rospy.core][INFO] 2025-11-18 20:28:11,199: signal_shutdown [atexit]

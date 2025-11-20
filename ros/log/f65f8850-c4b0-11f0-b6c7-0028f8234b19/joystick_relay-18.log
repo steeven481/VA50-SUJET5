@@ -1,0 +1,27 @@
+[rospy.client][INFO] 2025-11-18 20:01:21,427: init_node, name[/joystick_relay], pid[226]
+[xmlrpc][INFO] 2025-11-18 20:01:21,429: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-18 20:01:21,430: Started XML-RPC server [http://127.0.0.1:40431/]
+[rospy.init][INFO] 2025-11-18 20:01:21,430: ROS Slave URI: [http://127.0.0.1:40431/]
+[rospy.impl.masterslave][INFO] 2025-11-18 20:01:21,431: _ready: http://127.0.0.1:40431/
+[rospy.registration][INFO] 2025-11-18 20:01:21,433: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-18 20:01:21,433: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-18 20:01:21,532: registered with master
+[rospy.rosout][INFO] 2025-11-18 20:01:21,532: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-18 20:01:21,551: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-18 20:01:21,554: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-18 20:01:21,563: connected to core topic /clock
+[rospy.internal][INFO] 2025-11-18 20:01:21,838: topic[/joy_vel] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-11-18 20:01:21,852: topic[/joy_priority] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-11-18 20:01:21,859: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-18 20:01:24,814: topic[/clock] adding connection to [http://127.0.0.1:45173/], count 0
+[rospy.internal][INFO] 2025-11-18 20:28:07,796: topic[/joy_vel] adding connection to [/twist_mux], count 1
+[rospy.internal][INFO] 2025-11-18 20:28:07,797: topic[/joy_vel] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-11-18 20:28:08,557: topic[/joy_priority] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-11-18 20:28:08,675: topic[/joy_priority] adding connection to [/twist_mux], count 0
+[rospy.impl.masterslave][INFO] 2025-11-18 20:28:10,437: external shutdown request from [/master]: [/joystick_relay] Reason: new node registered with same name
+[rospy.core][INFO] 2025-11-18 20:28:10,438: signal_shutdown [external shutdown request from [/master]: [[/joystick_relay] Reason: new node registered with same name]]
+[rospy.internal][INFO] 2025-11-18 20:28:10,439: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-18 20:28:10,540: topic[/joy_vel] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-11-18 20:28:10,557: topic[/joy_priority] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-11-18 20:28:10,559: topic[/clock] removing connection to http://127.0.0.1:45173/
+[rospy.core][INFO] 2025-11-18 20:28:10,962: signal_shutdown [atexit]

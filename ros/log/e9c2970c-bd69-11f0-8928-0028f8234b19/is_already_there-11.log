@@ -1,0 +1,29 @@
+[rospy.client][INFO] 2025-11-09 13:53:05,271: init_node, name[/is_already_there], pid[1347]
+[xmlrpc][INFO] 2025-11-09 13:53:05,272: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-09 13:53:05,272: Started XML-RPC server [http://127.0.0.1:46515/]
+[rospy.impl.masterslave][INFO] 2025-11-09 13:53:05,272: _ready: http://127.0.0.1:46515/
+[rospy.registration][INFO] 2025-11-09 13:53:05,274: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-09 13:53:05,275: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-09 13:53:05,275: ROS Slave URI: [http://127.0.0.1:46515/]
+[rospy.init][INFO] 2025-11-09 13:53:05,275: registered with master
+[rospy.rosout][INFO] 2025-11-09 13:53:05,276: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-09 13:53:05,322: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-09 13:53:05,324: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-09 13:53:05,332: connected to core topic /clock
+[rospy.internal][INFO] 2025-11-09 13:53:05,440: topic[/clock] adding connection to [http://127.0.0.1:36161/], count 0
+[rospy.internal][INFO] 2025-11-09 13:53:05,444: topic[/joint_states] adding connection to [http://127.0.0.1:36161/], count 0
+[rospy.internal][INFO] 2025-11-09 13:53:05,643: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.core][INFO] 2025-11-09 13:53:07,283: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-11-09 13:53:07,308: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-09 13:53:07,311: topic[/clock] removing connection to http://127.0.0.1:36161/
+[rospy.internal][INFO] 2025-11-09 13:53:07,311: topic[/clock] removing connection to http://127.0.0.1:36161/
+[rospy.topics][ERROR] 2025-11-09 13:53:07,312: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.internal][INFO] 2025-11-09 13:53:07,312: topic[/joint_states] removing connection to http://127.0.0.1:36161/
+[rospy.impl.masterslave][INFO] 2025-11-09 13:53:07,312: signal-2
+[rospy.core][INFO] 2025-11-09 13:53:07,887: signal_shutdown [atexit]

@@ -1,0 +1,13 @@
+[rospy.client][INFO] 2025-11-18 20:28:11,310: init_node, name[/gripper_controllers_spawner], pid[1292]
+[xmlrpc][INFO] 2025-11-18 20:28:11,311: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-18 20:28:11,311: Started XML-RPC server [http://127.0.0.1:41475/]
+[rospy.impl.masterslave][INFO] 2025-11-18 20:28:11,312: _ready: http://127.0.0.1:41475/
+[rospy.init][INFO] 2025-11-18 20:28:11,312: ROS Slave URI: [http://127.0.0.1:41475/]
+[rospy.registration][INFO] 2025-11-18 20:28:11,314: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-18 20:28:11,316: xml rpc node: starting XML-RPC server
+[rospy.core][INFO] 2025-11-18 20:28:11,381: signal_shutdown [signal-2]
+[rospy.init][INFO] 2025-11-18 20:28:11,990: registered with master
+[rospy.core][WARNING] 2025-11-18 20:28:11,991: add_shutdown_hook called after shutdown
+[rospy.impl.masterslave][INFO] 2025-11-18 20:28:11,991: already shutdown
+[rospy.client][WARNING] 2025-11-18 20:28:11,991: aborting node initialization as shutdown has been triggered
+[rospy.core][INFO] 2025-11-18 20:28:12,366: signal_shutdown [atexit]

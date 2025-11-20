@@ -1,0 +1,32 @@
+[rospy.client][INFO] 2025-11-18 22:13:06,082: init_node, name[/deplacement_tiago_arm_1259_1763500385598], pid[1259]
+[xmlrpc][INFO] 2025-11-18 22:13:06,085: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-11-18 22:13:06,090: Started XML-RPC server [http://127.0.0.1:43085/]
+[rospy.init][INFO] 2025-11-18 22:13:06,092: ROS Slave URI: [http://127.0.0.1:43085/]
+[rospy.impl.masterslave][INFO] 2025-11-18 22:13:06,092: _ready: http://127.0.0.1:43085/
+[rospy.registration][INFO] 2025-11-18 22:13:06,094: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-11-18 22:13:06,094: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-11-18 22:13:06,195: registered with master
+[rospy.rosout][INFO] 2025-11-18 22:13:06,197: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-11-18 22:13:06,231: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-11-18 22:13:06,242: initializing /clock core topic
+[rospy.simtime][INFO] 2025-11-18 22:13:06,261: connected to core topic /clock
+[rospy.internal][INFO] 2025-11-18 22:13:07,474: topic[/clock] adding connection to [http://127.0.0.1:43375/], count 0
+[rospy.internal][INFO] 2025-11-18 22:13:07,476: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-11-18 22:13:09,264: topic[/collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-11-18 22:13:09,269: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-11-18 22:13:15,339: Mouvement du bras exécuté avec succès.
+[rosout][WARNING] 2025-11-18 22:13:18,715: Aucune image reçue depuis la caméra !
+[rospy.core][INFO] 2025-11-18 22:13:18,735: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-11-18 22:13:18,778: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-11-18 22:13:18,779: topic[/collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-11-18 22:13:18,779: topic[/attached_collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-11-18 22:13:18,782: topic[/clock] removing connection to http://127.0.0.1:43375/
+[rospy.internal][INFO] 2025-11-18 22:13:18,787: topic[/clock] removing connection to http://127.0.0.1:43375/
+[rospy.topics][ERROR] 2025-11-18 22:13:18,802: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.impl.masterslave][INFO] 2025-11-18 22:13:18,804: atexit
