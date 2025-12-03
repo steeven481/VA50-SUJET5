@@ -1,0 +1,25 @@
+[rospy.client][INFO] 2025-10-03 14:25:26,807: init_node, name[/bringup_controllers_spawner_imu], pid[3800]
+[xmlrpc][INFO] 2025-10-03 14:25:26,808: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-03 14:25:26,808: Started XML-RPC server [http://127.0.0.1:43609/]
+[rospy.impl.masterslave][INFO] 2025-10-03 14:25:26,808: _ready: http://127.0.0.1:43609/
+[rospy.init][INFO] 2025-10-03 14:25:26,808: ROS Slave URI: [http://127.0.0.1:43609/]
+[rospy.registration][INFO] 2025-10-03 14:25:26,808: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-03 14:25:26,809: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-03 14:25:26,909: registered with master
+[rospy.rosout][INFO] 2025-10-03 14:25:26,909: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-03 14:25:26,911: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-03 14:25:26,912: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-03 14:25:26,913: connected to core topic /clock
+[rosout][INFO] 2025-10-03 14:25:26,915: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-10-03 14:25:27,149: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-10-03 14:25:28,723: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-10-03 14:25:28,725: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-10-03 14:25:28,728: Loading controller: imu_sensor_controller
+[rosout][INFO] 2025-10-03 14:25:28,791: Controller Spawner: Loaded controllers: imu_sensor_controller
+[rosout][INFO] 2025-10-03 14:25:28,852: Started controllers: imu_sensor_controller
+[rospy.internal][INFO] 2025-10-03 14:25:29,353: topic[/clock] adding connection to [http://127.0.0.1:35249/], count 0
+[rospy.internal][INFO] 2025-10-03 14:28:40,856: topic[/clock] removing connection to http://127.0.0.1:35249/
+[rospy.core][INFO] 2025-10-03 14:28:41,321: signal_shutdown [signal-2]
+[rosout][INFO] 2025-10-03 14:28:41,321: Shutting down spawner. Stopping and unloading controllers...
+[rosout][WARNING] 2025-10-03 14:28:42,324: wait_for_service(/controller_manager/unload_controller): failed to contact, will keep trying
+[rospy.core][INFO] 2025-10-03 14:28:56,353: signal_shutdown [signal-15]

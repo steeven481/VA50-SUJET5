@@ -1,0 +1,57 @@
+[rospy.client][INFO] 2025-10-03 18:13:24,464: init_node, name[/gripper_controllers_spawner], pid[968]
+[xmlrpc][INFO] 2025-10-03 18:13:24,464: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-03 18:13:24,465: Started XML-RPC server [http://127.0.0.1:44707/]
+[rospy.init][INFO] 2025-10-03 18:13:24,465: ROS Slave URI: [http://127.0.0.1:44707/]
+[rospy.impl.masterslave][INFO] 2025-10-03 18:13:24,465: _ready: http://127.0.0.1:44707/
+[rospy.registration][INFO] 2025-10-03 18:13:24,466: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-03 18:13:24,466: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-03 18:13:24,565: registered with master
+[rospy.rosout][INFO] 2025-10-03 18:13:24,565: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-03 18:13:24,579: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-03 18:13:24,579: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-03 18:13:24,582: connected to core topic /clock
+[rosout][INFO] 2025-10-03 18:13:24,596: Controller Spawner: Waiting for service controller_manager/load_controller
+[rosout][INFO] 2025-10-03 18:13:24,603: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-10-03 18:13:24,621: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-10-03 18:13:24,641: Loading controller: gripper_controller
+[rospy.internal][INFO] 2025-10-03 18:13:24,676: topic[/clock] adding connection to [http://127.0.0.1:38825/], count 0
+[rospy.core][INFO] 2025-10-03 18:13:24,884: signal_shutdown [signal-2]
+[rosout][INFO] 2025-10-03 18:13:24,884: Shutting down spawner. Stopping and unloading controllers...
+[rospy.impl.masterslave][INFO] 2025-10-03 18:13:25,696: external shutdown request from [/master]: [/gripper_controllers_spawner] Reason: new node registered with same name
+[rospy.core][INFO] 2025-10-03 18:13:25,697: signal_shutdown [external shutdown request from [/master]: [[/gripper_controllers_spawner] Reason: new node registered with same name]]
+[rosout][INFO] 2025-10-03 18:13:25,890: Stopping all controllers...
+[rosout][INFO] 2025-10-03 18:13:25,897: Unloading all loaded controllers...
+[rospy.internal][INFO] 2025-10-03 18:13:25,898: topic[/clock] removing connection to http://127.0.0.1:38825/
+[rosout][ERROR] 2025-10-03 18:13:25,999: Failed to load gripper_controller
+[rosout][INFO] 2025-10-03 18:13:26,000: Controller Spawner: Loaded controllers: 
+[rospy.core][INFO] 2025-10-03 18:13:26,000: signal_shutdown [atexit]
+[rospy.client][INFO] 2025-10-03 18:13:33,785: init_node, name[/gripper_controllers_spawner], pid[1553]
+[xmlrpc][INFO] 2025-10-03 18:13:33,785: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-03 18:13:33,785: Started XML-RPC server [http://127.0.0.1:43625/]
+[rospy.init][INFO] 2025-10-03 18:13:33,785: ROS Slave URI: [http://127.0.0.1:43625/]
+[rospy.impl.masterslave][INFO] 2025-10-03 18:13:33,785: _ready: http://127.0.0.1:43625/
+[rospy.registration][INFO] 2025-10-03 18:13:33,786: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-03 18:13:33,786: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-03 18:13:33,886: registered with master
+[rospy.rosout][INFO] 2025-10-03 18:13:33,886: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-03 18:13:33,889: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-03 18:13:33,890: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-03 18:13:33,895: connected to core topic /clock
+[rosout][INFO] 2025-10-03 18:13:33,896: Controller Spawner: Waiting for service controller_manager/load_controller
+[rosout][INFO] 2025-10-03 18:13:33,919: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-10-03 18:13:33,929: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-10-03 18:13:33,934: Loading controller: gripper_controller
+[rospy.internal][INFO] 2025-10-03 18:13:33,942: topic[/clock] adding connection to [http://127.0.0.1:38825/], count 0
+[rosout][INFO] 2025-10-03 18:13:33,984: Controller Spawner: Loaded controllers: gripper_controller
+[rosout][INFO] 2025-10-03 18:13:33,990: Started controllers: gripper_controller
+[rospy.internal][INFO] 2025-10-03 18:13:34,064: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.core][INFO] 2025-10-03 18:13:34,351: signal_shutdown [signal-2]
+[rosout][INFO] 2025-10-03 18:13:34,351: Shutting down spawner. Stopping and unloading controllers...
+[rosout][INFO] 2025-10-03 18:13:35,358: Stopping all controllers...
+[rosout][INFO] 2025-10-03 18:13:35,377: Unloading all loaded controllers...
+[rosout][INFO] 2025-10-03 18:13:35,378: Trying to unload gripper_controller
+[rosout][INFO] 2025-10-03 18:13:35,391: Succeeded in unloading gripper_controller
+[rospy.internal][INFO] 2025-10-03 18:13:35,394: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-03 18:13:35,394: topic[/clock] removing connection to http://127.0.0.1:38825/
+[rospy.impl.masterslave][INFO] 2025-10-03 18:13:35,395: signal-2
+[rospy.core][INFO] 2025-10-03 18:13:35,992: signal_shutdown [atexit]

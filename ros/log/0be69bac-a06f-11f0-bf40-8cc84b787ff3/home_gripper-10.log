@@ -1,0 +1,35 @@
+[rospy.client][INFO] 2025-10-03 17:38:46,547: init_node, name[/home_gripper], pid[1414]
+[xmlrpc][INFO] 2025-10-03 17:38:46,559: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-03 17:38:46,559: Started XML-RPC server [http://127.0.0.1:36507/]
+[rospy.impl.masterslave][INFO] 2025-10-03 17:38:46,559: _ready: http://127.0.0.1:36507/
+[rospy.init][INFO] 2025-10-03 17:38:46,559: ROS Slave URI: [http://127.0.0.1:36507/]
+[rospy.registration][INFO] 2025-10-03 17:38:46,562: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-03 17:38:46,562: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-03 17:38:46,659: registered with master
+[rospy.rosout][INFO] 2025-10-03 17:38:46,660: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-03 17:38:46,665: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-03 17:38:46,666: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-03 17:38:46,670: connected to core topic /clock
+[rosout][INFO] 2025-10-03 17:38:46,679: Waiting for gripper_controller...
+[rospy.internal][INFO] 2025-10-03 17:38:46,921: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-10-03 17:38:49,105: topic[/gripper_controller/follow_joint_trajectory/result] adding connection to [http://127.0.0.1:46859/], count 0
+[rospy.internal][INFO] 2025-10-03 17:38:49,128: topic[/gripper_controller/follow_joint_trajectory/feedback] adding connection to [http://127.0.0.1:46859/], count 0
+[rospy.internal][INFO] 2025-10-03 17:38:49,151: topic[/gripper_controller/follow_joint_trajectory/goal] adding connection to [/gazebo], count 0
+[rospy.internal][INFO] 2025-10-03 17:38:49,153: topic[/gripper_controller/follow_joint_trajectory/cancel] adding connection to [/gazebo], count 0
+[rospy.internal][INFO] 2025-10-03 17:38:49,172: topic[/gripper_controller/follow_joint_trajectory/status] adding connection to [http://127.0.0.1:46859/], count 0
+[rosout][INFO] 2025-10-03 17:38:49,191: ...connected.
+[rospy.internal][INFO] 2025-10-03 17:38:49,277: topic[/joint_states] adding connection to [http://127.0.0.1:46859/], count 0
+[rospy.internal][INFO] 2025-10-03 17:38:49,306: topic impl's ref count is zero, deleting topic /joint_states...
+[rospy.internal][INFO] 2025-10-03 17:38:49,306: topic[/joint_states] removing connection to http://127.0.0.1:46859/
+[rosout][INFO] 2025-10-03 17:38:49,307: Opening gripper...
+[rospy.internal][INFO] 2025-10-03 17:38:50,459: topic[/clock] adding connection to [http://127.0.0.1:46859/], count 0
+[rosout][INFO] 2025-10-03 17:38:51,538: Gripper opened.
+[rospy.core][INFO] 2025-10-03 17:38:51,539: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-10-03 17:38:51,541: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-03 17:38:51,542: topic[/gripper_controller/follow_joint_trajectory/goal] removing connection to /gazebo
+[rospy.internal][INFO] 2025-10-03 17:38:51,542: topic[/gripper_controller/follow_joint_trajectory/cancel] removing connection to /gazebo
+[rospy.internal][INFO] 2025-10-03 17:38:51,542: topic[/clock] removing connection to http://127.0.0.1:46859/
+[rospy.internal][INFO] 2025-10-03 17:38:51,542: topic[/gripper_controller/follow_joint_trajectory/status] removing connection to http://127.0.0.1:46859/
+[rospy.internal][INFO] 2025-10-03 17:38:51,542: topic[/gripper_controller/follow_joint_trajectory/result] removing connection to http://127.0.0.1:46859/
+[rospy.internal][INFO] 2025-10-03 17:38:51,542: topic[/gripper_controller/follow_joint_trajectory/feedback] removing connection to http://127.0.0.1:46859/
+[rospy.impl.masterslave][INFO] 2025-10-03 17:38:51,542: atexit

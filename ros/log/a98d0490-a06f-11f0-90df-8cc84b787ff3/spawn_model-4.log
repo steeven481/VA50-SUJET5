@@ -1,0 +1,20 @@
+[rospy.client][INFO] 2025-10-03 17:43:11,048: init_node, name[/spawn_model], pid[3686]
+[xmlrpc][INFO] 2025-10-03 17:43:11,055: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-03 17:43:11,056: Started XML-RPC server [http://127.0.0.1:37715/]
+[rospy.init][INFO] 2025-10-03 17:43:11,056: ROS Slave URI: [http://127.0.0.1:37715/]
+[rospy.impl.masterslave][INFO] 2025-10-03 17:43:11,056: _ready: http://127.0.0.1:37715/
+[rospy.registration][INFO] 2025-10-03 17:43:11,058: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-03 17:43:11,058: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-03 17:43:11,156: registered with master
+[rospy.rosout][INFO] 2025-10-03 17:43:11,156: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-03 17:43:11,161: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-03 17:43:11,162: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-03 17:43:11,163: connected to core topic /clock
+[rosout][INFO] 2025-10-03 17:43:11,165: Loading model XML from ros parameter
+[rosout][INFO] 2025-10-03 17:43:11,170: Waiting for service /gazebo/spawn_urdf_model
+[rospy.internal][INFO] 2025-10-03 17:43:11,443: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-10-03 17:43:12,076: Calling service /gazebo/spawn_urdf_model
+[rosout][INFO] 2025-10-03 17:43:12,784: Spawn status: SpawnModel: Successfully spawned entity
+[rospy.core][INFO] 2025-10-03 17:43:12,785: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-10-03 17:43:12,786: topic[/rosout] removing connection to /rosout
+[rospy.impl.masterslave][INFO] 2025-10-03 17:43:12,786: atexit

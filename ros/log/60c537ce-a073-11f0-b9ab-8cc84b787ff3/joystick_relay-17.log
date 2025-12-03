@@ -1,0 +1,46 @@
+[rospy.client][INFO] 2025-10-03 18:13:23,980: init_node, name[/joystick_relay], pid[1002]
+[xmlrpc][INFO] 2025-10-03 18:13:23,982: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-03 18:13:23,982: Started XML-RPC server [http://127.0.0.1:44163/]
+[rospy.init][INFO] 2025-10-03 18:13:23,982: ROS Slave URI: [http://127.0.0.1:44163/]
+[rospy.impl.masterslave][INFO] 2025-10-03 18:13:23,982: _ready: http://127.0.0.1:44163/
+[rospy.registration][INFO] 2025-10-03 18:13:24,002: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-03 18:13:24,002: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-03 18:13:24,084: registered with master
+[rospy.rosout][INFO] 2025-10-03 18:13:24,084: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-03 18:13:24,120: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-03 18:13:24,121: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-03 18:13:24,130: connected to core topic /clock
+[rospy.internal][INFO] 2025-10-03 18:13:24,218: topic[/clock] adding connection to [http://127.0.0.1:38825/], count 0
+[rospy.internal][INFO] 2025-10-03 18:13:24,426: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-10-03 18:13:24,458: topic[/joy_priority] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-03 18:13:24,462: topic[/joy_vel] adding connection to [/twist_mux], count 0
+[rospy.core][INFO] 2025-10-03 18:13:24,691: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-10-03 18:13:24,698: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-03 18:13:24,698: topic[/joy_vel] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-10-03 18:13:24,698: topic[/joy_priority] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-10-03 18:13:24,699: topic[/clock] removing connection to http://127.0.0.1:38825/
+[rospy.impl.masterslave][INFO] 2025-10-03 18:13:24,699: signal-2
+[rospy.core][INFO] 2025-10-03 18:13:25,292: signal_shutdown [atexit]
+[rospy.client][INFO] 2025-10-03 18:13:33,442: init_node, name[/joystick_relay], pid[1590]
+[xmlrpc][INFO] 2025-10-03 18:13:33,458: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-10-03 18:13:33,458: Started XML-RPC server [http://127.0.0.1:35079/]
+[rospy.init][INFO] 2025-10-03 18:13:33,458: ROS Slave URI: [http://127.0.0.1:35079/]
+[rospy.impl.masterslave][INFO] 2025-10-03 18:13:33,458: _ready: http://127.0.0.1:35079/
+[rospy.registration][INFO] 2025-10-03 18:13:33,466: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-10-03 18:13:33,466: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-10-03 18:13:33,558: registered with master
+[rospy.rosout][INFO] 2025-10-03 18:13:33,559: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-10-03 18:13:33,563: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-10-03 18:13:33,563: initializing /clock core topic
+[rospy.simtime][INFO] 2025-10-03 18:13:33,565: connected to core topic /clock
+[rospy.internal][INFO] 2025-10-03 18:13:33,595: topic[/clock] adding connection to [http://127.0.0.1:38825/], count 0
+[rospy.internal][INFO] 2025-10-03 18:13:33,852: topic[/joy_vel] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-03 18:13:33,853: topic[/joy_priority] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-10-03 18:13:33,921: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.core][INFO] 2025-10-03 18:13:34,150: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-10-03 18:13:34,194: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-10-03 18:13:34,195: topic[/joy_vel] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-10-03 18:13:34,195: topic[/joy_priority] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-10-03 18:13:34,197: topic[/clock] removing connection to http://127.0.0.1:38825/
+[rospy.impl.masterslave][INFO] 2025-10-03 18:13:34,198: signal-2
+[rospy.core][INFO] 2025-10-03 18:13:34,756: signal_shutdown [atexit]

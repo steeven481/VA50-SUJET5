@@ -1,0 +1,10 @@
+[0m[ INFO] [1759503951.353909955]: Loading robot model 'tiago'...[0m
+[0m[ INFO] [1759503951.355883881]: No root/virtual joint specified in SRDF. Assuming fixed joint[0m
+[0m[ INFO] [1759503954.654769123, 1.286000000]: The set of running joint trajectory controllers has changed, updating it.[0m
+[0m[ INFO] [1759503956.319732446, 2.819000000]: Ready to take commands for planning group arm_torso.[0m
+[0m[ INFO] [1759503956.886112975, 3.333000000]: Ready to take commands for planning group arm.[0m
+[0m[ INFO] [1759503956.895362345, 3.340000000]: Controllers have changed, cancelling all active goals[0m
+[0m[ INFO] [1759503960.429025944, 6.586000000]: Received request to play motion 'home'.[0m
+[0m[ INFO] [1759503960.431394358, 6.588000000]: Approach motion can be computed by the following groups: arm_torso.[0m
+[0m[ INFO] [1759503960.478758799, 6.633000000]: Successfully computed approach with planning group 'arm_torso'.[0m
+[0m[ INFO] [1759503973.065968869, 18.586000000]: Motion played successfully.[0m
