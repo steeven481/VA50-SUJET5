@@ -1,0 +1,26 @@
+[
+  {
+    "id": "obj_000",
+    "label": "plate",
+    "x_pixel": 450.76754004718737,
+    "y_pixel": 179.38706072271202,
+    "theta": 0.0,
+    "mask_path": "outputs/masks/mask_obj_000_plate.png"
+  },
+  {
+    "id": "obj_001",
+    "label": "fork",
+    "x_pixel": 244.3618556701031,
+    "y_pixel": 216.26494845360824,
+    "theta": 0.0,
+    "mask_path": "outputs/masks/mask_obj_001_fork.png"
+  },
+  {
+    "id": "obj_002",
+    "label": "knife",
+    "x_pixel": 313.71215139442234,
+    "y_pixel": 154.67828685258965,
+    "theta": 0.0,
+    "mask_path": "outputs/masks/mask_obj_002_knife.png"
+  }
+]
