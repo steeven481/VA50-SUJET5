@@ -1,1 +1,7 @@
 docker/
+
+# ROS logs
+ros/log/
+
+# X11 fix script
+fix_x11.sh
