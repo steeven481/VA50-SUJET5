@@ -1,0 +1,63 @@
+[rospy.client][INFO] 2025-12-17 19:55:26,456: init_node, name[/tiago_arm_control_1144_1765997726326], pid[1144]
+[xmlrpc][INFO] 2025-12-17 19:55:26,457: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-17 19:55:26,457: Started XML-RPC server [http://127.0.0.1:34809/]
+[rospy.init][INFO] 2025-12-17 19:55:26,460: ROS Slave URI: [http://127.0.0.1:34809/]
+[rospy.impl.masterslave][INFO] 2025-12-17 19:55:26,461: _ready: http://127.0.0.1:34809/
+[rospy.registration][INFO] 2025-12-17 19:55:26,465: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-17 19:55:26,466: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-17 19:55:26,563: registered with master
+[rospy.rosout][INFO] 2025-12-17 19:55:26,563: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-17 19:55:26,568: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-17 19:55:26,571: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-17 19:55:26,577: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-17 19:55:26,581: topic[/clock] adding connection to [http://127.0.0.1:38921/], count 0
+[rospy.internal][INFO] 2025-12-17 19:55:27,951: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-17 19:55:27,965: ✅ Bras TIAGo initialisé
+[rosout][INFO] 2025-12-17 19:55:27,974: 🚀 Démarrage de la séquence TIAGo
+[rospy.internal][INFO] 2025-12-17 19:55:27,980: topic[/tf] adding connection to [http://127.0.0.1:34501/], count 0
+[rospy.internal][INFO] 2025-12-17 19:55:27,981: topic[/tf] adding connection to [http://127.0.0.1:38921/], count 0
+[rospy.internal][INFO] 2025-12-17 19:55:27,983: topic[/tf_static] adding connection to [http://127.0.0.1:34501/], count 0
+[rospy.internal][INFO] 2025-12-17 19:55:28,057: topic[/collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-12-17 19:55:28,058: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-12-17 19:55:30,230: 🏠 Déplacement vers position home
+[rosout][INFO] 2025-12-17 19:55:32,038: 📁 3 objets détectés
+[rosout][INFO] 2025-12-17 19:55:32,039: 🎯 Traitement: fork
+[rosout][INFO] 2025-12-17 19:55:32,042: 📍 fork: pixel (244, 216) -> robot (0.509, -0.028, 0.820)
+[rosout][INFO] 2025-12-17 19:55:32,044: 🏠 Déplacement vers position home
+[rosout][INFO] 2025-12-17 19:55:33,288: 🤖 Planification vers fork...
+[rosout][ERROR] 2025-12-17 19:55:33,373: ❌ Erreur mouvement vers fork: 'tuple' object has no attribute 'joint_trajectory'
+[rosout][INFO] 2025-12-17 19:55:33,375: 🏠 Déplacement vers position home
+[rosout][INFO] 2025-12-17 19:55:34,596: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-17 19:55:34,599: 📍 knife: pixel (314, 155) -> robot (0.592, -0.102, 0.820)
+[rosout][INFO] 2025-12-17 19:55:34,601: 🏠 Déplacement vers position home
+[rosout][INFO] 2025-12-17 19:55:35,830: 🤖 Planification vers knife...
+[rosout][ERROR] 2025-12-17 19:55:35,936: ❌ Erreur mouvement vers knife: 'tuple' object has no attribute 'joint_trajectory'
+[rosout][INFO] 2025-12-17 19:55:35,939: 🏠 Déplacement vers position home
+[rosout][INFO] 2025-12-17 19:55:37,222: 🎯 Traitement: plate
+[rosout][INFO] 2025-12-17 19:55:37,227: 📍 plate: pixel (451, 179) -> robot (0.757, -0.073, 0.850)
+[rosout][INFO] 2025-12-17 19:55:37,233: 🏠 Déplacement vers position home
+[rosout][INFO] 2025-12-17 19:55:41,208: 🤖 Planification vers plate...
+[rosout][ERROR] 2025-12-17 19:55:41,458: ❌ Erreur mouvement vers plate: 'tuple' object has no attribute 'joint_trajectory'
+[rosout][INFO] 2025-12-17 19:55:41,473: 🏠 Déplacement vers position home
+[rosout][INFO] 2025-12-17 19:55:45,600: 🏠 Déplacement vers position rest
+[rosout][ERROR] 2025-12-17 19:55:45,617: ❌ Erreur position rest: Error setting joint target. Is the target within bounds?
+[rosout][INFO] 2025-12-17 19:55:45,633: 🎉 Séquence terminée avec succès!
+[rosout][INFO] 2025-12-17 19:55:46,045: 👋 Programme terminé
+[rospy.core][INFO] 2025-12-17 19:55:46,076: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-17 19:55:46,114: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-17 19:55:46,115: topic[/collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:55:46,115: topic[/attached_collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:55:46,116: topic[/clock] removing connection to http://127.0.0.1:38921/
+[rospy.internal][INFO] 2025-12-17 19:55:46,116: topic[/clock] removing connection to http://127.0.0.1:38921/
+[rospy.internal][INFO] 2025-12-17 19:55:46,117: topic[/tf] removing connection to http://127.0.0.1:34501/
+[rospy.internal][INFO] 2025-12-17 19:55:46,117: topic[/tf] removing connection to http://127.0.0.1:38921/
+[rospy.internal][INFO] 2025-12-17 19:55:46,118: topic[/tf] removing connection to http://127.0.0.1:38921/
+[rospy.topics][ERROR] 2025-12-17 19:55:46,119: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.internal][INFO] 2025-12-17 19:55:46,120: topic[/tf_static] removing connection to http://127.0.0.1:34501/
+[rospy.impl.masterslave][INFO] 2025-12-17 19:55:46,124: atexit

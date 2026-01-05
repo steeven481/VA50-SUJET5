@@ -1,0 +1,28 @@
+[rospy.client][INFO] 2025-12-17 20:07:01,032: init_node, name[/tiago_arm_control_1562_1765998420677], pid[1562]
+[xmlrpc][INFO] 2025-12-17 20:07:01,033: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-17 20:07:01,033: Started XML-RPC server [http://127.0.0.1:38409/]
+[rospy.impl.masterslave][INFO] 2025-12-17 20:07:01,034: _ready: http://127.0.0.1:38409/
+[rospy.init][INFO] 2025-12-17 20:07:01,034: ROS Slave URI: [http://127.0.0.1:38409/]
+[rospy.registration][INFO] 2025-12-17 20:07:01,036: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-17 20:07:01,039: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-17 20:07:01,142: registered with master
+[rospy.rosout][INFO] 2025-12-17 20:07:01,143: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-17 20:07:01,161: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-17 20:07:01,174: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-17 20:07:01,183: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-17 20:07:01,195: topic[/clock] adding connection to [http://127.0.0.1:38921/], count 0
+[rospy.internal][INFO] 2025-12-17 20:07:02,171: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-17 20:07:03,387: ✅ Bras TIAGo initialisé
+[rospy.internal][INFO] 2025-12-17 20:07:03,515: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-12-17 20:07:03,516: topic[/collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-12-17 20:07:05,864: 📊 Configuration terminée
+[rosout][INFO] 2025-12-17 20:07:05,883: 🚀 Démarrage de la séquence TIAGo
+[rosout][INFO] 2025-12-17 20:07:10,895: 📁 3 objets détectés
+[rosout][INFO] 2025-12-17 20:07:10,901: 🏠 Déplacement vers position sûre...
+[rosout][INFO] 2025-12-17 20:07:15,727: ✅ Position sûre atteinte
+[rosout][INFO] 2025-12-17 20:07:19,563: 🎯 Traitement: fork
+[rosout][INFO] 2025-12-17 20:07:19,568: 🤖 Déplacement vers fork...
+[rosout][INFO] 2025-12-17 20:08:07,836: ✅ fork atteint
+[rosout][INFO] 2025-12-17 20:08:09,237: ↔️  Action poussée pour fork
+[rosout][INFO] 2025-12-17 20:09:15,953: ✅ fork poussé
+[rosout][INFO] 2025-12-17 20:09:17,274: 🏠 Déplacement vers position sûre...

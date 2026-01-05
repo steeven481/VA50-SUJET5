@@ -1,0 +1,25 @@
+[rospy.client][INFO] 2025-12-18 07:55:29,475: init_node, name[/bringup_controllers_spawner_ft], pid[170]
+[xmlrpc][INFO] 2025-12-18 07:55:29,476: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 07:55:29,476: Started XML-RPC server [http://127.0.0.1:44317/]
+[rospy.impl.masterslave][INFO] 2025-12-18 07:55:29,476: _ready: http://127.0.0.1:44317/
+[rospy.init][INFO] 2025-12-18 07:55:29,477: ROS Slave URI: [http://127.0.0.1:44317/]
+[rospy.registration][INFO] 2025-12-18 07:55:29,478: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 07:55:29,478: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 07:55:29,577: registered with master
+[rospy.rosout][INFO] 2025-12-18 07:55:29,577: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 07:55:29,581: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 07:55:29,583: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 07:55:29,585: connected to core topic /clock
+[rosout][INFO] 2025-12-18 07:55:29,588: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-12-18 07:55:29,789: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 07:55:30,110: topic[/clock] adding connection to [http://127.0.0.1:39601/], count 0
+[rosout][INFO] 2025-12-18 07:55:31,408: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-12-18 07:55:31,441: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-12-18 07:55:31,465: Loading controller: force_torque_sensor_controller
+[rosout][INFO] 2025-12-18 07:55:31,523: Controller Spawner: Loaded controllers: force_torque_sensor_controller
+[rosout][INFO] 2025-12-18 07:55:31,531: Started controllers: force_torque_sensor_controller
+[rospy.core][INFO] 2025-12-18 08:11:40,349: signal_shutdown [signal-2]
+[rosout][INFO] 2025-12-18 08:11:40,349: Shutting down spawner. Stopping and unloading controllers...
+[rosout][INFO] 2025-12-18 08:11:41,671: Stopping all controllers...
+[rosout][INFO] 2025-12-18 08:11:42,008: Unloading all loaded controllers...
+[rosout][INFO] 2025-12-18 08:11:42,095: Trying to unload force_torque_sensor_controller

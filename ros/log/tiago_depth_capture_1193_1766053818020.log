@@ -1,0 +1,43 @@
+[rospy.client][INFO] 2025-12-18 11:30:19,523: init_node, name[/tiago_depth_capture_1193_1766053818020], pid[1193]
+[xmlrpc][INFO] 2025-12-18 11:30:19,527: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 11:30:19,536: Started XML-RPC server [http://127.0.0.1:43841/]
+[rospy.impl.masterslave][INFO] 2025-12-18 11:30:19,538: _ready: http://127.0.0.1:43841/
+[rospy.init][INFO] 2025-12-18 11:30:19,538: ROS Slave URI: [http://127.0.0.1:43841/]
+[rospy.registration][INFO] 2025-12-18 11:30:19,541: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 11:30:19,542: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 11:30:19,643: registered with master
+[rospy.rosout][INFO] 2025-12-18 11:30:19,644: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 11:30:19,687: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 11:30:19,695: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 11:30:19,722: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 11:30:19,743: topic[/clock] adding connection to [http://127.0.0.1:43063/], count 0
+[rospy.internal][INFO] 2025-12-18 11:30:19,811: topic[/xtion/rgb/image_raw] adding connection to [http://127.0.0.1:43063/], count 0
+[rospy.internal][INFO] 2025-12-18 11:30:19,850: topic[/xtion/depth_registered/image_raw] adding connection to [http://127.0.0.1:43063/], count 0
+[rospy.internal][INFO] 2025-12-18 11:30:19,929: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 11:30:20,078: topic[/torso_controller/command] adding connection to [/gazebo], count 0
+[rospy.internal][INFO] 2025-12-18 11:30:20,088: topic[/head_controller/command] adding connection to [/gazebo], count 0
+[rosout][INFO] 2025-12-18 11:30:22,881: ✅ Calibration caméra sauvegardée: /home/pal/ros_ws/data/calibration/camera_calibration.json
+[rosout][INFO] 2025-12-18 11:30:28,872: 🚀 Début de la capture avec profondeur
+[rosout][INFO] 2025-12-18 11:30:28,898: 🎯 Capture de la scène...
+[rosout][INFO] 2025-12-18 11:30:28,917: Torse déplacé: height=0.15
+[rosout][INFO] 2025-12-18 11:30:35,036: Tête déplacée: pan=0.0, tilt=-0.7
+[rosout][INFO] 2025-12-18 11:30:46,754: 📄 Métadonnées sauvegardées: /home/pal/ros_ws/data/calibration/metadata_20251218_113046.json
+[rosout][INFO] 2025-12-18 11:30:46,782: ✅ Scène capturée et sauvegardée: 20251218_113046
+[rosout][INFO] 2025-12-18 11:30:46,804:    RGB: /home/pal/ros_ws/data/rgb_images/scene_20251218_113046_rgb.png
+[rosout][INFO] 2025-12-18 11:30:46,825:    Profondeur: /home/pal/ros_ws/data/depth_images/scene_20251218_113046_depth.png
+[rosout][INFO] 2025-12-18 11:30:46,841:    Données brutes: /home/pal/ros_ws/data/depth_images/scene_20251218_113046_depth.npz
+[rosout][INFO] 2025-12-18 11:30:46,878: 📊 Statistiques profondeur:
+[rosout][INFO] 2025-12-18 11:30:46,887:    Min: 0.554 m
+[rosout][INFO] 2025-12-18 11:30:46,898:    Max: 3.750 m
+[rosout][INFO] 2025-12-18 11:30:46,910:    Moyenne: 1.379 m
+[rosout][INFO] 2025-12-18 11:30:46,956:    Médiane: 0.862 m
+[rosout][INFO] 2025-12-18 11:30:46,971:    Pixels valides: 307200/307200
+[rosout][INFO] 2025-12-18 11:30:46,999: ✅ Capture terminée
+[rospy.core][INFO] 2025-12-18 11:30:47,014: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-18 11:30:47,046: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-18 11:30:47,052: topic[/head_controller/command] removing connection to /gazebo
+[rospy.internal][INFO] 2025-12-18 11:30:47,060: topic[/torso_controller/command] removing connection to /gazebo
+[rospy.internal][INFO] 2025-12-18 11:30:47,068: topic[/clock] removing connection to http://127.0.0.1:43063/
+[rospy.internal][INFO] 2025-12-18 11:30:47,070: topic[/xtion/rgb/image_raw] removing connection to http://127.0.0.1:43063/
+[rospy.internal][INFO] 2025-12-18 11:30:47,071: topic[/xtion/depth_registered/image_raw] removing connection to http://127.0.0.1:43063/
+[rospy.impl.masterslave][INFO] 2025-12-18 11:30:47,080: atexit

@@ -1,0 +1,119 @@
+[rospy.client][INFO] 2025-12-17 19:19:51,156: init_node, name[/tiago_object_grasping_1218_1765995590675], pid[1218]
+[xmlrpc][INFO] 2025-12-17 19:19:51,161: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-17 19:19:51,169: Started XML-RPC server [http://127.0.0.1:39401/]
+[rospy.impl.masterslave][INFO] 2025-12-17 19:19:51,169: _ready: http://127.0.0.1:39401/
+[rospy.registration][INFO] 2025-12-17 19:19:51,172: Registering with master node http://localhost:11311/
+[rospy.init][INFO] 2025-12-17 19:19:51,172: ROS Slave URI: [http://127.0.0.1:39401/]
+[rospy.init][INFO] 2025-12-17 19:19:51,304: registered with master
+[xmlrpc][INFO] 2025-12-17 19:19:51,172: xml rpc node: starting XML-RPC server
+[rospy.rosout][INFO] 2025-12-17 19:19:51,307: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-17 19:19:51,320: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-17 19:19:51,332: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-17 19:19:51,363: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-17 19:19:51,376: topic[/clock] adding connection to [http://127.0.0.1:37805/], count 0
+[rospy.internal][INFO] 2025-12-17 19:19:54,779: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-17 19:19:54,867: topic[/tf] adding connection to [http://127.0.0.1:37805/], count 0
+[rospy.internal][INFO] 2025-12-17 19:19:54,884: topic[/tf] adding connection to [http://127.0.0.1:45919/], count 1
+[rospy.internal][INFO] 2025-12-17 19:19:54,902: topic[/collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-12-17 19:19:54,909: ⏳ Attente des données de profondeur et de calibration...
+[rospy.internal][INFO] 2025-12-17 19:19:54,935: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-12-17 19:19:54,939: topic[/tf_static] adding connection to [http://127.0.0.1:45919/], count 0
+[rospy.internal][INFO] 2025-12-17 19:19:54,956: topic[/xtion/depth_registered/image_raw] adding connection to [http://127.0.0.1:37805/], count 0
+[rospy.internal][INFO] 2025-12-17 19:19:54,965: topic[/xtion/rgb/camera_info] adding connection to [http://127.0.0.1:37805/], count 0
+[rosout][INFO] 2025-12-17 19:19:55,016: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:55,127: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:55,261: ✅ Données initiales reçues
+[rosout][INFO] 2025-12-17 19:19:55,276: 🚀 Démarrage de la séquence de préhension
+[rosout][INFO] 2025-12-17 19:19:55,344: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:55,473: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:55,663: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:55,923: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:56,041: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:56,277: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:56,481: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:56,668: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:56,874: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:56,974: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:57,080: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:57,288: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:57,474: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:57,592: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:57,798: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:57,920: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:58,116: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:58,223: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:58,418: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:58,522: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:58,731: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:58,924: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:59,043: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:59,234: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:59,434: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:59,545: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:59,740: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:19:59,945: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:00,066: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:00,259: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:00,363: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:00,537: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:00,619: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:00,812: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:01,008: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:01,193: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:01,314: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:01,511: 📁 3 objets détectés dans ../pipeline/outputs/detections_input.json
+[rosout][INFO] 2025-12-17 19:20:01,536: 🔄 Traitement: plate à (450.76754004718737, 179.38706072271202)
+[rosout][INFO] 2025-12-17 19:20:01,570: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:01,829: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:02,020: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:02,122: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:02,352: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:02,612: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:02,852: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:02,990: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:03,106: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:03,330: 📷 Informations caméra reçues
+[rosout][WARNING] 2025-12-17 19:20:03,333: ⚠️  Profondeur invalide: nan
+[rosout][WARNING] 2025-12-17 19:20:03,385: ⚠️  Impossible de convertir plate, passage au suivant
+[rosout][INFO] 2025-12-17 19:20:03,389: 🔄 Traitement: fork à (244.3618556701031, 216.26494845360824)
+[rosout][INFO] 2025-12-17 19:20:03,540: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:03,710: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:03,860: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:03,974: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:04,070: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:04,251: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:04,439: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:04,543: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:04,654: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:04,872: 📷 Informations caméra reçues
+[rosout][WARNING] 2025-12-17 19:20:04,926: ⚠️  Profondeur invalide: nan
+[rosout][WARNING] 2025-12-17 19:20:04,939: ⚠️  Impossible de convertir fork, passage au suivant
+[rosout][INFO] 2025-12-17 19:20:04,984: 🔄 Traitement: knife à (313.71215139442234, 154.67828685258965)
+[rosout][INFO] 2025-12-17 19:20:05,073: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:05,185: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:05,402: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:05,629: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:05,885: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:06,094: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:06,223: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:06,422: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:06,550: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:06,671: 📷 Informations caméra reçues
+[rosout][WARNING] 2025-12-17 19:20:06,702: ⚠️  Profondeur invalide: nan
+[rosout][WARNING] 2025-12-17 19:20:06,722: ⚠️  Impossible de convertir knife, passage au suivant
+[rosout][INFO] 2025-12-17 19:20:06,744: 🎉 Séquence terminée
+[rosout][INFO] 2025-12-17 19:20:07,145: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:20:07,155: 👋 Arrêt propre du programme
+[rospy.core][INFO] 2025-12-17 19:20:07,207: signal_shutdown [atexit]
+[rosout][INFO] 2025-12-17 19:20:07,190: 📷 Informations caméra reçues
+[rospy.internal][INFO] 2025-12-17 19:20:07,249: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-17 19:20:07,250: topic[/collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:20:07,250: topic[/attached_collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:20:07,251: topic[/clock] removing connection to http://127.0.0.1:37805/
+[rospy.internal][INFO] 2025-12-17 19:20:07,251: topic[/tf] removing connection to http://127.0.0.1:37805/
+[rospy.internal][INFO] 2025-12-17 19:20:07,252: topic[/tf] removing connection to http://127.0.0.1:45919/
+[rospy.internal][INFO] 2025-12-17 19:20:07,268: topic[/tf_static] removing connection to http://127.0.0.1:45919/
+[rospy.internal][INFO] 2025-12-17 19:20:07,276: topic[/xtion/depth_registered/image_raw] removing connection to http://127.0.0.1:37805/
+[rospy.internal][INFO] 2025-12-17 19:20:07,278: topic[/xtion/depth_registered/image_raw] removing connection to http://127.0.0.1:37805/
+[rospy.internal][INFO] 2025-12-17 19:20:07,282: topic[/xtion/rgb/camera_info] removing connection to http://127.0.0.1:37805/
+[rospy.impl.masterslave][INFO] 2025-12-17 19:20:07,289: atexit

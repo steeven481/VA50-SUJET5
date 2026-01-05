@@ -1,0 +1,456 @@
+[rospy.client][INFO] 2025-12-18 11:34:13,214: init_node, name[/tiago_position_with_depth], pid[1213]
+[xmlrpc][INFO] 2025-12-18 11:34:13,217: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 11:34:13,229: Started XML-RPC server [http://127.0.0.1:36469/]
+[rospy.init][INFO] 2025-12-18 11:34:13,232: ROS Slave URI: [http://127.0.0.1:36469/]
+[rospy.impl.masterslave][INFO] 2025-12-18 11:34:13,233: _ready: http://127.0.0.1:36469/
+[xmlrpc][INFO] 2025-12-18 11:34:13,241: xml rpc node: starting XML-RPC server
+[rospy.registration][INFO] 2025-12-18 11:34:13,241: Registering with master node http://localhost:11311/
+[rospy.init][INFO] 2025-12-18 11:34:13,336: registered with master
+[rospy.rosout][INFO] 2025-12-18 11:34:13,339: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 11:34:13,360: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 11:34:13,362: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 11:34:13,377: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 11:34:13,392: topic[/clock] adding connection to [http://127.0.0.1:43063/], count 0
+[rospy.internal][INFO] 2025-12-18 11:34:16,196: topic[/tf] adding connection to [http://127.0.0.1:42461/], count 0
+[rospy.internal][INFO] 2025-12-18 11:34:16,201: topic[/tf] adding connection to [http://127.0.0.1:43063/], count 1
+[rospy.internal][INFO] 2025-12-18 11:34:16,231: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 11:34:16,234: topic[/tf_static] adding connection to [http://127.0.0.1:42461/], count 0
+[rosout][INFO] 2025-12-18 11:34:16,351: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rosout][INFO] 2025-12-18 11:34:16,371: 🎯 Cible: knife
+[rosout][INFO] 2025-12-18 11:34:16,388: 📁 3 objets détectés
+[rosout][INFO] 2025-12-18 11:34:23,393: 🚀 Démarrage du positionnement avec profondeur
+[rosout][INFO] 2025-12-18 11:34:54,466: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-18 11:34:54,499: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2025-12-18 11:34:54,533: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2025-12-18 11:34:54,567: 📍 Coordonnées robot: (0.961, 0.032, 0.723)
+[rosout][INFO] 2025-12-18 11:34:54,585: 🎯 Position finale: (0.961, 0.032, 0.823)
+[rosout][ERROR] 2025-12-18 11:35:04,722: ❌ Échec du déplacement
+[rospy.core][INFO] 2025-12-18 11:35:05,120: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-18 11:35:05,160: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-18 11:35:05,163: topic[/clock] removing connection to http://127.0.0.1:43063/
+[rospy.internal][INFO] 2025-12-18 11:35:05,166: topic[/tf] removing connection to http://127.0.0.1:42461/
+[rospy.internal][INFO] 2025-12-18 11:35:05,167: topic[/tf] removing connection to http://127.0.0.1:43063/
+[rospy.internal][INFO] 2025-12-18 11:35:05,171: topic[/tf_static] removing connection to http://127.0.0.1:42461/
+[rospy.impl.masterslave][INFO] 2025-12-18 11:35:05,184: atexit
+[rospy.client][INFO] 2025-12-18 11:36:17,296: init_node, name[/tiago_position_with_depth], pid[1241]
+[xmlrpc][INFO] 2025-12-18 11:36:17,301: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 11:36:17,306: Started XML-RPC server [http://127.0.0.1:36865/]
+[rospy.impl.masterslave][INFO] 2025-12-18 11:36:17,308: _ready: http://127.0.0.1:36865/
+[rospy.init][INFO] 2025-12-18 11:36:17,313: ROS Slave URI: [http://127.0.0.1:36865/]
+[rospy.registration][INFO] 2025-12-18 11:36:17,319: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 11:36:17,321: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 11:36:17,417: registered with master
+[rospy.rosout][INFO] 2025-12-18 11:36:17,419: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 11:36:17,460: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 11:36:17,470: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 11:36:17,485: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 11:36:17,516: topic[/clock] adding connection to [http://127.0.0.1:43063/], count 0
+[rospy.internal][INFO] 2025-12-18 11:36:21,140: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 11:36:21,230: topic[/tf] adding connection to [http://127.0.0.1:43063/], count 0
+[rospy.internal][INFO] 2025-12-18 11:36:21,237: topic[/tf] adding connection to [http://127.0.0.1:42461/], count 1
+[rospy.internal][INFO] 2025-12-18 11:36:21,270: topic[/tf_static] adding connection to [http://127.0.0.1:42461/], count 0
+[rosout][INFO] 2025-12-18 11:36:21,424: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rosout][INFO] 2025-12-18 11:36:21,449: 🎯 Cible: knife
+[rosout][INFO] 2025-12-18 11:36:21,468: 📁 3 objets détectés
+[rosout][INFO] 2025-12-18 11:36:30,676: 🚀 Démarrage du positionnement avec profondeur
+[rosout][INFO] 2025-12-18 11:37:38,562: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-18 11:37:38,582: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2025-12-18 11:37:38,615: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2025-12-18 11:37:38,636: 📍 Coordonnées robot: (0.961, 0.032, 0.867)
+[rosout][INFO] 2025-12-18 11:37:38,643: 🎯 Position finale: (0.961, 0.032, 0.967)
+[rosout][ERROR] 2025-12-18 11:37:48,784: ❌ Échec du déplacement
+[rospy.core][INFO] 2025-12-18 11:37:49,280: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-18 11:37:49,299: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-18 11:37:49,302: topic[/clock] removing connection to http://127.0.0.1:43063/
+[rospy.internal][INFO] 2025-12-18 11:37:49,318: topic[/tf] removing connection to http://127.0.0.1:43063/
+[rospy.internal][INFO] 2025-12-18 11:37:49,320: topic[/tf] removing connection to http://127.0.0.1:42461/
+[rospy.internal][INFO] 2025-12-18 11:37:49,332: topic[/tf_static] removing connection to http://127.0.0.1:42461/
+[rospy.internal][INFO] 2025-12-18 11:37:49,334: topic[/tf_static] removing connection to http://127.0.0.1:42461/
+[rospy.impl.masterslave][INFO] 2025-12-18 11:37:49,336: atexit
+[rospy.client][INFO] 2025-12-18 11:40:12,506: init_node, name[/tiago_position_with_depth], pid[957]
+[xmlrpc][INFO] 2025-12-18 11:40:12,518: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 11:40:12,521: Started XML-RPC server [http://127.0.0.1:43317/]
+[rospy.init][INFO] 2025-12-18 11:40:12,522: ROS Slave URI: [http://127.0.0.1:43317/]
+[rospy.impl.masterslave][INFO] 2025-12-18 11:40:12,525: _ready: http://127.0.0.1:43317/
+[rospy.registration][INFO] 2025-12-18 11:40:12,533: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 11:40:12,537: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 11:40:12,627: registered with master
+[rospy.rosout][INFO] 2025-12-18 11:40:12,629: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 11:40:12,653: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 11:40:12,662: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 11:40:12,676: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 11:40:12,755: topic[/clock] adding connection to [http://127.0.0.1:46085/], count 0
+[rospy.internal][INFO] 2025-12-18 11:40:15,524: topic[/tf] adding connection to [http://127.0.0.1:36289/], count 0
+[rospy.internal][INFO] 2025-12-18 11:40:15,544: topic[/tf] adding connection to [http://127.0.0.1:46085/], count 1
+[rospy.internal][INFO] 2025-12-18 11:40:15,556: topic[/tf_static] adding connection to [http://127.0.0.1:36289/], count 0
+[rospy.internal][INFO] 2025-12-18 11:40:15,557: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-18 11:40:15,651: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rosout][INFO] 2025-12-18 11:40:15,689: 🎯 Cible: knife
+[rosout][INFO] 2025-12-18 11:40:15,706: 📁 3 objets détectés
+[rosout][INFO] 2025-12-18 11:40:23,211: 🚀 Démarrage du positionnement avec profondeur
+[rosout][INFO] 2025-12-18 11:41:18,626: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-18 11:41:18,652: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2025-12-18 11:41:18,672: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2025-12-18 11:41:18,686: 📍 Coordonnées robot: (1.040, 0.032, 1.525)
+[rosout][INFO] 2025-12-18 11:41:18,702: 🎯 Position finale: (1.040, 0.032, 1.625)
+[rosout][ERROR] 2025-12-18 11:41:28,843: ❌ Échec du déplacement
+[rospy.core][INFO] 2025-12-18 11:41:29,148: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-18 11:41:29,193: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-18 11:41:29,195: topic[/clock] removing connection to http://127.0.0.1:46085/
+[rospy.internal][INFO] 2025-12-18 11:41:29,196: topic[/tf] removing connection to http://127.0.0.1:36289/
+[rospy.internal][INFO] 2025-12-18 11:41:29,197: topic[/tf] removing connection to http://127.0.0.1:46085/
+[rospy.internal][INFO] 2025-12-18 11:41:29,205: topic[/tf_static] removing connection to http://127.0.0.1:36289/
+[rospy.impl.masterslave][INFO] 2025-12-18 11:41:29,206: atexit
+[rospy.client][INFO] 2025-12-18 11:59:48,937: init_node, name[/tiago_position_with_depth], pid[1208]
+[xmlrpc][INFO] 2025-12-18 11:59:48,940: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 11:59:48,941: Started XML-RPC server [http://127.0.0.1:41211/]
+[rospy.impl.masterslave][INFO] 2025-12-18 11:59:48,942: _ready: http://127.0.0.1:41211/
+[rospy.init][INFO] 2025-12-18 11:59:48,942: ROS Slave URI: [http://127.0.0.1:41211/]
+[rospy.registration][INFO] 2025-12-18 11:59:48,943: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 11:59:48,944: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 11:59:49,043: registered with master
+[rospy.rosout][INFO] 2025-12-18 11:59:49,044: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 11:59:49,076: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 11:59:49,085: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 11:59:49,092: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 11:59:49,107: topic[/clock] adding connection to [http://127.0.0.1:46085/], count 0
+[rospy.internal][INFO] 2025-12-18 11:59:51,563: topic[/tf] adding connection to [http://127.0.0.1:36289/], count 0
+[rospy.internal][INFO] 2025-12-18 11:59:51,570: topic[/tf_static] adding connection to [http://127.0.0.1:36289/], count 0
+[rospy.internal][INFO] 2025-12-18 11:59:51,571: topic[/tf] adding connection to [http://127.0.0.1:46085/], count 1
+[rosout][INFO] 2025-12-18 11:59:51,624: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rospy.internal][INFO] 2025-12-18 11:59:51,644: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-18 11:59:51,645: 🎯 Cible: knife
+[rosout][INFO] 2025-12-18 11:59:51,649: 📁 3 objets détectés
+[rospy.internal][INFO] 2025-12-18 11:59:51,821: topic[/mobile_base_controller/cmd_vel] adding connection to [/twist_marker], count 0
+[rospy.internal][INFO] 2025-12-18 11:59:51,841: topic[/mobile_base_controller/cmd_vel] adding connection to [/gazebo], count 1
+[rosout][INFO] 2025-12-18 11:59:59,533: 🚀 Démarrage du positionnement avec profondeur
+[rosout][INFO] 2025-12-18 12:00:13,319: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-18 12:00:13,325: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2025-12-18 12:00:13,350: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2025-12-18 12:00:13,363: 📍 Coordonnées robot: (1.040, 0.032, 1.524)
+[rosout][INFO] 2025-12-18 12:00:13,371: 🎯 Position calculée: (1.040, 0.032, 1.624)
+[rosout][WARNING] 2025-12-18 12:00:13,383: ⚠️  Position hors de l'espace de travail: x=1.040, y=0.032, z=1.624
+[rosout][WARNING] 2025-12-18 12:00:13,397:     Limites: x=[0.30, 0.80], y=[-0.30, 0.30], z=[0.50, 1.20]
+[rosout][WARNING] 2025-12-18 12:00:13,402: ⚠️  Position hors de portée, déplacement du robot...
+[rosout][INFO] 2025-12-18 12:00:13,419: 🚗 Déplacement du robot vers la cible...
+[rosout][INFO] 2025-12-18 12:00:13,424: 📏 Distance à parcourir: 0.340 m
+[rosout][INFO] 2025-12-18 12:00:31,401: ✅ Déplacement du robot terminé
+[rosout][INFO] 2025-12-18 12:00:31,410: 🎯 Position ajustée après déplacement: (0.740, 0.032, 1.624)
+[rosout][ERROR] 2025-12-18 12:00:41,554: ❌ Échec du déplacement
+[rosout][INFO] 2025-12-18 12:00:41,571: 🔄 Essai avec position de secours...
+[rospy.core][INFO] 2025-12-18 12:00:51,974: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-18 12:00:52,006: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-18 12:00:52,006: topic[/mobile_base_controller/cmd_vel] removing connection to /twist_marker
+[rospy.internal][INFO] 2025-12-18 12:00:52,007: topic[/mobile_base_controller/cmd_vel] removing connection to /gazebo
+[rospy.internal][INFO] 2025-12-18 12:00:52,014: topic[/clock] removing connection to http://127.0.0.1:46085/
+[rospy.internal][INFO] 2025-12-18 12:00:52,016: topic[/tf] removing connection to http://127.0.0.1:36289/
+[rospy.internal][INFO] 2025-12-18 12:00:52,024: topic[/tf] removing connection to http://127.0.0.1:46085/
+[rospy.internal][INFO] 2025-12-18 12:00:52,025: topic[/tf_static] removing connection to http://127.0.0.1:36289/
+[rospy.impl.masterslave][INFO] 2025-12-18 12:00:52,025: atexit
+[rospy.client][INFO] 2025-12-18 12:09:54,104: init_node, name[/tiago_position_with_depth], pid[1178]
+[xmlrpc][INFO] 2025-12-18 12:09:54,105: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 12:09:54,106: Started XML-RPC server [http://127.0.0.1:35273/]
+[rospy.init][INFO] 2025-12-18 12:09:54,106: ROS Slave URI: [http://127.0.0.1:35273/]
+[rospy.impl.masterslave][INFO] 2025-12-18 12:09:54,109: _ready: http://127.0.0.1:35273/
+[rospy.registration][INFO] 2025-12-18 12:09:54,120: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 12:09:54,121: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 12:09:54,212: registered with master
+[rospy.rosout][INFO] 2025-12-18 12:09:54,213: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 12:09:54,231: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 12:09:54,233: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 12:09:54,247: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 12:09:54,264: topic[/clock] adding connection to [http://127.0.0.1:41105/], count 0
+[rospy.internal][INFO] 2025-12-18 12:09:56,247: topic[/tf] adding connection to [http://127.0.0.1:44277/], count 0
+[rospy.internal][INFO] 2025-12-18 12:09:56,262: topic[/tf] adding connection to [http://127.0.0.1:41105/], count 1
+[rospy.internal][INFO] 2025-12-18 12:09:56,272: topic[/tf_static] adding connection to [http://127.0.0.1:44277/], count 0
+[rospy.internal][INFO] 2025-12-18 12:09:56,295: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-18 12:09:56,347: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rosout][INFO] 2025-12-18 12:09:56,357: 🎯 Cible: knife
+[rosout][INFO] 2025-12-18 12:09:56,369: 📁 3 objets détectés
+[rospy.internal][INFO] 2025-12-18 12:09:56,497: topic[/mobile_base_controller/cmd_vel] adding connection to [/gazebo], count 0
+[rospy.internal][INFO] 2025-12-18 12:09:56,501: topic[/mobile_base_controller/cmd_vel] adding connection to [/twist_marker], count 1
+[rosout][INFO] 2025-12-18 12:10:01,287: 🚀 Démarrage du positionnement avec profondeur
+[rosout][INFO] 2025-12-18 12:10:47,387: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-18 12:10:47,403: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2025-12-18 12:10:47,406: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2025-12-18 12:10:47,409: 📍 Coordonnées robot: (1.040, 0.032, 1.523)
+[rosout][INFO] 2025-12-18 12:10:47,423: 🎯 Position calculée: (1.040, 0.032, 1.623)
+[rosout][WARNING] 2025-12-18 12:10:47,430: ⚠️  Position hors de l'espace de travail: x=1.040, y=0.032, z=1.623
+[rosout][WARNING] 2025-12-18 12:10:47,447:     Limites: x=[0.30, 0.80], y=[-0.30, 0.30], z=[0.50, 1.20]
+[rosout][WARNING] 2025-12-18 12:10:47,452: ⚠️  Position hors de portée, déplacement du robot...
+[rosout][INFO] 2025-12-18 12:10:47,470: 🚗 Déplacement du robot vers la cible...
+[rosout][INFO] 2025-12-18 12:10:47,486: 📏 Distance à parcourir: 0.340 m
+[rosout][INFO] 2025-12-18 12:11:02,691: ✅ Déplacement du robot terminé
+[rosout][INFO] 2025-12-18 12:11:02,694: 🎯 Position ajustée après déplacement: (0.740, 0.032, 1.623)
+[rosout][ERROR] 2025-12-18 12:11:02,750: ❌ Échec du déplacement
+[rosout][INFO] 2025-12-18 12:11:02,774: 🔄 Essai avec position de secours...
+[rospy.core][INFO] 2025-12-18 12:11:03,212: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-18 12:11:03,271: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-18 12:11:03,273: topic[/mobile_base_controller/cmd_vel] removing connection to /gazebo
+[rospy.internal][INFO] 2025-12-18 12:11:03,276: topic[/mobile_base_controller/cmd_vel] removing connection to /twist_marker
+[rospy.internal][INFO] 2025-12-18 12:11:03,282: topic[/clock] removing connection to http://127.0.0.1:41105/
+[rospy.internal][INFO] 2025-12-18 12:11:03,285: topic[/clock] removing connection to http://127.0.0.1:41105/
+[rospy.topics][ERROR] 2025-12-18 12:11:03,287: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.internal][INFO] 2025-12-18 12:11:03,289: topic[/tf] removing connection to http://127.0.0.1:44277/
+[rospy.internal][INFO] 2025-12-18 12:11:03,289: topic[/tf] removing connection to http://127.0.0.1:44277/
+[rospy.internal][INFO] 2025-12-18 12:11:03,289: topic[/tf] removing connection to http://127.0.0.1:41105/
+[rospy.internal][INFO] 2025-12-18 12:11:03,291: topic[/tf_static] removing connection to http://127.0.0.1:44277/
+[rospy.impl.masterslave][INFO] 2025-12-18 12:11:03,293: atexit
+[rospy.client][INFO] 2025-12-18 12:26:28,683: init_node, name[/tiago_position_with_depth], pid[902]
+[xmlrpc][INFO] 2025-12-18 12:26:28,683: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 12:26:28,684: Started XML-RPC server [http://127.0.0.1:33923/]
+[rospy.init][INFO] 2025-12-18 12:26:28,684: ROS Slave URI: [http://127.0.0.1:33923/]
+[rospy.impl.masterslave][INFO] 2025-12-18 12:26:28,684: _ready: http://127.0.0.1:33923/
+[rospy.registration][INFO] 2025-12-18 12:26:28,686: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 12:26:28,686: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 12:26:28,785: registered with master
+[rospy.rosout][INFO] 2025-12-18 12:26:28,785: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 12:26:28,796: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 12:26:28,797: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 12:26:28,800: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 12:26:28,802: topic[/clock] adding connection to [http://127.0.0.1:43945/], count 0
+[rospy.internal][INFO] 2025-12-18 12:26:30,289: topic[/tf] adding connection to [http://127.0.0.1:43945/], count 0
+[rospy.internal][INFO] 2025-12-18 12:26:30,294: topic[/tf] adding connection to [http://127.0.0.1:39623/], count 0
+[rospy.internal][INFO] 2025-12-18 12:26:30,298: topic[/tf_static] adding connection to [http://127.0.0.1:39623/], count 0
+[rosout][INFO] 2025-12-18 12:26:30,323: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rosout][INFO] 2025-12-18 12:26:30,325: 🎯 Cible: knife
+[rosout][INFO] 2025-12-18 12:26:30,327: 📁 3 objets détectés
+[rospy.internal][INFO] 2025-12-18 12:26:30,380: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 12:26:30,481: topic[/mobile_base_controller/cmd_vel] adding connection to [/gazebo], count 0
+[rospy.internal][INFO] 2025-12-18 12:26:30,577: topic[/mobile_base_controller/cmd_vel] adding connection to [/twist_marker], count 1
+[rosout][INFO] 2025-12-18 12:26:32,574: 🚀 Démarrage du positionnement avec profondeur
+[rosout][INFO] 2025-12-18 12:27:11,358: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-18 12:27:11,399: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2025-12-18 12:27:11,418: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2025-12-18 12:27:11,436: 📍 Coordonnées robot: (1.040, 0.032, 1.181)
+[rosout][INFO] 2025-12-18 12:27:11,458: 🎯 Position calculée: (1.040, 0.032, 1.381)
+[rosout][WARNING] 2025-12-18 12:27:11,469: ⚠️  Position hors de l'espace de travail: x=1.040, y=0.032, z=1.381
+[rosout][WARNING] 2025-12-18 12:27:11,491:     Limites: x=[0.30, 0.80], y=[-0.30, 0.30], z=[0.80, 1.30]
+[rosout][WARNING] 2025-12-18 12:27:11,515: ⚠️  Position hors de portée, préparation au déplacement...
+[rosout][INFO] 2025-12-18 12:27:11,536: ⬆️  Levage du bras pour le déplacement...
+[rosout][INFO] 2025-12-18 12:27:24,568: ✅ Bras levé avec succès
+[rosout][INFO] 2025-12-18 12:27:27,323: 🚗 Déplacement du robot vers la cible...
+[rosout][INFO] 2025-12-18 12:27:27,329: 📏 Distance à parcourir: 0.440 m
+[rosout][INFO] 2025-12-18 12:27:27,343: ⏱️  Déplacement pendant 5.50 secondes
+[rosout][INFO] 2025-12-18 12:27:46,851: ✅ Déplacement du robot terminé
+[rosout][INFO] 2025-12-18 12:27:46,863: 🎯 Position ajustée après déplacement: (0.700, 0.032, 1.200)
+[rosout][INFO] 2025-12-18 12:27:46,873: ⬇️  Descente contrôlée du bras vers la cible...
+[rosout][INFO] 2025-12-18 12:27:46,883: 📍 Approche intermédiaire: z=1.350m
+[rosout][INFO] 2025-12-18 12:29:01,918: 📍 Descente finale vers: z=1.200m
+[rosout][INFO] 2025-12-18 12:29:33,254: ✅ Position atteinte avec précision!
+[rosout][INFO] 2025-12-18 12:29:33,281: 🔒 Maintien de la position...
+[rospy.client][INFO] 2025-12-19 09:03:40,632: init_node, name[/tiago_position_with_depth], pid[1046]
+[xmlrpc][INFO] 2025-12-19 09:03:40,640: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-19 09:03:40,640: Started XML-RPC server [http://127.0.0.1:46607/]
+[rospy.impl.masterslave][INFO] 2025-12-19 09:03:40,640: _ready: http://127.0.0.1:46607/
+[rospy.init][INFO] 2025-12-19 09:03:40,641: ROS Slave URI: [http://127.0.0.1:46607/]
+[rospy.registration][INFO] 2025-12-19 09:03:40,641: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-19 09:03:40,642: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-19 09:03:40,742: registered with master
+[rospy.rosout][INFO] 2025-12-19 09:03:40,742: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-19 09:03:40,761: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-19 09:03:40,764: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-19 09:03:40,770: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-19 09:03:40,777: topic[/clock] adding connection to [http://127.0.0.1:43347/], count 0
+[rospy.internal][INFO] 2025-12-19 09:03:42,338: topic[/tf] adding connection to [http://127.0.0.1:37379/], count 0
+[rospy.internal][INFO] 2025-12-19 09:03:42,343: topic[/tf] adding connection to [http://127.0.0.1:43347/], count 1
+[rospy.internal][INFO] 2025-12-19 09:03:42,348: topic[/tf_static] adding connection to [http://127.0.0.1:37379/], count 0
+[rospy.internal][INFO] 2025-12-19 09:03:42,402: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-19 09:03:42,428: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rosout][INFO] 2025-12-19 09:03:42,433: 🎯 Cible: knife
+[rosout][INFO] 2025-12-19 09:03:42,438: 📁 3 objets détectés
+[rospy.internal][INFO] 2025-12-19 09:03:42,472: topic[/mobile_base_controller/cmd_vel] adding connection to [/gazebo], count 0
+[rospy.internal][INFO] 2025-12-19 09:03:42,554: topic[/mobile_base_controller/cmd_vel] adding connection to [/twist_marker], count 1
+[rosout][INFO] 2025-12-19 09:03:44,903: 🚀 Démarrage du positionnement avec profondeur
+[rosout][INFO] 2025-12-19 09:04:36,366: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-19 09:04:36,376: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2025-12-19 09:04:36,391: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2025-12-19 09:04:36,396: 📍 Coordonnées robot: (1.041, 0.032, 1.511)
+[rosout][INFO] 2025-12-19 09:04:36,408: 🎯 Position calculée: (1.041, 0.032, 1.611)
+[rosout][INFO] 2025-12-19 09:04:36,418: ⚠️  Hauteur ajustée à: 1.000m
+[rosout][WARNING] 2025-12-19 09:04:36,424: ⚠️  Position hors de l'espace de travail: x=1.041, y=0.032, z=1.000
+[rosout][WARNING] 2025-12-19 09:04:36,435:     Limites: x=[0.30, 0.80], y=[-0.40, 0.40], z=[0.60, 1.20]
+[rosout][WARNING] 2025-12-19 09:04:36,442: ⚠️  Position hors de portée, préparation au déplacement...
+[rosout][INFO] 2025-12-19 09:04:36,455: ⬆️  Levage modéré du bras pour le déplacement...
+[rosout][INFO] 2025-12-19 09:04:44,296: ✅ Bras levé avec succès
+[rosout][INFO] 2025-12-19 09:04:48,448: 🚗 Déplacement contrôlé du robot...
+[rosout][INFO] 2025-12-19 09:04:48,458: 📏 Distance à parcourir: 0.341 m
+[rosout][INFO] 2025-12-19 09:04:48,461: ⏱️  Déplacement pendant 6.82 secondes
+[rosout][INFO] 2025-12-19 09:05:18,402: ✅ Déplacement du robot terminé
+[rosout][INFO] 2025-12-19 09:05:18,418: 🎯 Position ajustée après déplacement: (0.841, 0.032, 0.900)
+[rosout][INFO] 2025-12-19 09:05:18,436: 🎯 Approche progressive de la cible...
+[rosout][INFO] 2025-12-19 09:05:18,452: 📍 Position intermédiaire: z=1.000m
+[rosout][WARNING] 2025-12-19 09:05:28,519: ⚠️  Échec de l'approche intermédiaire, tentative directe...
+[rosout][ERROR] 2025-12-19 09:05:38,594: ❌ Échec de l'approche de la cible
+[rosout][INFO] 2025-12-19 09:05:38,616: 🔄 Essai avec position plus prudente...
+[rosout][INFO] 2025-12-19 09:05:48,781: ✅ Position prudente atteinte!
+[rospy.client][INFO] 2025-12-19 09:07:36,311: init_node, name[/tiago_position_with_depth], pid[1214]
+[xmlrpc][INFO] 2025-12-19 09:07:36,314: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-19 09:07:36,322: Started XML-RPC server [http://127.0.0.1:35203/]
+[rospy.impl.masterslave][INFO] 2025-12-19 09:07:36,324: _ready: http://127.0.0.1:35203/
+[rospy.init][INFO] 2025-12-19 09:07:36,324: ROS Slave URI: [http://127.0.0.1:35203/]
+[rospy.registration][INFO] 2025-12-19 09:07:36,330: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-19 09:07:36,331: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-19 09:07:36,426: registered with master
+[rospy.rosout][INFO] 2025-12-19 09:07:36,427: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-19 09:07:36,465: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-19 09:07:36,468: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-19 09:07:36,488: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-19 09:07:36,506: topic[/clock] adding connection to [http://127.0.0.1:43347/], count 0
+[rospy.internal][INFO] 2025-12-19 09:07:39,045: topic[/tf_static] adding connection to [http://127.0.0.1:37379/], count 0
+[rospy.internal][INFO] 2025-12-19 09:07:39,047: topic[/tf] adding connection to [http://127.0.0.1:37379/], count 0
+[rospy.internal][INFO] 2025-12-19 09:07:39,051: topic[/tf] adding connection to [http://127.0.0.1:43347/], count 0
+[rospy.internal][INFO] 2025-12-19 09:07:39,066: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-19 09:07:39,173: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rosout][INFO] 2025-12-19 09:07:39,179: 🎯 Cible: knife
+[rosout][INFO] 2025-12-19 09:07:39,182: 📁 3 objets détectés
+[rospy.internal][INFO] 2025-12-19 09:07:39,259: topic[/mobile_base_controller/cmd_vel] adding connection to [/twist_marker], count 0
+[rospy.internal][INFO] 2025-12-19 09:07:39,273: topic[/mobile_base_controller/cmd_vel] adding connection to [/gazebo], count 1
+[rosout][INFO] 2025-12-19 09:07:47,723: 🚀 Démarrage du positionnement avec profondeur
+[rosout][INFO] 2025-12-19 09:08:00,279: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-19 09:08:00,315: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2025-12-19 09:08:00,335: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2025-12-19 09:08:00,338: 📍 Coordonnées robot: (1.040, 0.032, 1.480)
+[rosout][INFO] 2025-12-19 09:08:00,352: 🎯 Position calculée: (1.040, 0.032, 1.580)
+[rosout][INFO] 2025-12-19 09:08:00,359: ⚠️  Hauteur ajustée à: 1.000m
+[rosout][WARNING] 2025-12-19 09:08:00,364: ⚠️  Position hors de l'espace de travail: x=1.040, y=0.032, z=1.000
+[rosout][WARNING] 2025-12-19 09:08:00,369:     Limites: x=[0.30, 0.80], y=[-0.40, 0.40], z=[0.60, 1.20]
+[rosout][WARNING] 2025-12-19 09:08:00,396: ⚠️  Position hors de portée, préparation au déplacement...
+[rosout][INFO] 2025-12-19 09:08:00,408: ⬆️  Levage modéré du bras pour le déplacement...
+[rosout][INFO] 2025-12-19 09:08:13,493: ✅ Bras levé avec succès
+[rosout][INFO] 2025-12-19 09:08:16,442: 🚗 Déplacement contrôlé du robot...
+[rosout][INFO] 2025-12-19 09:08:16,456: 📏 Distance à parcourir: 0.340 m
+[rosout][INFO] 2025-12-19 09:08:16,475: ⏱️  Déplacement pendant 3.78 secondes
+[rosout][INFO] 2025-12-19 09:08:37,530: ✅ Déplacement du robot terminé
+[rosout][INFO] 2025-12-19 09:08:37,570: 🎯 Position ajustée après déplacement: (0.840, 0.032, 0.900)
+[rosout][INFO] 2025-12-19 09:08:37,581: 🎯 Approche progressive de la cible...
+[rosout][INFO] 2025-12-19 09:08:37,589: 📍 Position intermédiaire: z=1.000m
+[rosout][WARNING] 2025-12-19 09:08:47,701: ⚠️  Échec de l'approche intermédiaire, tentative directe...
+[rosout][ERROR] 2025-12-19 09:08:57,828: ❌ Échec de l'approche de la cible
+[rosout][INFO] 2025-12-19 09:08:57,843: 🔄 Essai avec position plus prudente...
+[rosout][INFO] 2025-12-19 09:09:07,937: ✅ Position prudente atteinte!
+[rospy.client][INFO] 2025-12-19 09:22:36,760: init_node, name[/tiago_position_with_depth], pid[993]
+[xmlrpc][INFO] 2025-12-19 09:22:36,761: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-19 09:22:36,761: Started XML-RPC server [http://127.0.0.1:45959/]
+[rospy.init][INFO] 2025-12-19 09:22:36,761: ROS Slave URI: [http://127.0.0.1:45959/]
+[rospy.impl.masterslave][INFO] 2025-12-19 09:22:36,761: _ready: http://127.0.0.1:45959/
+[xmlrpc][INFO] 2025-12-19 09:22:36,770: xml rpc node: starting XML-RPC server
+[rospy.registration][INFO] 2025-12-19 09:22:36,771: Registering with master node http://localhost:11311/
+[rospy.init][INFO] 2025-12-19 09:22:36,862: registered with master
+[rospy.rosout][INFO] 2025-12-19 09:22:36,862: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-19 09:22:36,868: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-19 09:22:36,881: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-19 09:22:36,893: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-19 09:22:36,912: topic[/clock] adding connection to [http://127.0.0.1:43341/], count 0
+[rospy.internal][INFO] 2025-12-19 09:22:39,573: topic[/tf] adding connection to [http://127.0.0.1:41647/], count 0
+[rospy.internal][INFO] 2025-12-19 09:22:39,576: topic[/tf] adding connection to [http://127.0.0.1:43341/], count 0
+[rospy.internal][INFO] 2025-12-19 09:22:39,591: topic[/tf_static] adding connection to [http://127.0.0.1:41647/], count 0
+[rosout][INFO] 2025-12-19 09:22:39,668: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rosout][INFO] 2025-12-19 09:22:39,681: 🎯 Cible: knife
+[rospy.internal][INFO] 2025-12-19 09:22:39,693: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-19 09:22:39,690: 📁 3 objets détectés
+[rospy.internal][INFO] 2025-12-19 09:22:39,806: topic[/mobile_base_controller/cmd_vel] adding connection to [/gazebo], count 0
+[rospy.internal][INFO] 2025-12-19 09:22:39,811: topic[/mobile_base_controller/cmd_vel] adding connection to [/twist_marker], count 1
+[rosout][INFO] 2025-12-19 09:22:48,257: 🚀 Démarrage positionnement Tiago
+[rosout][INFO] 2025-12-19 09:22:54,320: 🔄 Déplacement vers position sûre...
+[rosout][WARNING] 2025-12-19 09:22:54,692: ⚠️  Échec position sûre par joints, tentative par pose...
+[rosout][INFO] 2025-12-19 09:24:28,490: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-19 09:24:28,496: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2025-12-19 09:24:28,518: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2025-12-19 09:24:28,535: 📍 Coordonnées robot: (1.042, 0.032, 1.515)
+[rosout][INFO] 2025-12-19 09:24:28,544: 🎯 Position calculée: X=1.042, Y=0.032, Z=1.665
+[rosout][INFO] 2025-12-19 09:24:28,553: 🎯 Position ajustée: X=0.750, Y=0.032, Z=0.950
+[rosout][INFO] 2025-12-19 09:24:28,565: 📏 Cible trop éloignée, déplacement nécessaire...
+[rosout][INFO] 2025-12-19 09:24:28,584: ⬆️  Levage modéré du bras...
+[rosout][INFO] 2025-12-19 09:24:42,699: ✅ Bras levé
+[rosout][INFO] 2025-12-19 09:24:45,639: 🚗 Déplacement robot...
+[rosout][INFO] 2025-12-19 09:24:45,651: ✅ Déjà assez proche
+[rosout][INFO] 2025-12-19 09:24:45,655: 🎯 Nouvelle position: X=0.750
+[rosout][INFO] 2025-12-19 09:24:45,673: 🎯 Approche de la cible...
+[rosout][INFO] 2025-12-19 09:24:45,692: 🎯 Approche sûre de la cible...
+[rosout][INFO] 2025-12-19 09:24:45,715: 📍 Approche haute: z=1.150m
+[rosout][INFO] 2025-12-19 09:24:45,720: 🔄 Tentative 1/3
+[rosout][INFO] 2025-12-19 09:24:45,881: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2025-12-19 09:25:25,306: ✅ Pose atteinte
+[rosout][INFO] 2025-12-19 09:25:31,051: 📍 Approche intermédiaire: z=1.050m
+[rosout][INFO] 2025-12-19 09:25:31,056: 🔄 Tentative 1/3
+[rosout][INFO] 2025-12-19 09:25:31,271: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2025-12-19 09:26:28,039: ✅ Pose atteinte
+[rosout][INFO] 2025-12-19 09:26:32,246: 📍 Descente finale: z=0.950m
+[rosout][INFO] 2025-12-19 09:26:32,255: 🔄 Tentative 1/3
+[rosout][INFO] 2025-12-19 09:26:32,370: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2025-12-19 09:28:10,836: ✅ Pose atteinte
+[rosout][INFO] 2025-12-19 09:28:13,384: ✅✅✅ SUCCÈS: Position atteinte avec précision!
+[rosout][INFO] 2025-12-19 09:28:13,386: 🔒 Maintien de la position...
+[rosout][INFO] 2025-12-19 09:28:38,851: 🔄 Retour à la position sûre...
+[rosout][INFO] 2025-12-19 09:28:38,854: 🔄 Déplacement vers position sûre...
+[rosout][WARNING] 2025-12-19 09:28:39,036: ⚠️  Échec position sûre par joints, tentative par pose...
+[rospy.core][INFO] 2025-12-19 09:29:19,769: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-19 09:29:19,787: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-19 09:29:19,789: topic[/mobile_base_controller/cmd_vel] removing connection to /gazebo
+[rospy.internal][INFO] 2025-12-19 09:29:19,793: topic[/mobile_base_controller/cmd_vel] removing connection to /twist_marker
+[rospy.internal][INFO] 2025-12-19 09:29:19,804: topic[/clock] removing connection to http://127.0.0.1:43341/
+[rospy.internal][INFO] 2025-12-19 09:29:19,806: topic[/clock] removing connection to http://127.0.0.1:43341/
+[rospy.internal][INFO] 2025-12-19 09:29:19,809: topic[/tf] removing connection to http://127.0.0.1:41647/
+[rospy.internal][INFO] 2025-12-19 09:29:19,814: topic[/tf] removing connection to http://127.0.0.1:43341/
+[rospy.internal][INFO] 2025-12-19 09:29:19,815: topic[/tf_static] removing connection to http://127.0.0.1:41647/
+[rospy.impl.masterslave][INFO] 2025-12-19 09:29:19,816: atexit
+[rospy.client][INFO] 2025-12-19 10:00:43,749: init_node, name[/tiago_position_with_depth], pid[890]
+[xmlrpc][INFO] 2025-12-19 10:00:43,759: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-19 10:00:43,760: Started XML-RPC server [http://127.0.0.1:35781/]
+[rospy.impl.masterslave][INFO] 2025-12-19 10:00:43,760: _ready: http://127.0.0.1:35781/
+[rospy.init][INFO] 2025-12-19 10:00:43,760: ROS Slave URI: [http://127.0.0.1:35781/]
+[rospy.registration][INFO] 2025-12-19 10:00:43,761: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-19 10:00:43,761: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-19 10:00:43,861: registered with master
+[rospy.rosout][INFO] 2025-12-19 10:00:43,861: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-19 10:00:43,872: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-19 10:00:43,874: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-19 10:00:43,877: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-19 10:00:43,879: topic[/clock] adding connection to [http://127.0.0.1:40085/], count 0
+[rospy.internal][INFO] 2025-12-19 10:00:45,457: topic[/tf] adding connection to [http://127.0.0.1:41823/], count 0
+[rospy.internal][INFO] 2025-12-19 10:00:45,460: topic[/tf] adding connection to [http://127.0.0.1:40085/], count 1
+[rospy.internal][INFO] 2025-12-19 10:00:45,462: topic[/tf_static] adding connection to [http://127.0.0.1:41823/], count 0
+[rosout][INFO] 2025-12-19 10:00:45,490: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rosout][INFO] 2025-12-19 10:00:45,492: 🎯 Cible: knife
+[rosout][INFO] 2025-12-19 10:00:45,494: 📁 3 objets détectés
+[rospy.internal][INFO] 2025-12-19 10:00:45,539: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-19 10:00:45,734: topic[/mobile_base_controller/cmd_vel] adding connection to [/twist_marker], count 0
+[rospy.internal][INFO] 2025-12-19 10:00:45,740: topic[/mobile_base_controller/cmd_vel] adding connection to [/gazebo], count 1
+[rosout][INFO] 2025-12-19 10:00:47,766: 🚀 Démarrage positionnement Tiago
+[rosout][INFO] 2025-12-19 10:00:50,009: 🔄 Déplacement vers position sûre...
+[rosout][INFO] 2025-12-19 10:01:36,283: ✅ Position sûre atteinte
+[rosout][INFO] 2025-12-19 10:01:41,349: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-19 10:01:41,364: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2025-12-19 10:01:41,374: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2025-12-19 10:01:41,391: 📍 Coordonnées robot: (1.041, 0.032, 1.439)
+[rosout][INFO] 2025-12-19 10:01:41,394: 🎯 Position calculée: X=1.041, Y=0.032, Z=1.589
+[rosout][INFO] 2025-12-19 10:01:41,407: 🎯 Position ajustée: X=0.750, Y=0.032, Z=0.950
+[rosout][INFO] 2025-12-19 10:01:41,412: 📏 Cible trop éloignée, déplacement nécessaire...
+[rosout][INFO] 2025-12-19 10:01:41,426: ⬆️  Levage modéré du bras...
+[rosout][INFO] 2025-12-19 10:02:30,053: ✅ Bras levé
+[rosout][INFO] 2025-12-19 10:02:32,347: 🚗 Déplacement robot...
+[rosout][INFO] 2025-12-19 10:02:32,354: ✅ Déjà assez proche
+[rosout][INFO] 2025-12-19 10:02:32,357: 🎯 Nouvelle position: X=0.750
+[rosout][INFO] 2025-12-19 10:02:32,384: 🎯 Approche de la cible...
+[rosout][INFO] 2025-12-19 10:02:32,400: 🎯 Approche sûre de la cible...
+[rosout][INFO] 2025-12-19 10:02:32,411: 📍 Approche haute: z=1.150m
+[rosout][INFO] 2025-12-19 10:02:32,425: 🔄 Tentative 1/3
+[rosout][INFO] 2025-12-19 10:02:32,590: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2025-12-19 10:03:00,683: ✅ Pose atteinte
+[rosout][INFO] 2025-12-19 10:03:06,069: 📍 Approche intermédiaire: z=1.050m
+[rosout][INFO] 2025-12-19 10:03:06,089: 🔄 Tentative 1/3
+[rosout][INFO] 2025-12-19 10:03:06,240: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2025-12-19 10:03:52,290: ✅ Pose atteinte
+[rosout][INFO] 2025-12-19 10:03:56,147: 📍 Descente finale: z=0.950m
+[rosout][INFO] 2025-12-19 10:03:56,151: 🔄 Tentative 1/3
+[rosout][INFO] 2025-12-19 10:03:56,292: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2025-12-19 10:05:26,625: ✅ Pose atteinte
+[rosout][INFO] 2025-12-19 10:05:29,460: ✅✅✅ SUCCÈS: Position atteinte avec précision!
+[rosout][INFO] 2025-12-19 10:05:29,464: 🔒 Maintien de la position... (Ctrl+C pour arrêter)

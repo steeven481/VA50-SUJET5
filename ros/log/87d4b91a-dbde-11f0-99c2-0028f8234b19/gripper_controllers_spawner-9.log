@@ -1,0 +1,38 @@
+[rospy.client][INFO] 2025-12-18 07:55:29,440: init_node, name[/gripper_controllers_spawner], pid[175]
+[xmlrpc][INFO] 2025-12-18 07:55:29,440: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 07:55:29,441: Started XML-RPC server [http://127.0.0.1:46181/]
+[rospy.impl.masterslave][INFO] 2025-12-18 07:55:29,441: _ready: http://127.0.0.1:46181/
+[rospy.init][INFO] 2025-12-18 07:55:29,441: ROS Slave URI: [http://127.0.0.1:46181/]
+[rospy.registration][INFO] 2025-12-18 07:55:29,442: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 07:55:29,442: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 07:55:29,542: registered with master
+[rospy.rosout][INFO] 2025-12-18 07:55:29,542: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 07:55:29,546: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 07:55:29,547: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 07:55:29,548: connected to core topic /clock
+[rosout][INFO] 2025-12-18 07:55:29,550: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-12-18 07:55:29,789: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 07:55:30,110: topic[/clock] adding connection to [http://127.0.0.1:39601/], count 0
+[rosout][INFO] 2025-12-18 07:55:31,360: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-12-18 07:55:31,364: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-12-18 07:55:31,368: Loading controller: gripper_controller
+[rosout][INFO] 2025-12-18 07:55:31,513: Controller Spawner: Loaded controllers: gripper_controller
+[rosout][INFO] 2025-12-18 07:55:31,528: Started controllers: gripper_controller
+[rospy.core][INFO] 2025-12-18 08:11:40,350: signal_shutdown [signal-2]
+[rosout][INFO] 2025-12-18 08:11:40,351: Shutting down spawner. Stopping and unloading controllers...
+[rosout][INFO] 2025-12-18 08:11:41,617: Stopping all controllers...
+[rosout][INFO] 2025-12-18 08:11:41,868: Unloading all loaded controllers...
+[rosout][INFO] 2025-12-18 08:11:41,962: Trying to unload gripper_controller
+[rosout][INFO] 2025-12-18 08:11:42,539: Succeeded in unloading gripper_controller
+[rospy.internal][INFO] 2025-12-18 08:11:42,627: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-18 08:11:42,635: topic[/clock] removing connection to http://127.0.0.1:39601/
+[rospy.internal][INFO] 2025-12-18 08:11:42,636: topic[/clock] removing connection to http://127.0.0.1:39601/
+[rospy.topics][ERROR] 2025-12-18 08:11:42,650: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.impl.masterslave][INFO] 2025-12-18 08:11:42,654: signal-2
+[rospy.core][INFO] 2025-12-18 08:11:43,179: signal_shutdown [atexit]

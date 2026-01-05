@@ -1,0 +1,21 @@
+[rospy.client][INFO] 2025-12-19 10:00:16,854: init_node, name[/is_already_there], pid[194]
+[xmlrpc][INFO] 2025-12-19 10:00:16,856: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-19 10:00:16,856: Started XML-RPC server [http://127.0.0.1:46513/]
+[rospy.impl.masterslave][INFO] 2025-12-19 10:00:16,857: _ready: http://127.0.0.1:46513/
+[rospy.init][INFO] 2025-12-19 10:00:16,857: ROS Slave URI: [http://127.0.0.1:46513/]
+[rospy.registration][INFO] 2025-12-19 10:00:16,862: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-19 10:00:16,862: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-19 10:00:16,958: registered with master
+[rospy.rosout][INFO] 2025-12-19 10:00:16,959: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-19 10:00:16,973: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-19 10:00:16,977: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-19 10:00:16,983: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-19 10:00:17,281: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-19 10:00:18,057: topic[/clock] adding connection to [http://127.0.0.1:40085/], count 0
+[rospy.internal][INFO] 2025-12-19 10:00:19,710: topic[/joint_states] adding connection to [http://127.0.0.1:40085/], count 0
+[rospy.core][INFO] 2025-12-19 10:09:57,498: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-12-19 10:09:57,539: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-19 10:09:57,542: topic[/clock] removing connection to http://127.0.0.1:40085/
+[rospy.internal][INFO] 2025-12-19 10:09:57,546: topic[/joint_states] removing connection to http://127.0.0.1:40085/
+[rospy.impl.masterslave][INFO] 2025-12-19 10:09:57,552: signal-2
+[rospy.core][INFO] 2025-12-19 10:09:58,103: signal_shutdown [atexit]

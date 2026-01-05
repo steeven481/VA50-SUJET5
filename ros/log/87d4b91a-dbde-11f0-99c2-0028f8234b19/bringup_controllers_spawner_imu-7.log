@@ -1,0 +1,23 @@
+[rospy.client][INFO] 2025-12-18 07:55:29,368: init_node, name[/bringup_controllers_spawner_imu], pid[169]
+[xmlrpc][INFO] 2025-12-18 07:55:29,368: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 07:55:29,369: Started XML-RPC server [http://127.0.0.1:38131/]
+[rospy.init][INFO] 2025-12-18 07:55:29,369: ROS Slave URI: [http://127.0.0.1:38131/]
+[rospy.impl.masterslave][INFO] 2025-12-18 07:55:29,369: _ready: http://127.0.0.1:38131/
+[rospy.registration][INFO] 2025-12-18 07:55:29,370: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 07:55:29,370: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 07:55:29,469: registered with master
+[rospy.rosout][INFO] 2025-12-18 07:55:29,470: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 07:55:29,473: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 07:55:29,474: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 07:55:29,477: connected to core topic /clock
+[rosout][INFO] 2025-12-18 07:55:29,481: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-12-18 07:55:29,688: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 07:55:30,110: topic[/clock] adding connection to [http://127.0.0.1:39601/], count 0
+[rosout][INFO] 2025-12-18 07:55:31,596: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-12-18 07:55:31,601: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-12-18 07:55:31,608: Loading controller: imu_sensor_controller
+[rosout][INFO] 2025-12-18 07:55:31,643: Controller Spawner: Loaded controllers: imu_sensor_controller
+[rosout][INFO] 2025-12-18 07:55:31,669: Started controllers: imu_sensor_controller
+[rospy.core][INFO] 2025-12-18 08:11:40,884: signal_shutdown [signal-2]
+[rosout][INFO] 2025-12-18 08:11:40,885: Shutting down spawner. Stopping and unloading controllers...
+[rosout][INFO] 2025-12-18 08:11:42,291: Stopping all controllers...

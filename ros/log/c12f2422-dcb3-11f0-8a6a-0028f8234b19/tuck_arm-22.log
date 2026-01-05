@@ -1,0 +1,48 @@
+[rospy.client][INFO] 2025-12-19 09:21:49,814: init_node, name[/tuck_arm], pid[246]
+[xmlrpc][INFO] 2025-12-19 09:21:49,814: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-19 09:21:49,816: Started XML-RPC server [http://127.0.0.1:41265/]
+[rospy.init][INFO] 2025-12-19 09:21:49,816: ROS Slave URI: [http://127.0.0.1:41265/]
+[rospy.impl.masterslave][INFO] 2025-12-19 09:21:49,816: _ready: http://127.0.0.1:41265/
+[rospy.registration][INFO] 2025-12-19 09:21:49,819: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-19 09:21:49,819: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-19 09:21:49,917: registered with master
+[rospy.rosout][INFO] 2025-12-19 09:21:49,917: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-19 09:21:49,922: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-19 09:21:49,923: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-19 09:21:49,925: connected to core topic /clock
+[rosout][INFO] 2025-12-19 09:21:49,929: Waiting for play_motion...
+[rospy.internal][INFO] 2025-12-19 09:21:50,174: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-19 09:21:50,827: topic[/clock] adding connection to [http://127.0.0.1:43341/], count 0
+[rospy.internal][INFO] 2025-12-19 09:21:56,462: topic[/play_motion/result] adding connection to [http://127.0.0.1:34541/], count 0
+[rospy.internal][INFO] 2025-12-19 09:21:56,493: topic[/play_motion/status] adding connection to [http://127.0.0.1:34541/], count 0
+[rospy.internal][INFO] 2025-12-19 09:21:56,494: topic[/play_motion/feedback] adding connection to [http://127.0.0.1:34541/], count 0
+[rospy.internal][INFO] 2025-12-19 09:21:56,594: topic[/play_motion/goal] adding connection to [/play_motion], count 0
+[rospy.internal][INFO] 2025-12-19 09:21:56,721: topic[/play_motion/cancel] adding connection to [/play_motion], count 0
+[rosout][INFO] 2025-12-19 09:21:56,728: ...connected.
+[rospy.internal][INFO] 2025-12-19 09:21:56,754: topic[/joint_states] adding connection to [http://127.0.0.1:43341/], count 0
+[rospy.internal][INFO] 2025-12-19 09:21:56,784: topic impl's ref count is zero, deleting topic /joint_states...
+[rospy.internal][INFO] 2025-12-19 09:21:56,785: topic[/joint_states] removing connection to http://127.0.0.1:43341/
+[rosout][INFO] 2025-12-19 09:22:04,255: Tuck arm...
+[rosout][INFO] 2025-12-19 09:22:37,253: Arm tucked.
+[rospy.core][INFO] 2025-12-19 09:22:37,258: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-19 09:22:37,306: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-19 09:22:37,307: topic[/play_motion/goal] removing connection to /play_motion
+[rospy.internal][INFO] 2025-12-19 09:22:37,309: topic[/play_motion/cancel] removing connection to /play_motion
+[rospy.internal][INFO] 2025-12-19 09:22:37,315: topic[/clock] removing connection to http://127.0.0.1:43341/
+[rospy.internal][ERROR] 2025-12-19 09:22:37,316: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 739, in receive_once
+    sock.setblocking(1)
+OSError: [Errno 9] Bad file descriptor
+
+[rospy.internal][INFO] 2025-12-19 09:22:37,316: topic[/play_motion/status] removing connection to http://127.0.0.1:34541/
+[rospy.internal][INFO] 2025-12-19 09:22:37,317: topic[/play_motion/result] removing connection to http://127.0.0.1:34541/
+[rospy.internal][INFO] 2025-12-19 09:22:37,318: topic[/play_motion/feedback] removing connection to http://127.0.0.1:34541/
+[rospy.internal][INFO] 2025-12-19 09:22:37,318: topic[/play_motion/feedback] removing connection to http://127.0.0.1:34541/
+[rospy.topics][ERROR] 2025-12-19 09:22:37,331: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.impl.masterslave][INFO] 2025-12-19 09:22:37,331: atexit

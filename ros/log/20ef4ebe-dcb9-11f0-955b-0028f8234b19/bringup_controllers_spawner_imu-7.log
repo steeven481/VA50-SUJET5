@@ -1,0 +1,24 @@
+[rospy.client][INFO] 2025-12-19 10:00:17,504: init_node, name[/bringup_controllers_spawner_imu], pid[183]
+[xmlrpc][INFO] 2025-12-19 10:00:17,504: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-19 10:00:17,505: Started XML-RPC server [http://127.0.0.1:34365/]
+[rospy.init][INFO] 2025-12-19 10:00:17,505: ROS Slave URI: [http://127.0.0.1:34365/]
+[rospy.impl.masterslave][INFO] 2025-12-19 10:00:17,505: _ready: http://127.0.0.1:34365/
+[rospy.registration][INFO] 2025-12-19 10:00:17,506: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-19 10:00:17,506: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-19 10:00:17,605: registered with master
+[rospy.rosout][INFO] 2025-12-19 10:00:17,605: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-19 10:00:17,609: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-19 10:00:17,610: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-19 10:00:17,612: connected to core topic /clock
+[rosout][INFO] 2025-12-19 10:00:17,614: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-12-19 10:00:17,747: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-19 10:00:18,078: topic[/clock] adding connection to [http://127.0.0.1:40085/], count 0
+[rosout][INFO] 2025-12-19 10:00:19,732: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-12-19 10:00:19,750: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-12-19 10:00:19,760: Loading controller: imu_sensor_controller
+[rosout][INFO] 2025-12-19 10:00:19,886: Controller Spawner: Loaded controllers: imu_sensor_controller
+[rosout][INFO] 2025-12-19 10:00:19,957: Started controllers: imu_sensor_controller
+[rospy.core][INFO] 2025-12-19 10:09:57,742: signal_shutdown [signal-2]
+[rosout][INFO] 2025-12-19 10:09:57,744: Shutting down spawner. Stopping and unloading controllers...
+[rospy.internal][INFO] 2025-12-19 10:09:58,654: topic[/clock] removing connection to http://127.0.0.1:40085/
+[rosout][WARNING] 2025-12-19 10:09:58,806: wait_for_service(/controller_manager/unload_controller): failed to contact, will keep trying

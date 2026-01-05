@@ -1,0 +1,23 @@
+[rospy.client][INFO] 2025-12-18 10:49:03,912: init_node, name[/bringup_controllers_spawner_imu], pid[169]
+[xmlrpc][INFO] 2025-12-18 10:49:03,913: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 10:49:03,913: Started XML-RPC server [http://127.0.0.1:46135/]
+[rospy.init][INFO] 2025-12-18 10:49:03,913: ROS Slave URI: [http://127.0.0.1:46135/]
+[rospy.impl.masterslave][INFO] 2025-12-18 10:49:03,913: _ready: http://127.0.0.1:46135/
+[rospy.registration][INFO] 2025-12-18 10:49:03,914: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 10:49:03,914: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 10:49:04,013: registered with master
+[rospy.rosout][INFO] 2025-12-18 10:49:04,014: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 10:49:04,020: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 10:49:04,022: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 10:49:04,024: connected to core topic /clock
+[rosout][INFO] 2025-12-18 10:49:04,027: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-12-18 10:49:04,132: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 10:49:04,581: topic[/clock] adding connection to [http://127.0.0.1:38687/], count 0
+[rosout][INFO] 2025-12-18 10:49:05,841: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-12-18 10:49:05,846: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-12-18 10:49:05,850: Loading controller: imu_sensor_controller
+[rosout][INFO] 2025-12-18 10:49:05,864: Controller Spawner: Loaded controllers: imu_sensor_controller
+[rosout][INFO] 2025-12-18 10:49:05,883: Started controllers: imu_sensor_controller
+[rospy.core][INFO] 2025-12-18 10:55:31,983: signal_shutdown [signal-2]
+[rosout][INFO] 2025-12-18 10:55:31,984: Shutting down spawner. Stopping and unloading controllers...
+[rospy.internal][INFO] 2025-12-18 10:55:32,720: topic[/clock] removing connection to http://127.0.0.1:38687/

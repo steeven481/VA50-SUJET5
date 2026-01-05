@@ -1,0 +1,26 @@
+[rospy.client][INFO] 2025-12-17 19:56:37,618: init_node, name[/tiago_arm_control_1322_1765997797273], pid[1322]
+[xmlrpc][INFO] 2025-12-17 19:56:37,620: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-17 19:56:37,622: Started XML-RPC server [http://127.0.0.1:34731/]
+[rospy.impl.masterslave][INFO] 2025-12-17 19:56:37,623: _ready: http://127.0.0.1:34731/
+[rospy.init][INFO] 2025-12-17 19:56:37,623: ROS Slave URI: [http://127.0.0.1:34731/]
+[rospy.registration][INFO] 2025-12-17 19:56:37,624: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-17 19:56:37,625: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-17 19:56:37,725: registered with master
+[rospy.rosout][INFO] 2025-12-17 19:56:37,725: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-17 19:56:37,745: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-17 19:56:37,748: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-17 19:56:37,769: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-17 19:56:37,784: topic[/clock] adding connection to [http://127.0.0.1:38921/], count 0
+[rospy.internal][INFO] 2025-12-17 19:56:38,894: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-17 19:56:40,181: ✅ Bras TIAGo initialisé
+[rospy.internal][INFO] 2025-12-17 19:56:40,302: topic[/collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-12-17 19:56:40,304: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-12-17 19:56:42,854: 🚀 Démarrage de la séquence TIAGo
+[rosout][ERROR] 2025-12-17 19:56:49,352: ❌ Fichier JSON non trouvé: /home/pal/ros_ws/detections_input.json
+[rosout][INFO] 2025-12-17 19:56:49,357: 👋 Fin du programme
+[rospy.core][INFO] 2025-12-17 19:56:49,699: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-17 19:56:49,721: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-17 19:56:49,721: topic[/collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:56:49,722: topic[/attached_collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:56:49,732: topic[/clock] removing connection to http://127.0.0.1:38921/
+[rospy.impl.masterslave][INFO] 2025-12-17 19:56:49,737: atexit

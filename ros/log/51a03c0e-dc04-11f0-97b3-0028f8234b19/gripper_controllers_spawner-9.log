@@ -1,0 +1,23 @@
+[rospy.client][INFO] 2025-12-18 12:25:59,700: init_node, name[/gripper_controllers_spawner], pid[276]
+[xmlrpc][INFO] 2025-12-18 12:25:59,701: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 12:25:59,701: Started XML-RPC server [http://127.0.0.1:42315/]
+[rospy.init][INFO] 2025-12-18 12:25:59,701: ROS Slave URI: [http://127.0.0.1:42315/]
+[rospy.impl.masterslave][INFO] 2025-12-18 12:25:59,701: _ready: http://127.0.0.1:42315/
+[rospy.registration][INFO] 2025-12-18 12:25:59,702: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 12:25:59,703: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 12:25:59,802: registered with master
+[rospy.rosout][INFO] 2025-12-18 12:25:59,802: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 12:25:59,805: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 12:25:59,806: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 12:25:59,808: connected to core topic /clock
+[rosout][INFO] 2025-12-18 12:25:59,810: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-12-18 12:26:00,032: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 12:26:00,055: topic[/clock] adding connection to [http://127.0.0.1:43945/], count 0
+[rosout][INFO] 2025-12-18 12:26:01,624: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-12-18 12:26:01,633: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-12-18 12:26:01,642: Loading controller: gripper_controller
+[rosout][INFO] 2025-12-18 12:26:01,735: Controller Spawner: Loaded controllers: gripper_controller
+[rosout][INFO] 2025-12-18 12:26:01,749: Started controllers: gripper_controller
+[rospy.core][INFO] 2025-12-18 12:30:20,267: signal_shutdown [signal-2]
+[rosout][INFO] 2025-12-18 12:30:20,267: Shutting down spawner. Stopping and unloading controllers...
+[rospy.internal][INFO] 2025-12-18 12:30:20,978: topic[/clock] removing connection to http://127.0.0.1:43945/

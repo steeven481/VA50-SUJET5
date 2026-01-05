@@ -1,0 +1,41 @@
+[rospy.client][INFO] 2025-12-18 07:56:58,106: init_node, name[/tiago_single_position_1179_1766041017960], pid[1179]
+[xmlrpc][INFO] 2025-12-18 07:56:58,106: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 07:56:58,107: Started XML-RPC server [http://127.0.0.1:41533/]
+[rospy.init][INFO] 2025-12-18 07:56:58,107: ROS Slave URI: [http://127.0.0.1:41533/]
+[rospy.impl.masterslave][INFO] 2025-12-18 07:56:58,107: _ready: http://127.0.0.1:41533/
+[rospy.registration][INFO] 2025-12-18 07:56:58,108: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 07:56:58,108: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 07:56:58,207: registered with master
+[rospy.rosout][INFO] 2025-12-18 07:56:58,208: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 07:56:58,213: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 07:56:58,215: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 07:56:58,218: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 07:56:58,224: topic[/clock] adding connection to [http://127.0.0.1:39601/], count 0
+[rospy.internal][INFO] 2025-12-18 07:56:59,654: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-18 07:56:59,652: ✅ Bras TIAGo initialisé - Cible: knife
+[rospy.internal][INFO] 2025-12-18 07:56:59,759: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-12-18 07:56:59,761: topic[/collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-12-18 07:57:01,158: 🚀 Démarrage du déplacement vers position unique
+[rosout][INFO] 2025-12-18 07:57:06,674: 🏠 Déplacement vers position de départ...
+[rosout][INFO] 2025-12-18 07:57:46,526: ✅ Position de départ atteinte
+[rosout][INFO] 2025-12-18 07:57:49,089: 🎯 Cible: knife - Couteau à gauche
+[rosout][INFO] 2025-12-18 07:57:49,100: 📍 Position cible: (0.550, -0.200, 0.820)
+[rosout][INFO] 2025-12-18 07:57:49,118: 🤖 Déplacement vers knife...
+[rosout][INFO] 2025-12-18 07:58:07,544: ✅ knife atteint!
+[rosout][INFO] 2025-12-18 07:58:07,564: 🛑 Robot en position - Maintenir indéfiniment...
+[rosout][INFO] 2025-12-18 07:58:07,795: 📊 Position actuelle: X=0.553, Y=-0.196, Z=0.813
+[rosout][INFO] 2025-12-18 07:58:07,812: 🔒 Maintien de la position...
+[rosout][INFO] 2025-12-18 07:58:07,858: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.813
+[rosout][INFO] 2025-12-18 07:58:34,447: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.813
+[rosout][INFO] 2025-12-18 07:59:02,273: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.813
+[rosout][INFO] 2025-12-18 07:59:30,900: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.813
+[rosout][INFO] 2025-12-18 07:59:57,663: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.813
+[rosout][INFO] 2025-12-18 08:00:27,166: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.813
+[rosout][INFO] 2025-12-18 08:00:54,971: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.814
+[rosout][INFO] 2025-12-18 08:01:34,073: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.814
+[rosout][INFO] 2025-12-18 08:02:37,513: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.814
+[rosout][INFO] 2025-12-18 08:03:35,923: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.814
+[rosout][INFO] 2025-12-18 08:04:31,136: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.814
+[rosout][INFO] 2025-12-18 08:05:23,810: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.814
+[rosout][INFO] 2025-12-18 08:06:33,136: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.814
+[rosout][INFO] 2025-12-18 08:07:29,666: 📊 Position maintenue: X=0.553, Y=-0.196, Z=0.814

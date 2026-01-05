@@ -1,0 +1,24 @@
+[rospy.client][INFO] 2025-12-18 11:08:17,445: init_node, name[/joystick_relay], pid[230]
+[xmlrpc][INFO] 2025-12-18 11:08:17,446: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 11:08:17,447: Started XML-RPC server [http://127.0.0.1:34265/]
+[rospy.impl.masterslave][INFO] 2025-12-18 11:08:17,447: _ready: http://127.0.0.1:34265/
+[rospy.init][INFO] 2025-12-18 11:08:17,448: ROS Slave URI: [http://127.0.0.1:34265/]
+[rospy.registration][INFO] 2025-12-18 11:08:17,449: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 11:08:17,449: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 11:08:17,548: registered with master
+[rospy.rosout][INFO] 2025-12-18 11:08:17,548: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 11:08:17,554: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 11:08:17,555: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 11:08:17,557: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 11:08:17,704: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 11:08:17,805: topic[/joy_vel] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-12-18 11:08:17,805: topic[/joy_priority] adding connection to [/twist_mux], count 0
+[rospy.internal][INFO] 2025-12-18 11:08:18,442: topic[/clock] adding connection to [http://127.0.0.1:46531/], count 0
+[rospy.core][INFO] 2025-12-18 11:12:22,727: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2025-12-18 11:12:23,267: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-18 11:12:23,267: topic[/joy_vel] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-12-18 11:12:23,460: topic[/joy_priority] removing connection to /twist_mux
+[rospy.internal][INFO] 2025-12-18 11:12:23,485: topic[/clock] removing connection to http://127.0.0.1:46531/
+[rospy.impl.masterslave][INFO] 2025-12-18 11:12:23,486: signal-2
+[rospy.internal][INFO] 2025-12-18 11:12:23,490: topic[/clock] removing connection to http://127.0.0.1:46531/
+[rospy.core][INFO] 2025-12-18 11:12:23,871: signal_shutdown [atexit]

@@ -1,0 +1,46 @@
+[rospy.client][INFO] 2025-12-17 19:51:16,325: init_node, name[/tiago_arm_control_1181_1765997476184], pid[1181]
+[xmlrpc][INFO] 2025-12-17 19:51:16,325: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-17 19:51:16,326: Started XML-RPC server [http://127.0.0.1:36989/]
+[rospy.impl.masterslave][INFO] 2025-12-17 19:51:16,326: _ready: http://127.0.0.1:36989/
+[rospy.init][INFO] 2025-12-17 19:51:16,326: ROS Slave URI: [http://127.0.0.1:36989/]
+[rospy.registration][INFO] 2025-12-17 19:51:16,327: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-17 19:51:16,327: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-17 19:51:16,427: registered with master
+[rospy.rosout][INFO] 2025-12-17 19:51:16,428: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-17 19:51:16,435: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-17 19:51:16,436: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-17 19:51:16,439: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-17 19:51:16,446: topic[/clock] adding connection to [http://127.0.0.1:39343/], count 0
+[rosout][INFO] 2025-12-17 19:51:17,803: ✅ Bras TIAGo initialisé
+[rospy.internal][INFO] 2025-12-17 19:51:17,817: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-17 19:51:17,916: topic[/collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-12-17 19:51:17,917: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-12-17 19:51:18,932: 🚀 Démarrage de la séquence TIAGo
+[rosout][INFO] 2025-12-17 19:51:21,200: 📁 3 objets détectés
+[rosout][INFO] 2025-12-17 19:51:21,203: 🏠 Déplacement vers home
+[rosout][ERROR] 2025-12-17 19:51:21,206: ❌ Erreur position home: Error setting joint target. Is the target within bounds?
+[rosout][INFO] 2025-12-17 19:51:22,353: 🎯 Traitement: plate
+[rosout][INFO] 2025-12-17 19:51:22,356: 🤖 Déplacement vers plate...
+[rosout][WARNING] 2025-12-17 19:51:48,028: ⚠️  Échec d'atteindre plate
+[rosout][INFO] 2025-12-17 19:51:48,047: 🏠 Déplacement vers home
+[rosout][ERROR] 2025-12-17 19:51:48,051: ❌ Erreur position home: Error setting joint target. Is the target within bounds?
+[rosout][INFO] 2025-12-17 19:51:49,510: 🎯 Traitement: fork
+[rosout][INFO] 2025-12-17 19:51:49,529: 🤖 Déplacement vers fork...
+[rosout][WARNING] 2025-12-17 19:51:49,645: ⚠️  Échec d'atteindre fork
+[rosout][INFO] 2025-12-17 19:51:49,674: 🏠 Déplacement vers home
+[rosout][ERROR] 2025-12-17 19:51:49,678: ❌ Erreur position home: Error setting joint target. Is the target within bounds?
+[rosout][INFO] 2025-12-17 19:51:51,044: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-17 19:51:51,047: 🤖 Déplacement vers knife...
+[rosout][WARNING] 2025-12-17 19:51:51,162: ⚠️  Échec d'atteindre knife
+[rosout][INFO] 2025-12-17 19:51:51,181: 🏠 Déplacement vers home
+[rosout][ERROR] 2025-12-17 19:51:51,200: ❌ Erreur position home: Error setting joint target. Is the target within bounds?
+[rosout][INFO] 2025-12-17 19:51:52,566: 🏠 Déplacement vers home
+[rosout][ERROR] 2025-12-17 19:51:52,585: ❌ Erreur position home: Error setting joint target. Is the target within bounds?
+[rosout][INFO] 2025-12-17 19:51:52,609: 🎉 Séquence terminée avec succès!
+[rosout][INFO] 2025-12-17 19:51:52,625: 👋 Fin du programme
+[rospy.core][INFO] 2025-12-17 19:51:52,953: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-17 19:51:52,963: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-17 19:51:52,964: topic[/collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:51:52,978: topic[/attached_collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:51:52,978: topic[/clock] removing connection to http://127.0.0.1:39343/
+[rospy.impl.masterslave][INFO] 2025-12-17 19:51:52,978: atexit

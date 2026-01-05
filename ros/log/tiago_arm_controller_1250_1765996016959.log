@@ -1,0 +1,32 @@
+[rospy.client][INFO] 2025-12-17 19:26:57,465: init_node, name[/tiago_arm_controller_1250_1765996016959], pid[1250]
+[xmlrpc][INFO] 2025-12-17 19:26:57,467: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-17 19:26:57,467: Started XML-RPC server [http://127.0.0.1:35183/]
+[rospy.impl.masterslave][INFO] 2025-12-17 19:26:57,467: _ready: http://127.0.0.1:35183/
+[rospy.registration][INFO] 2025-12-17 19:26:57,469: Registering with master node http://localhost:11311/
+[rospy.init][INFO] 2025-12-17 19:26:57,470: ROS Slave URI: [http://127.0.0.1:35183/]
+[rospy.init][INFO] 2025-12-17 19:26:57,474: registered with master
+[rospy.rosout][INFO] 2025-12-17 19:26:57,476: initializing /rosout core topic
+[xmlrpc][INFO] 2025-12-17 19:26:57,470: xml rpc node: starting XML-RPC server
+[rospy.rosout][INFO] 2025-12-17 19:26:57,500: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-17 19:26:57,502: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-17 19:26:57,520: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-17 19:26:57,530: topic[/clock] adding connection to [http://127.0.0.1:37805/], count 0
+[rospy.internal][INFO] 2025-12-17 19:27:00,013: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-17 19:26:59,999: ✅ MoveIt initialisé
+[rosout][INFO] 2025-12-17 19:27:00,028: 🚀 Démarrage du contrôleur de bras TIAGo
+[rospy.internal][INFO] 2025-12-17 19:27:00,118: topic[/collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-12-17 19:27:00,120: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-12-17 19:27:05,650: 📁 3 objets détectés
+[rosout][INFO] 2025-12-17 19:27:05,665: 🎯 Traitement: fork à (244.4, 216.3)
+[rosout][INFO] 2025-12-17 19:27:05,686: 📍 Conversion: pixel (244.4, 216.3) -> robot (0.487, -0.036, 0.850)
+[rosout][INFO] 2025-12-17 19:27:05,693: 🤖 Déplacement vers fork...
+[rosout][ERROR] 2025-12-17 19:27:05,714: ❌ Erreur mouvement: Unable to set target folded. Is the target within bounds?
+[rosout][WARNING] 2025-12-17 19:27:05,733: ⚠️  Échec pour fork, passage au suivant
+[rosout][ERROR] 2025-12-17 19:27:05,744: ❌ Erreur inattendue: Unable to set target folded. Is the target within bounds?
+[rosout][ERROR] 2025-12-17 19:27:05,757: ❌ Erreur fatale: Unable to set target folded. Is the target within bounds?
+[rospy.core][INFO] 2025-12-17 19:27:06,156: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-17 19:27:06,210: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-17 19:27:06,212: topic[/collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:27:06,213: topic[/attached_collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:27:06,214: topic[/clock] removing connection to http://127.0.0.1:37805/
+[rospy.impl.masterslave][INFO] 2025-12-17 19:27:06,221: atexit

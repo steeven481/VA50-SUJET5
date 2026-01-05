@@ -1,0 +1,16 @@
+[rospy.client][INFO] 2025-12-17 19:46:38,902: init_node, name[/tiago_arm_push_1517_1765997198405], pid[1517]
+[xmlrpc][INFO] 2025-12-17 19:46:38,903: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-17 19:46:38,910: Started XML-RPC server [http://127.0.0.1:40257/]
+[rospy.init][INFO] 2025-12-17 19:46:38,911: ROS Slave URI: [http://127.0.0.1:40257/]
+[rospy.impl.masterslave][INFO] 2025-12-17 19:46:38,913: _ready: http://127.0.0.1:40257/
+[rospy.registration][INFO] 2025-12-17 19:46:38,920: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-17 19:46:38,921: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-17 19:46:39,017: registered with master
+[rospy.rosout][INFO] 2025-12-17 19:46:39,021: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-17 19:46:39,052: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-17 19:46:39,064: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-17 19:46:39,071: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-17 19:46:39,086: topic[/clock] adding connection to [http://127.0.0.1:37805/], count 0
+[rospy.internal][INFO] 2025-12-17 19:46:41,543: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-17 19:46:41,662: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-12-17 19:46:41,665: topic[/collision_object] adding connection to [/move_group], count 0

@@ -1,0 +1,25 @@
+[rospy.client][INFO] 2025-12-17 19:43:23,306: init_node, name[/tiago_arm_control_1430_1765997002549], pid[1430]
+[xmlrpc][INFO] 2025-12-17 19:43:23,309: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-17 19:43:23,310: Started XML-RPC server [http://127.0.0.1:40463/]
+[rospy.init][INFO] 2025-12-17 19:43:23,311: ROS Slave URI: [http://127.0.0.1:40463/]
+[rospy.impl.masterslave][INFO] 2025-12-17 19:43:23,312: _ready: http://127.0.0.1:40463/
+[rospy.registration][INFO] 2025-12-17 19:43:23,313: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-17 19:43:23,313: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-17 19:43:23,412: registered with master
+[rospy.rosout][INFO] 2025-12-17 19:43:23,412: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-17 19:43:23,439: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-17 19:43:23,455: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-17 19:43:23,476: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-17 19:43:23,491: topic[/clock] adding connection to [http://127.0.0.1:37805/], count 0
+[rosout][INFO] 2025-12-17 19:43:26,234: ✅ Bras TIAGo initialisé
+[rospy.internal][INFO] 2025-12-17 19:43:26,252: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-17 19:43:26,362: topic[/collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-12-17 19:43:26,368: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-12-17 19:43:29,235: 🚀 Démarrage de la séquence TIAGo
+[rosout][INFO] 2025-12-17 19:43:35,070: 📁 3 objets détectés
+[rosout][INFO] 2025-12-17 19:43:35,087: 🏠 Déplacement vers home
+[rosout][ERROR] 2025-12-17 19:43:35,111: ❌ Erreur position home: Error setting joint target. Is the target within bounds?
+[rosout][INFO] 2025-12-17 19:43:38,017: 🎯 Traitement: plate
+[rosout][INFO] 2025-12-17 19:43:38,046: 🤖 Déplacement vers plate...
+[rosout][INFO] 2025-12-17 19:44:20,371: ✅ plate atteint
+[rosout][INFO] 2025-12-17 19:44:21,988: ↔️  Action poussée pour plate

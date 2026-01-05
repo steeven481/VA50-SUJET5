@@ -1,0 +1,133 @@
+[rospy.client][INFO] 2025-12-18 08:25:28,805: init_node, name[/tiago_json_position], pid[1205]
+[xmlrpc][INFO] 2025-12-18 08:25:28,812: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 08:25:28,814: Started XML-RPC server [http://127.0.0.1:41497/]
+[rospy.init][INFO] 2025-12-18 08:25:28,815: ROS Slave URI: [http://127.0.0.1:41497/]
+[rospy.impl.masterslave][INFO] 2025-12-18 08:25:28,815: _ready: http://127.0.0.1:41497/
+[rospy.registration][INFO] 2025-12-18 08:25:28,829: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 08:25:28,829: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 08:25:28,917: registered with master
+[rospy.rosout][INFO] 2025-12-18 08:25:28,921: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 08:25:28,970: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 08:25:28,993: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 08:25:29,028: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 08:25:29,047: topic[/clock] adding connection to [http://127.0.0.1:41135/], count 0
+[rospy.internal][INFO] 2025-12-18 08:25:32,627: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.core][INFO] 2025-12-18 08:25:34,414: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-18 08:25:34,448: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-18 08:25:34,452: topic[/clock] removing connection to http://127.0.0.1:41135/
+[rospy.internal][INFO] 2025-12-18 08:25:34,453: topic[/clock] removing connection to http://127.0.0.1:41135/
+[rospy.topics][ERROR] 2025-12-18 08:25:34,458: Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 326, in close
+    c.close()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 858, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+[rospy.impl.masterslave][INFO] 2025-12-18 08:25:34,459: atexit
+[rospy.client][INFO] 2025-12-18 08:27:33,233: init_node, name[/tiago_json_position], pid[1222]
+[xmlrpc][INFO] 2025-12-18 08:27:33,235: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 08:27:33,237: Started XML-RPC server [http://127.0.0.1:33407/]
+[rospy.impl.masterslave][INFO] 2025-12-18 08:27:33,238: _ready: http://127.0.0.1:33407/
+[rospy.init][INFO] 2025-12-18 08:27:33,238: ROS Slave URI: [http://127.0.0.1:33407/]
+[rospy.registration][INFO] 2025-12-18 08:27:33,242: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 08:27:33,243: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 08:27:33,344: registered with master
+[rospy.rosout][INFO] 2025-12-18 08:27:33,345: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 08:27:33,372: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 08:27:33,377: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 08:27:33,402: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 08:27:33,420: topic[/clock] adding connection to [http://127.0.0.1:41135/], count 0
+[rosout][INFO] 2025-12-18 08:27:37,474: 🎯 Cible: plate
+[rosout][INFO] 2025-12-18 08:27:37,527: 📁 3 objets dans JSON
+[rospy.internal][INFO] 2025-12-18 08:27:37,582: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-18 08:27:42,951: 🚀 Démarrage
+[rosout][INFO] 2025-12-18 08:28:53,399: 🎯 Traitement: plate
+[rosout][INFO] 2025-12-18 08:28:53,430: 📍 plate: pixel (451, 179) → robot (0.796, -0.091, 0.850)
+[rosout][ERROR] 2025-12-18 08:30:01,348: ❌ Échec du déplacement
+[rospy.core][INFO] 2025-12-18 08:30:01,928: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-18 08:30:01,984: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-18 08:30:01,991: topic[/clock] removing connection to http://127.0.0.1:41135/
+[rospy.impl.masterslave][INFO] 2025-12-18 08:30:01,993: atexit
+[rospy.client][INFO] 2025-12-18 10:51:06,188: init_node, name[/tiago_json_position], pid[1182]
+[xmlrpc][INFO] 2025-12-18 10:51:06,189: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 10:51:06,190: Started XML-RPC server [http://127.0.0.1:40419/]
+[rospy.init][INFO] 2025-12-18 10:51:06,190: ROS Slave URI: [http://127.0.0.1:40419/]
+[rospy.impl.masterslave][INFO] 2025-12-18 10:51:06,190: _ready: http://127.0.0.1:40419/
+[rospy.registration][INFO] 2025-12-18 10:51:06,192: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 10:51:06,193: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 10:51:06,291: registered with master
+[rospy.rosout][INFO] 2025-12-18 10:51:06,293: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 10:51:06,330: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 10:51:06,337: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 10:51:06,355: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 10:51:06,378: topic[/clock] adding connection to [http://127.0.0.1:38687/], count 0
+[rospy.internal][INFO] 2025-12-18 10:51:09,073: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-18 10:51:09,080: 🎯 Cible: knife
+[rosout][INFO] 2025-12-18 10:51:09,104: 📁 3 objets dans JSON
+[rosout][INFO] 2025-12-18 10:51:11,903: 🚀 Démarrage
+[rosout][INFO] 2025-12-18 10:52:06,456: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-18 10:52:06,473: 📍 knife: pixel (314, 155) → robot (0.591, -0.128, 0.820)
+[rosout][INFO] 2025-12-18 10:52:28,915: ✅ Position atteinte
+[rosout][INFO] 2025-12-18 10:52:28,930: 🔒 Maintien de la position...
+[rospy.client][INFO] 2025-12-18 10:53:56,291: init_node, name[/tiago_json_position], pid[1205]
+[xmlrpc][INFO] 2025-12-18 10:53:56,293: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 10:53:56,297: Started XML-RPC server [http://127.0.0.1:43747/]
+[rospy.impl.masterslave][INFO] 2025-12-18 10:53:56,302: _ready: http://127.0.0.1:43747/
+[rospy.init][INFO] 2025-12-18 10:53:56,301: ROS Slave URI: [http://127.0.0.1:43747/]
+[rospy.registration][INFO] 2025-12-18 10:53:56,310: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 10:53:56,312: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 10:53:56,412: registered with master
+[rospy.rosout][INFO] 2025-12-18 10:53:56,414: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 10:53:56,455: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 10:53:56,471: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 10:53:56,493: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 10:53:56,511: topic[/clock] adding connection to [http://127.0.0.1:38687/], count 0
+[rosout][INFO] 2025-12-18 10:53:59,289: 🎯 Cible: fork
+[rosout][INFO] 2025-12-18 10:53:59,299: 📁 3 objets dans JSON
+[rospy.internal][INFO] 2025-12-18 10:53:59,392: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-18 10:54:04,138: 🚀 Démarrage
+[rosout][INFO] 2025-12-18 10:54:32,776: 🎯 Traitement: fork
+[rosout][INFO] 2025-12-18 10:54:32,786: 📍 fork: pixel (244, 216) → robot (0.487, -0.036, 0.820)
+[rosout][ERROR] 2025-12-18 10:55:12,527: ❌ Échec du déplacement
+[rospy.client][INFO] 2025-12-18 11:00:14,892: init_node, name[/tiago_json_position], pid[1182]
+[xmlrpc][INFO] 2025-12-18 11:00:14,898: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 11:00:14,900: Started XML-RPC server [http://127.0.0.1:39737/]
+[rospy.init][INFO] 2025-12-18 11:00:14,900: ROS Slave URI: [http://127.0.0.1:39737/]
+[rospy.impl.masterslave][INFO] 2025-12-18 11:00:14,901: _ready: http://127.0.0.1:39737/
+[rospy.registration][INFO] 2025-12-18 11:00:14,904: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 11:00:14,906: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 11:00:15,002: registered with master
+[rospy.rosout][INFO] 2025-12-18 11:00:15,007: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 11:00:15,043: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 11:00:15,056: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 11:00:15,090: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 11:00:15,106: topic[/clock] adding connection to [http://127.0.0.1:37577/], count 0
+[rospy.internal][INFO] 2025-12-18 11:00:17,679: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-18 11:00:17,684: 🎯 Cible: fork
+[rosout][INFO] 2025-12-18 11:00:17,695: 📁 3 objets dans JSON
+[rosout][INFO] 2025-12-18 11:00:20,604: 🚀 Démarrage
+[rosout][INFO] 2025-12-18 11:00:45,479: 🎯 Traitement: fork
+[rosout][INFO] 2025-12-18 11:00:45,508: 📍 fork: pixel (244, 216) → robot (0.487, -0.036, 0.820)
+[rosout][INFO] 2025-12-18 11:01:27,156: ✅ Position atteinte
+[rosout][INFO] 2025-12-18 11:01:27,189: 🔒 Maintien de la position...
+[rospy.client][INFO] 2025-12-18 11:09:42,023: init_node, name[/tiago_json_position], pid[1150]
+[xmlrpc][INFO] 2025-12-18 11:09:42,036: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 11:09:42,037: Started XML-RPC server [http://127.0.0.1:35507/]
+[rospy.init][INFO] 2025-12-18 11:09:42,038: ROS Slave URI: [http://127.0.0.1:35507/]
+[rospy.impl.masterslave][INFO] 2025-12-18 11:09:42,039: _ready: http://127.0.0.1:35507/
+[rospy.registration][INFO] 2025-12-18 11:09:42,041: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 11:09:42,046: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 11:09:42,140: registered with master
+[rospy.rosout][INFO] 2025-12-18 11:09:42,143: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 11:09:42,179: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 11:09:42,186: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 11:09:42,206: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 11:09:42,212: topic[/clock] adding connection to [http://127.0.0.1:46531/], count 0
+[rosout][INFO] 2025-12-18 11:09:44,632: 🎯 Cible: knife
+[rosout][INFO] 2025-12-18 11:09:44,649: 📁 3 objets dans JSON
+[rospy.internal][INFO] 2025-12-18 11:09:44,716: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-18 11:09:47,578: 🚀 Démarrage
+[rosout][INFO] 2025-12-18 11:10:48,195: 🎯 Traitement: knife
+[rosout][INFO] 2025-12-18 11:10:48,220: 📍 knife: pixel (314, 155) → robot (0.591, -0.128, 0.820)
+[rosout][INFO] 2025-12-18 11:11:08,574: ✅ Position atteinte
+[rosout][INFO] 2025-12-18 11:11:08,608: 🔒 Maintien de la position...

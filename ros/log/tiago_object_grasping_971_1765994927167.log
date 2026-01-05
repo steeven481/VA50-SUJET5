@@ -1,0 +1,91 @@
+[rospy.client][INFO] 2025-12-17 19:08:47,305: init_node, name[/tiago_object_grasping_971_1765994927167], pid[971]
+[xmlrpc][INFO] 2025-12-17 19:08:47,305: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-17 19:08:47,305: Started XML-RPC server [http://127.0.0.1:39223/]
+[rospy.init][INFO] 2025-12-17 19:08:47,306: ROS Slave URI: [http://127.0.0.1:39223/]
+[rospy.impl.masterslave][INFO] 2025-12-17 19:08:47,306: _ready: http://127.0.0.1:39223/
+[rospy.registration][INFO] 2025-12-17 19:08:47,307: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-17 19:08:47,307: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-17 19:08:47,406: registered with master
+[rospy.rosout][INFO] 2025-12-17 19:08:47,407: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-17 19:08:47,412: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-17 19:08:47,413: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-17 19:08:47,418: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-17 19:08:47,421: topic[/clock] adding connection to [http://127.0.0.1:37805/], count 0
+[rospy.internal][INFO] 2025-12-17 19:08:48,822: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-17 19:08:48,844: topic[/tf] adding connection to [http://127.0.0.1:45919/], count 0
+[rospy.internal][INFO] 2025-12-17 19:08:48,846: topic[/tf] adding connection to [http://127.0.0.1:37805/], count 1
+[rospy.internal][INFO] 2025-12-17 19:08:48,850: topic[/tf_static] adding connection to [http://127.0.0.1:45919/], count 0
+[rosout][INFO] 2025-12-17 19:08:48,852: ⏳ Attente des données de profondeur et de calibration...
+[rospy.internal][INFO] 2025-12-17 19:08:48,857: topic[/xtion/depth_registered/image_raw] adding connection to [http://127.0.0.1:37805/], count 0
+[rospy.internal][INFO] 2025-12-17 19:08:48,860: topic[/xtion/rgb/camera_info] adding connection to [http://127.0.0.1:37805/], count 0
+[rosout][INFO] 2025-12-17 19:08:48,872: 📷 Informations caméra reçues
+[rospy.internal][INFO] 2025-12-17 19:08:48,919: topic[/collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-12-17 19:08:48,920: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-12-17 19:08:48,949: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:48,974: ✅ Données initiales reçues
+[rosout][INFO] 2025-12-17 19:08:48,976: 🚀 Démarrage de la séquence de préhension
+[rosout][INFO] 2025-12-17 19:08:48,989: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,066: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,106: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,177: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,220: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,295: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,370: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,410: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,488: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,532: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,604: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,683: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,763: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,800: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,879: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,919: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:49,964: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,038: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,079: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,156: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,197: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,273: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,347: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,384: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,461: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,501: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,578: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,616: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,658: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,729: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,806: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,844: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,918: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:50,954: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:51,029: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:51,071: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:51,148: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:51,226: 📷 Informations caméra reçues
+[rosout][ERROR] 2025-12-17 19:08:51,291: ❌ Fichier JSON non trouvé: /ros_ws/pipeline/outputs/detections_input.json
+[rosout][INFO] 2025-12-17 19:08:51,300: 🎉 Séquence terminée
+[rosout][INFO] 2025-12-17 19:08:51,301: 📷 Informations caméra reçues
+[rosout][INFO] 2025-12-17 19:08:51,431: 👋 Arrêt propre du programme
+[rospy.core][INFO] 2025-12-17 19:08:51,437: signal_shutdown [atexit]
+[rosout][INFO] 2025-12-17 19:08:51,434: 📷 Informations caméra reçues
+[rospy.internal][INFO] 2025-12-17 19:08:51,444: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-17 19:08:51,447: topic[/collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:08:51,452: topic[/attached_collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-17 19:08:51,452: topic[/clock] removing connection to http://127.0.0.1:37805/
+[rospy.internal][INFO] 2025-12-17 19:08:51,453: topic[/tf] removing connection to http://127.0.0.1:45919/
+[rospy.internal][INFO] 2025-12-17 19:08:51,456: topic[/tf] removing connection to http://127.0.0.1:37805/
+[rospy.rosout][ERROR] 2025-12-17 19:08:51,458: Unable to report rosout: publish() to a closed topic
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/rosout.py", line 100, in _rosout
+    _rosout_pub.publish(l)
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 882, in publish
+    self.impl.publish(data)
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/topics.py", line 1041, in publish
+    raise ROSException("publish() to a closed topic")
+rospy.exceptions.ROSException: publish() to a closed topic
+
+[rospy.internal][INFO] 2025-12-17 19:08:51,458: topic[/tf_static] removing connection to http://127.0.0.1:45919/
+[rosout][INFO] 2025-12-17 19:08:51,439: 📷 Informations caméra reçues
+[rospy.internal][INFO] 2025-12-17 19:08:51,459: topic[/xtion/depth_registered/image_raw] removing connection to http://127.0.0.1:37805/
+[rospy.internal][INFO] 2025-12-17 19:08:51,459: topic[/xtion/rgb/camera_info] removing connection to http://127.0.0.1:37805/
+[rospy.impl.masterslave][INFO] 2025-12-17 19:08:51,461: atexit

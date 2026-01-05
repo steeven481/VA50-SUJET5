@@ -1,0 +1,28 @@
+[rospy.client][INFO] 2025-12-18 10:58:00,266: init_node, name[/gripper_controllers_spawner], pid[175]
+[xmlrpc][INFO] 2025-12-18 10:58:00,267: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 10:58:00,267: Started XML-RPC server [http://127.0.0.1:38197/]
+[rospy.init][INFO] 2025-12-18 10:58:00,267: ROS Slave URI: [http://127.0.0.1:38197/]
+[rospy.impl.masterslave][INFO] 2025-12-18 10:58:00,267: _ready: http://127.0.0.1:38197/
+[rospy.registration][INFO] 2025-12-18 10:58:00,268: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 10:58:00,268: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 10:58:00,368: registered with master
+[rospy.rosout][INFO] 2025-12-18 10:58:00,368: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 10:58:00,372: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 10:58:00,373: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 10:58:00,376: connected to core topic /clock
+[rosout][INFO] 2025-12-18 10:58:00,379: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-12-18 10:58:00,628: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 10:58:00,850: topic[/clock] adding connection to [http://127.0.0.1:37577/], count 0
+[rosout][INFO] 2025-12-18 10:58:02,191: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-12-18 10:58:02,201: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-12-18 10:58:02,211: Loading controller: gripper_controller
+[rosout][INFO] 2025-12-18 10:58:02,337: Controller Spawner: Loaded controllers: gripper_controller
+[rosout][INFO] 2025-12-18 10:58:02,352: Started controllers: gripper_controller
+[rospy.core][INFO] 2025-12-18 11:06:45,863: signal_shutdown [signal-2]
+[rosout][INFO] 2025-12-18 11:06:45,863: Shutting down spawner. Stopping and unloading controllers...
+[rosout][INFO] 2025-12-18 11:06:46,916: Stopping all controllers...
+[rospy.internal][INFO] 2025-12-18 11:06:46,926: topic[/clock] removing connection to http://127.0.0.1:37577/
+[rosout][WARNING] 2025-12-18 11:06:47,056: Controller Spawner couldn't reach controller_manager to take down controllers. Waited for 30 second(s).
+[rospy.internal][INFO] 2025-12-18 11:06:47,066: topic[/rosout] removing connection to /rosout
+[rospy.impl.masterslave][INFO] 2025-12-18 11:06:47,066: signal-2
+[rospy.core][INFO] 2025-12-18 11:06:47,660: signal_shutdown [atexit]

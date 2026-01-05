@@ -1,0 +1,25 @@
+[rospy.client][INFO] 2025-12-18 11:28:14,791: init_node, name[/gripper_controllers_spawner], pid[175]
+[xmlrpc][INFO] 2025-12-18 11:28:14,791: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 11:28:14,791: Started XML-RPC server [http://127.0.0.1:40945/]
+[rospy.impl.masterslave][INFO] 2025-12-18 11:28:14,792: _ready: http://127.0.0.1:40945/
+[rospy.init][INFO] 2025-12-18 11:28:14,792: ROS Slave URI: [http://127.0.0.1:40945/]
+[rospy.registration][INFO] 2025-12-18 11:28:14,793: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 11:28:14,793: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 11:28:14,893: registered with master
+[rospy.rosout][INFO] 2025-12-18 11:28:14,893: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 11:28:14,897: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 11:28:14,898: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 11:28:14,900: connected to core topic /clock
+[rosout][INFO] 2025-12-18 11:28:14,902: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-12-18 11:28:15,113: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-18 11:28:15,457: topic[/clock] adding connection to [http://127.0.0.1:43063/], count 0
+[rosout][INFO] 2025-12-18 11:28:17,016: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-12-18 11:28:17,033: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-12-18 11:28:17,043: Loading controller: gripper_controller
+[rosout][INFO] 2025-12-18 11:28:17,154: Controller Spawner: Loaded controllers: gripper_controller
+[rosout][INFO] 2025-12-18 11:28:17,177: Started controllers: gripper_controller
+[rospy.core][INFO] 2025-12-18 11:38:36,325: signal_shutdown [signal-2]
+[rosout][INFO] 2025-12-18 11:38:36,325: Shutting down spawner. Stopping and unloading controllers...
+[rosout][INFO] 2025-12-18 11:38:37,542: Stopping all controllers...
+[rosout][INFO] 2025-12-18 11:38:37,597: Unloading all loaded controllers...
+[rosout][INFO] 2025-12-18 11:38:37,600: Trying to unload gripper_controller

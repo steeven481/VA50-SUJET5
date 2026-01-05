@@ -1,0 +1,28 @@
+[rospy.client][INFO] 2025-12-18 08:19:02,323: init_node, name[/tiago_json_position_1093_1766042341950], pid[1093]
+[xmlrpc][INFO] 2025-12-18 08:19:02,333: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 08:19:02,336: Started XML-RPC server [http://127.0.0.1:32873/]
+[rospy.init][INFO] 2025-12-18 08:19:02,337: ROS Slave URI: [http://127.0.0.1:32873/]
+[rospy.impl.masterslave][INFO] 2025-12-18 08:19:02,338: _ready: http://127.0.0.1:32873/
+[rospy.registration][INFO] 2025-12-18 08:19:02,340: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 08:19:02,340: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 08:19:02,438: registered with master
+[rospy.rosout][INFO] 2025-12-18 08:19:02,440: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 08:19:02,483: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 08:19:02,492: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 08:19:02,510: connected to core topic /clock
+[rospy.internal][INFO] 2025-12-18 08:19:02,517: topic[/clock] adding connection to [http://127.0.0.1:41135/], count 0
+[rosout][INFO] 2025-12-18 08:19:05,057: ✅ JSON chargé avec succès
+[rospy.internal][INFO] 2025-12-18 08:19:05,074: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-18 08:19:05,070: ✅ Bras TIAGo initialisé - Cible: plate
+[rosout][INFO] 2025-12-18 08:19:05,086: 📁 JSON chargé: 3 objets détectés
+[rospy.internal][INFO] 2025-12-18 08:19:05,186: topic[/collision_object] adding connection to [/move_group], count 0
+[rospy.internal][INFO] 2025-12-18 08:19:05,189: topic[/attached_collision_object] adding connection to [/move_group], count 0
+[rosout][INFO] 2025-12-18 08:19:07,656: 🚀 Démarrage du programme
+[rosout][INFO] 2025-12-18 08:19:12,657: 🏠 Déplacement vers position sûre...
+[rosout][ERROR] 2025-12-18 08:19:12,677: ❌ Erreur fatale: Error setting joint target. Is the target within bounds?
+[rospy.core][INFO] 2025-12-18 08:19:13,002: signal_shutdown [atexit]
+[rospy.internal][INFO] 2025-12-18 08:19:13,019: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2025-12-18 08:19:13,019: topic[/collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-18 08:19:13,020: topic[/attached_collision_object] removing connection to /move_group
+[rospy.internal][INFO] 2025-12-18 08:19:13,020: topic[/clock] removing connection to http://127.0.0.1:41135/
+[rospy.impl.masterslave][INFO] 2025-12-18 08:19:13,020: atexit

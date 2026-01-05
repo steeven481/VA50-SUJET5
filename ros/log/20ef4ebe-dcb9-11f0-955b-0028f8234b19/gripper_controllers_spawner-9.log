@@ -1,0 +1,37 @@
+[rospy.client][INFO] 2025-12-19 10:00:17,414: init_node, name[/gripper_controllers_spawner], pid[189]
+[xmlrpc][INFO] 2025-12-19 10:00:17,414: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-19 10:00:17,415: Started XML-RPC server [http://127.0.0.1:34837/]
+[rospy.init][INFO] 2025-12-19 10:00:17,415: ROS Slave URI: [http://127.0.0.1:34837/]
+[rospy.impl.masterslave][INFO] 2025-12-19 10:00:17,415: _ready: http://127.0.0.1:34837/
+[rospy.registration][INFO] 2025-12-19 10:00:17,416: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-19 10:00:17,416: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-19 10:00:17,515: registered with master
+[rospy.rosout][INFO] 2025-12-19 10:00:17,516: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-19 10:00:17,520: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-19 10:00:17,521: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-19 10:00:17,523: connected to core topic /clock
+[rosout][INFO] 2025-12-19 10:00:17,525: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-12-19 10:00:17,646: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2025-12-19 10:00:18,077: topic[/clock] adding connection to [http://127.0.0.1:40085/], count 0
+[rosout][INFO] 2025-12-19 10:00:19,638: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-12-19 10:00:19,657: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-12-19 10:00:19,691: Loading controller: gripper_controller
+[rosout][INFO] 2025-12-19 10:00:19,875: Controller Spawner: Loaded controllers: gripper_controller
+[rosout][INFO] 2025-12-19 10:00:19,955: Started controllers: gripper_controller
+[rospy.core][INFO] 2025-12-19 10:09:57,575: signal_shutdown [signal-2]
+[rosout][INFO] 2025-12-19 10:09:57,575: Shutting down spawner. Stopping and unloading controllers...
+[rosout][INFO] 2025-12-19 10:09:58,625: Stopping all controllers...
+[rospy.internal][INFO] 2025-12-19 10:09:58,654: topic[/clock] removing connection to http://127.0.0.1:40085/
+[rospy.internal][WARNING] 2025-12-19 10:09:58,664: Unknown error initiating TCP/IP socket to 127.0.0.1:36915 (rosrpc://127.0.0.1:36915): Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 569, in connect
+    self.read_header()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/impl/tcpros_base.py", line 664, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/noetic/lib/python3/dist-packages/rosgraph/network.py", line 357, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+[rosout][WARNING] 2025-12-19 10:09:58,664: Controller Spawner couldn't reach controller_manager to take down controllers. Waited for 30 second(s).
+[rospy.internal][INFO] 2025-12-19 10:09:58,670: topic[/rosout] removing connection to /rosout
+[rospy.impl.masterslave][INFO] 2025-12-19 10:09:58,671: signal-2
+[rospy.core][INFO] 2025-12-19 10:09:59,267: signal_shutdown [atexit]

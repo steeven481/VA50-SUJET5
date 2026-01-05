@@ -1,0 +1,27 @@
+[rospy.client][INFO] 2025-12-18 12:25:59,753: init_node, name[/default_controllers_spawner], pid[271]
+[xmlrpc][INFO] 2025-12-18 12:25:59,753: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2025-12-18 12:25:59,754: Started XML-RPC server [http://127.0.0.1:45585/]
+[rospy.init][INFO] 2025-12-18 12:25:59,754: ROS Slave URI: [http://127.0.0.1:45585/]
+[rospy.impl.masterslave][INFO] 2025-12-18 12:25:59,754: _ready: http://127.0.0.1:45585/
+[rospy.registration][INFO] 2025-12-18 12:25:59,754: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2025-12-18 12:25:59,755: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2025-12-18 12:25:59,854: registered with master
+[rospy.rosout][INFO] 2025-12-18 12:25:59,855: initializing /rosout core topic
+[rospy.rosout][INFO] 2025-12-18 12:25:59,859: connected to core topic /rosout
+[rospy.simtime][INFO] 2025-12-18 12:25:59,860: initializing /clock core topic
+[rospy.simtime][INFO] 2025-12-18 12:25:59,862: connected to core topic /clock
+[rosout][INFO] 2025-12-18 12:25:59,864: Controller Spawner: Waiting for service controller_manager/load_controller
+[rospy.internal][INFO] 2025-12-18 12:26:00,059: topic[/clock] adding connection to [http://127.0.0.1:43945/], count 0
+[rospy.internal][INFO] 2025-12-18 12:26:00,133: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2025-12-18 12:26:01,675: Controller Spawner: Waiting for service controller_manager/switch_controller
+[rosout][INFO] 2025-12-18 12:26:01,684: Controller Spawner: Waiting for service controller_manager/unload_controller
+[rosout][INFO] 2025-12-18 12:26:01,693: Loading controller: joint_state_controller
+[rosout][INFO] 2025-12-18 12:26:01,747: Loading controller: torso_controller
+[rosout][INFO] 2025-12-18 12:26:01,823: Loading controller: head_controller
+[rosout][INFO] 2025-12-18 12:26:01,883: Loading controller: arm_controller
+[rosout][INFO] 2025-12-18 12:26:01,973: Loading controller: mobile_base_controller
+[rosout][INFO] 2025-12-18 12:26:02,158: Controller Spawner: Loaded controllers: joint_state_controller, torso_controller, head_controller, arm_controller, mobile_base_controller
+[rosout][INFO] 2025-12-18 12:26:02,174: Started controllers: joint_state_controller, torso_controller, head_controller, arm_controller, mobile_base_controller
+[rospy.core][INFO] 2025-12-18 12:30:20,682: signal_shutdown [signal-2]
+[rosout][INFO] 2025-12-18 12:30:20,683: Shutting down spawner. Stopping and unloading controllers...
+[rospy.internal][INFO] 2025-12-18 12:30:20,977: topic[/clock] removing connection to http://127.0.0.1:43945/
