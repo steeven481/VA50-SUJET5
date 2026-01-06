@@ -1,7 +1,27 @@
 docker/
 
-# ROS logs
+# ROS logs et caches
 ros/log/
+ros/rospack_cache*
+ros/rosstack_cache*
 
 # X11 fix script
 fix_x11.sh
+
+# Images capturées par le robot
+workspace/data/images/
+workspace/data/rgb_images/
+workspace/data/depth_images/
+
+# Fichiers de calibration JSON
+workspace/data/calibration/*.json
+
+# Outputs du pipeline
+workspace/pipeline/outputs/final_positions.json
+workspace/pipeline/outputs/*.png
+workspace/pipeline/outputs/*.jpg
+workspace/pipeline/outputs/*.jpeg
+
+# Python cache
+**/__pycache__/
+**/*.pyc
