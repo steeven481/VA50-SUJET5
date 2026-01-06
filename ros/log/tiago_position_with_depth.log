@@ -801,3 +801,109 @@ AttributeError: 'NoneType' object has no attribute 'close'
 [rosout][INFO] 2026-01-06 14:24:04,093: ✅ Pose atteinte
 [rosout][INFO] 2026-01-06 14:24:05,135: ✅✅✅ SUCCÈS: Position atteinte avec précision!
 [rosout][INFO] 2026-01-06 14:24:05,137: 🔒 Maintien de la position... (Ctrl+C pour arrêter)
+[rospy.client][INFO] 2026-01-06 16:49:51,830: init_node, name[/tiago_position_with_depth], pid[1185]
+[xmlrpc][INFO] 2026-01-06 16:49:51,831: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2026-01-06 16:49:51,831: Started XML-RPC server [http://127.0.0.1:36841/]
+[rospy.init][INFO] 2026-01-06 16:49:51,831: ROS Slave URI: [http://127.0.0.1:36841/]
+[rospy.impl.masterslave][INFO] 2026-01-06 16:49:51,831: _ready: http://127.0.0.1:36841/
+[rospy.registration][INFO] 2026-01-06 16:49:51,833: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2026-01-06 16:49:51,833: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2026-01-06 16:49:51,932: registered with master
+[rospy.rosout][INFO] 2026-01-06 16:49:51,932: initializing /rosout core topic
+[rospy.rosout][INFO] 2026-01-06 16:49:51,942: connected to core topic /rosout
+[rospy.simtime][INFO] 2026-01-06 16:49:51,943: initializing /clock core topic
+[rospy.simtime][INFO] 2026-01-06 16:49:51,946: connected to core topic /clock
+[rospy.internal][INFO] 2026-01-06 16:49:53,500: topic[/clock] adding connection to [http://127.0.0.1:33059/], count 0
+[rospy.internal][INFO] 2026-01-06 16:49:53,516: topic[/tf] adding connection to [http://127.0.0.1:34315/], count 0
+[rospy.internal][INFO] 2026-01-06 16:49:53,516: topic[/tf] adding connection to [http://127.0.0.1:33059/], count 0
+[rospy.internal][INFO] 2026-01-06 16:49:53,520: topic[/tf_static] adding connection to [http://127.0.0.1:34315/], count 0
+[rosout][INFO] 2026-01-06 16:49:53,556: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rosout][INFO] 2026-01-06 16:49:53,558: 🎯 Cible: knife
+[rosout][INFO] 2026-01-06 16:49:53,561: 📁 3 objets détectés
+[rospy.internal][INFO] 2026-01-06 16:49:53,601: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2026-01-06 16:49:53,798: topic[/mobile_base_controller/cmd_vel] adding connection to [/twist_marker], count 0
+[rospy.internal][INFO] 2026-01-06 16:49:53,799: topic[/mobile_base_controller/cmd_vel] adding connection to [/gazebo], count 1
+[rosout][INFO] 2026-01-06 16:49:55,849: 🚀 Démarrage positionnement Tiago
+[rosout][INFO] 2026-01-06 16:49:58,098: 🔄 Déplacement vers position sûre...
+[rosout][INFO] 2026-01-06 16:50:31,795: ✅ Position sûre atteinte
+[rosout][INFO] 2026-01-06 16:50:34,085: 🎯 Traitement: knife
+[rosout][INFO] 2026-01-06 16:50:34,095: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2026-01-06 16:50:34,098: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2026-01-06 16:50:34,109: 📍 Coordonnées robot: (1.040, 0.032, 1.522)
+[rosout][INFO] 2026-01-06 16:50:34,114: 🎯 Position calculée: X=1.040, Y=0.032, Z=1.672
+[rosout][INFO] 2026-01-06 16:50:34,116: 🎯 Position ajustée: X=0.750, Y=0.032, Z=0.950
+[rosout][INFO] 2026-01-06 16:50:34,121: 📏 Cible trop éloignée, déplacement nécessaire...
+[rosout][INFO] 2026-01-06 16:50:34,123: ⬆️  Levage modéré du bras...
+[rosout][INFO] 2026-01-06 16:50:57,803: ✅ Bras levé
+[rosout][INFO] 2026-01-06 16:50:58,933: 🚗 Déplacement robot...
+[rosout][INFO] 2026-01-06 16:50:58,935: ✅ Déjà assez proche
+[rosout][INFO] 2026-01-06 16:50:58,938: 🎯 Nouvelle position: X=0.750
+[rosout][INFO] 2026-01-06 16:50:58,943: 🎯 Approche de la cible...
+[rosout][INFO] 2026-01-06 16:50:58,949: 🎯 Approche sûre de la cible...
+[rosout][INFO] 2026-01-06 16:50:58,952: 📍 Approche haute: z=1.150m
+[rosout][INFO] 2026-01-06 16:50:58,957: 🔄 Tentative 1/3
+[rosout][INFO] 2026-01-06 16:50:59,025: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2026-01-06 16:51:11,944: ✅ Pose atteinte
+[rosout][INFO] 2026-01-06 16:51:14,242: 📍 Approche intermédiaire: z=1.050m
+[rosout][INFO] 2026-01-06 16:51:14,244: 🔄 Tentative 1/3
+[rosout][INFO] 2026-01-06 16:51:14,294: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2026-01-06 16:51:16,855: ✅ Pose atteinte
+[rosout][INFO] 2026-01-06 16:51:19,235: 📍 Descente finale: z=0.950m
+[rosout][INFO] 2026-01-06 16:51:19,238: 🔄 Tentative 1/3
+[rosout][INFO] 2026-01-06 16:51:19,306: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2026-01-06 16:51:59,907: ✅ Pose atteinte
+[rosout][INFO] 2026-01-06 16:52:01,169: ✅✅✅ SUCCÈS: Position atteinte avec précision!
+[rosout][INFO] 2026-01-06 16:52:01,171: 🔒 Maintien de la position... (Ctrl+C pour arrêter)
+[rospy.client][INFO] 2026-01-06 17:17:49,176: init_node, name[/tiago_position_with_depth], pid[1145]
+[xmlrpc][INFO] 2026-01-06 17:17:49,185: XML-RPC server binding to 127.0.0.1:0
+[xmlrpc][INFO] 2026-01-06 17:17:49,185: Started XML-RPC server [http://127.0.0.1:33653/]
+[rospy.init][INFO] 2026-01-06 17:17:49,185: ROS Slave URI: [http://127.0.0.1:33653/]
+[rospy.impl.masterslave][INFO] 2026-01-06 17:17:49,185: _ready: http://127.0.0.1:33653/
+[rospy.registration][INFO] 2026-01-06 17:17:49,186: Registering with master node http://localhost:11311/
+[xmlrpc][INFO] 2026-01-06 17:17:49,187: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2026-01-06 17:17:49,286: registered with master
+[rospy.rosout][INFO] 2026-01-06 17:17:49,286: initializing /rosout core topic
+[rospy.rosout][INFO] 2026-01-06 17:17:49,292: connected to core topic /rosout
+[rospy.simtime][INFO] 2026-01-06 17:17:49,293: initializing /clock core topic
+[rospy.simtime][INFO] 2026-01-06 17:17:49,296: connected to core topic /clock
+[rospy.internal][INFO] 2026-01-06 17:17:49,299: topic[/clock] adding connection to [http://127.0.0.1:40683/], count 0
+[rospy.internal][INFO] 2026-01-06 17:17:50,626: topic[/tf] adding connection to [http://127.0.0.1:42279/], count 0
+[rospy.internal][INFO] 2026-01-06 17:17:50,632: topic[/tf] adding connection to [http://127.0.0.1:40683/], count 1
+[rospy.internal][INFO] 2026-01-06 17:17:50,637: topic[/tf_static] adding connection to [http://127.0.0.1:42279/], count 0
+[rosout][INFO] 2026-01-06 17:17:50,662: ✅ Profondeur chargée: scene_20251218_113046_depth.npz ((480, 640))
+[rosout][INFO] 2026-01-06 17:17:50,665: 🎯 Cible: knife
+[rosout][INFO] 2026-01-06 17:17:50,667: 📁 3 objets détectés
+[rospy.internal][INFO] 2026-01-06 17:17:50,716: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2026-01-06 17:17:50,784: topic[/mobile_base_controller/cmd_vel] adding connection to [/gazebo], count 0
+[rospy.internal][INFO] 2026-01-06 17:17:50,883: topic[/mobile_base_controller/cmd_vel] adding connection to [/twist_marker], count 1
+[rosout][INFO] 2026-01-06 17:17:53,031: 🚀 Démarrage positionnement Tiago
+[rosout][INFO] 2026-01-06 17:18:00,162: 🔄 Déplacement vers position sûre...
+[rosout][INFO] 2026-01-06 17:19:19,942: ✅ Position sûre atteinte
+[rosout][INFO] 2026-01-06 17:19:27,300: 🎯 Traitement: knife
+[rosout][INFO] 2026-01-06 17:19:27,323: 📏 Profondeur mesurée: 0.823 m
+[rosout][INFO] 2026-01-06 17:19:27,351: 📍 Coordonnées caméra: (-0.010, -0.134, 0.823)
+[rosout][INFO] 2026-01-06 17:19:27,355: 📍 Coordonnées robot: (1.042, 0.032, 1.510)
+[rosout][INFO] 2026-01-06 17:19:27,359: 🎯 Position calculée: X=1.042, Y=0.032, Z=1.660
+[rosout][INFO] 2026-01-06 17:19:27,370: 🎯 Position ajustée: X=0.750, Y=0.032, Z=0.950
+[rosout][INFO] 2026-01-06 17:19:27,384: 📏 Cible trop éloignée, déplacement nécessaire...
+[rosout][INFO] 2026-01-06 17:19:27,390: ⬆️  Levage modéré du bras...
+[rosout][INFO] 2026-01-06 17:20:33,783: ✅ Bras levé
+[rosout][INFO] 2026-01-06 17:20:36,559: 🚗 Déplacement robot...
+[rosout][INFO] 2026-01-06 17:20:36,566: ✅ Déjà assez proche
+[rosout][INFO] 2026-01-06 17:20:36,579: 🎯 Nouvelle position: X=0.750
+[rosout][INFO] 2026-01-06 17:20:36,603: 🎯 Approche de la cible...
+[rosout][INFO] 2026-01-06 17:20:36,611: 🎯 Approche sûre de la cible...
+[rosout][INFO] 2026-01-06 17:20:36,621: 📍 Approche haute: z=1.150m
+[rosout][INFO] 2026-01-06 17:20:36,635: 🔄 Tentative 1/3
+[rosout][INFO] 2026-01-06 17:20:36,930: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2026-01-06 17:21:29,415: ✅ Pose atteinte
+[rosout][INFO] 2026-01-06 17:21:35,139: 📍 Approche intermédiaire: z=1.050m
+[rosout][INFO] 2026-01-06 17:21:35,149: 🔄 Tentative 1/3
+[rosout][INFO] 2026-01-06 17:21:35,339: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2026-01-06 17:21:56,055: ✅ Pose atteinte
+[rosout][INFO] 2026-01-06 17:22:00,574: 📍 Descente finale: z=0.950m
+[rosout][INFO] 2026-01-06 17:22:00,587: 🔄 Tentative 1/3
+[rosout][INFO] 2026-01-06 17:22:00,731: ✅ Plan trouvé, exécution...
+[rosout][INFO] 2026-01-06 17:24:05,172: ✅ Pose atteinte
+[rosout][INFO] 2026-01-06 17:24:08,225: ✅✅✅ SUCCÈS: Position atteinte avec précision!
+[rosout][INFO] 2026-01-06 17:24:08,238: 🔒 Maintien de la position... (Ctrl+C pour arrêter)
