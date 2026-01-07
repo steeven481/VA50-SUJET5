@@ -70,7 +70,7 @@ STEP_CONFIG = {
         "script": os.path.join(PIPELINE_PATH, "run_pipeline.py"),
         "working_dir": PIPELINE_PATH,
         "name": "Pipeline IA",
-        "timeout": 600,
+        "timeout": 2400,
         "description": "Détection d'objets, génération d'image et calcul des positions"
     },
     "command": {

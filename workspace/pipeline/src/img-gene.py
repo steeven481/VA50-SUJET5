@@ -86,7 +86,7 @@ def main():
         prompt=prompt,
         negative_prompt=negative_prompt,
         image=scribble,
-        num_inference_steps=40,
+        num_inference_steps=30,
         guidance_scale=5.5,
         controlnet_conditioning_scale=1.6,
         height=384,
