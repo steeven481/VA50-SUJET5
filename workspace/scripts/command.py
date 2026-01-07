@@ -11,7 +11,7 @@ import math
 import time
 
 class TiagoObjectPlacer:
-    """Robot Tiago pour pousser les objets dans la scène"""
+    """Robot Tiago pour déplacer les objets sur la table"""
     
     def __init__(self):
         rospy.init_node('tiago_object_placer')
@@ -22,9 +22,14 @@ class TiagoObjectPlacer:
         
         # Groupes de contrôle
         self.arm_group = moveit_commander.MoveGroupCommander("arm_torso")
-        self.arm_group.set_planning_time(15.0)
-        self.arm_group.set_max_velocity_scaling_factor(0.15)
-        self.arm_group.set_max_acceleration_scaling_factor(0.1)
+        self.arm_group.set_planning_time(20.0)
+        self.arm_group.set_max_velocity_scaling_factor(0.1)
+        self.arm_group.set_max_acceleration_scaling_factor(0.08)
+        
+        # Configurer le planificateur pour mieux éviter les obstacles
+        self.arm_group.set_num_planning_attempts(10)
+        self.arm_group.set_goal_position_tolerance(0.02)
+        self.arm_group.set_goal_orientation_tolerance(0.1)
         
         # Publisher pour la base mobile
         self.cmd_vel_pub = rospy.Publisher('/mobile_base_controller/cmd_vel', Twist, queue_size=10)
@@ -37,37 +42,48 @@ class TiagoObjectPlacer:
         # Afficher les positions
         self.display_positions()
         
-        # Configuration de la scène (image 640x480)
-        self.scene_width = 640
-        self.scene_height = 480
-        self.scene_center_x = self.scene_width // 2  # 320
-        self.scene_center_y = self.scene_height // 2  # 240
+        # Configuration de la scène
+        # L'image de détection est 640x480 (de la caméra xtion)
+        # L'image générée est 384x384
+        # On utilise les positions des pixels par rapport à l'image générée (384x384)
+        self.input_img_width = 640
+        self.input_img_height = 480
+        self.generated_img_width = 384
+        self.generated_img_height = 384
         
-        # Dimensions réelles de la zone de travail
-        self.workspace_width = 0.8   # 80cm de large
-        self.workspace_depth = 0.6   # 60cm de profondeur
+        # Positions Gazebo réelles depuis le fichier world:
+        # Table: position (0.839, -0.011) rotée de -90° environ
+        # Surface de table à z ≈ 0.74m
+        # Plate: (0.872, -0.164, 0.742)
+        # Fork: (0.797, 0.123, 0.740)
+        # Knife: (0.961, 0.023, 0.695)
         
-        # Position du robot par rapport à la scène
-        # Le robot est devant la scène, le centre de la scène est devant lui
-        self.robot_base_x = 0.5      # Distance au centre de la scène
-        self.robot_base_y = 0.0      # Centré latéralement
+        # Zone de travail sur la table (calibrée depuis les positions Gazebo)
+        # La table est centrée autour de x=0.85m, y=0.0m
+        self.table_center_x = 0.85   # Centre X de la table dans le repère robot
+        self.table_center_y = 0.0    # Centre Y de la table
+        self.table_width = 0.50      # Largeur effective de la zone de travail (Y)
+        self.table_depth = 0.40      # Profondeur effective (X)
         
-        # Facteurs de conversion pixel -> mètre
-        self.pixel_to_meter_x = self.workspace_width / self.scene_width
-        self.pixel_to_meter_y = self.workspace_depth / self.scene_height
+        # Hauteurs calibrées précisément depuis Gazebo
+        self.table_surface_z = 0.74   # Hauteur exacte de la surface de table
+        self.safe_height_z = 1.05     # Hauteur sûre bien au-dessus de la table
+        self.approach_height_z = 0.90 # Hauteur d'approche sécuritaire
+        self.push_height_z = 0.78     # Hauteur pour pousser (juste au-dessus des objets)
         
-        # Hauteurs calibrées
-        self.table_height = 0.82      # Hauteur de la table
-        self.safe_height = 1.0        # Hauteur sûre au-dessus de la table
-        self.approach_height = 0.85   # Hauteur d'approche
-        self.push_height = 0.80       # Hauteur de poussée
+        # Vitesses sécuritaires
+        self.base_speed = 0.02
+        self.arm_speed_slow = 0.05
+        self.arm_speed_normal = 0.1
         
-        # Vitesses
-        self.base_speed = 0.03
-        self.arm_speed_slow = 0.1
-        self.arm_speed_normal = 0.2
+        # Paramètres de mouvement
+        self.cartesian_path_min_fraction = 0.8  # Fraction minimale pour accepter un chemin cartésien
+        self.min_movement_distance = 0.01       # Distance minimale pour déclencher un mouvement (en m)
+        self.push_offset_distance = 0.05        # Distance de recul avant de pousser un objet (en m)
+        self.segment_distance_threshold = 0.15  # Distance au-delà de laquelle on segmente le mouvement
+        self.segment_length = 0.10              # Longueur de chaque segment de mouvement
         
-        rospy.loginfo(f"📐 Facteurs de conversion: {self.pixel_to_meter_x:.6f} m/px, {self.pixel_to_meter_y:.6f} m/px")
+        rospy.loginfo(f"📐 Zone de travail: centre=({self.table_center_x:.2f}, {self.table_center_y:.2f}), taille=({self.table_depth:.2f}x{self.table_width:.2f})m")
         rospy.sleep(2.0)
     
     def display_positions(self):
@@ -76,11 +92,11 @@ class TiagoObjectPlacer:
         rospy.loginfo("📊 POSITIONS DANS LA SCÈNE:")
         rospy.loginfo("="*60)
         
-        rospy.loginfo("🎯 Positions initiales (dans l'image):")
+        rospy.loginfo("🎯 Positions initiales (pixels):")
         for obj in self.initial_positions:
             rospy.loginfo(f"  • {obj['label']}: ({obj['x_pixel']:.1f}, {obj['y_pixel']:.1f})")
         
-        rospy.loginfo("\n🎯 Positions finales (dans la même image):")
+        rospy.loginfo("\n🎯 Positions finales (pixels):")
         for obj in self.final_positions:
             rospy.loginfo(f"  • {obj['label']}: ({obj['x_pixel']:.1f}, {obj['y_pixel']:.1f})")
         rospy.loginfo("="*60)
@@ -94,49 +110,82 @@ class TiagoObjectPlacer:
             rospy.logerr(f"❌ Erreur chargement {filepath}: {e}")
             return []
     
-    def scene_pixel_to_robot_position(self, pixel_x, pixel_y, height_offset=0.04):
+    def pixel_to_world_position(self, pixel_x, pixel_y, img_width, img_height, target_z=None):
         """
-        Convertir les pixels de la scène en position robot
-        La scène est vue de dessus, le robot est au bas de l'image
+        Convertir les coordonnées pixel en coordonnées monde (repère robot base_footprint).
+        
+        Le système de coordonnées:
+        - L'image a (0,0) en haut à gauche
+        - pixel_x augmente vers la droite -> Y robot diminue (vers la droite du robot)
+        - pixel_y augmente vers le bas -> X robot augmente (vers l'avant)
+        
+        On mappe les pixels sur la zone de travail calibrée sur la table.
         """
-        # Calculer le décalage par rapport au centre de la scène
-        offset_x = (pixel_x - self.scene_center_x) * self.pixel_to_meter_x
-        offset_y = (pixel_y - self.scene_center_y) * self.pixel_to_meter_y
+        if target_z is None:
+            target_z = self.push_height_z
         
-        # Position robot:
-        # - X: plus on va vers le haut de l'image (pixel_y petit), plus c'est loin du robot
-        # - Y: plus on va vers la droite de l'image (pixel_x grand), plus c'est à droite du robot
-        robot_x = self.robot_base_x + offset_y  # Y image -> X robot (profondeur)
-        robot_y = self.robot_base_y - offset_x  # X image -> Y robot (latéral, inversé)
+        # Normaliser les pixels (0 à 1)
+        norm_x = pixel_x / img_width   # 0=gauche, 1=droite
+        norm_y = pixel_y / img_height  # 0=haut, 1=bas
         
-        # Hauteur = hauteur table + offset
-        robot_z = self.table_height + height_offset
+        # Mapper sur la zone de travail de la table
+        # X robot (avant/arrière): plus pixel_y est grand (bas de l'image), plus proche du robot
+        # Pour une vue du dessus avec tête baissée: haut de l'image = loin, bas = proche
+        robot_x = self.table_center_x + self.table_depth * (0.5 - norm_y)
         
-        # Limites de sécurité
-        robot_x = max(0.3, min(0.8, robot_x))
-        robot_y = max(-0.3, min(0.3, robot_y))
-        robot_z = max(self.table_height + 0.02, min(1.1, robot_z))
+        # Y robot (gauche/droite): pixel_x augmente vers la droite
+        # Droite de l'image = droite du robot = Y négatif
+        robot_y = self.table_center_y + self.table_width * (0.5 - norm_x)
         
-        rospy.logdebug(f"📐 Pixel({pixel_x:.1f}, {pixel_y:.1f}) -> Robot({robot_x:.3f}, {robot_y:.3f}, {robot_z:.3f})")
+        robot_z = target_z
+        
+        rospy.loginfo(f"📐 Pixel({pixel_x:.1f}, {pixel_y:.1f}) -> World({robot_x:.3f}, {robot_y:.3f}, {robot_z:.3f})")
         
         return [robot_x, robot_y, robot_z]
     
+    def get_object_world_position_initial(self, label):
+        """Obtenir la position monde initiale d'un objet."""
+        for obj in self.initial_positions:
+            if obj['label'].lower() == label.lower():
+                return self.pixel_to_world_position(
+                    obj['x_pixel'], obj['y_pixel'],
+                    self.input_img_width, self.input_img_height
+                )
+        return None
+    
+    def get_object_world_position_final(self, label):
+        """Obtenir la position monde finale d'un objet."""
+        for obj in self.final_positions:
+            if obj['label'].lower() == label.lower():
+                return self.pixel_to_world_position(
+                    obj['x_pixel'], obj['y_pixel'],
+                    self.generated_img_width, self.generated_img_height
+                )
+        return None
+    
     def create_pose(self, position, orientation_type="push"):
-        """Créer une pose avec orientation"""
+        """Créer une pose avec orientation appropriée pour la manipulation."""
         pose = Pose()
         pose.position.x = position[0]
         pose.position.y = position[1]
         pose.position.z = position[2]
         
         if orientation_type == "push":
-            # Orientation pour pousser (vers le bas et légèrement vers l'avant)
-            quat = quaternion_from_euler(-1.57, 0.2, 0)  # -90° + petit angle avant
+            # Orientation pour pousser: gripper pointant vers le bas, légèrement incliné vers l'avant
+            # Roll=-90° (tourner autour de X), Pitch=0, Yaw=0
+            quat = quaternion_from_euler(-1.57, 0.0, 0.0)
         elif orientation_type == "survey":
-            # Orientation pour survoler (plus horizontal)
-            quat = quaternion_from_euler(-1.0, 0.5, 0)
+            # Orientation pour survoler/observer
+            quat = quaternion_from_euler(-1.57, 0.0, 0.0)
         elif orientation_type == "transport":
-            # Orientation pour transport
-            quat = quaternion_from_euler(0, 1.57, 0)
+            # Orientation pour transport sécuritaire (gripper vers l'avant)
+            quat = quaternion_from_euler(0, 0, 0)
+        elif orientation_type == "side_push_left":
+            # Pousser vers la gauche du robot (Y positif)
+            quat = quaternion_from_euler(-1.57, 0.0, 1.57)
+        elif orientation_type == "side_push_right":
+            # Pousser vers la droite du robot (Y négatif)
+            quat = quaternion_from_euler(-1.57, 0.0, -1.57)
         else:
             quat = quaternion_from_euler(0, 0, 0)
         
@@ -147,14 +196,14 @@ class TiagoObjectPlacer:
         
         return pose
     
-    def move_base_forward(self, distance=0.2):
-        """Avancer la base du robot"""
+    def move_base_forward(self, distance=0.1):
+        """Avancer la base du robot de manière sécuritaire."""
         rospy.loginfo(f"🚗 Avancée de {distance:.2f}m")
         
         twist = Twist()
         twist.linear.x = self.base_speed
         
-        move_time = distance / self.base_speed
+        move_time = abs(distance / self.base_speed)
         start_time = rospy.Time.now().to_sec()
         
         while (rospy.Time.now().to_sec() - start_time) < move_time:
@@ -163,21 +212,64 @@ class TiagoObjectPlacer:
             self.cmd_vel_pub.publish(twist)
             rospy.sleep(0.1)
         
-        # Arrêt
+        # Arrêt complet
         twist.linear.x = 0.0
-        for _ in range(5):
+        for _ in range(10):
             self.cmd_vel_pub.publish(twist)
             rospy.sleep(0.1)
         
         rospy.sleep(1.0)
         return True
     
-    def go_to_safe_position(self):
-        """Aller à une position sûre"""
-        rospy.loginfo("🔼 Position sûre")
+    def move_to_home_position(self):
+        """Aller à une position de repos sécuritaire."""
+        rospy.loginfo("🏠 Retour position de repos...")
         
-        safe_pos = [0.5, 0.0, self.safe_height]
-        safe_pose = self.create_pose(safe_pos, "transport")
+        try:
+            # Utiliser une pose nommée si disponible, sinon position haute sécuritaire
+            self.arm_group.set_max_velocity_scaling_factor(0.1)
+            
+            # Configuration sécuritaire des joints pour position de repos
+            # Ces valeurs sont calibrées pour le robot TIAGo
+            self.arm_group.set_joint_value_target({
+                'torso_lift_joint': 0.25,
+                'arm_1_joint': 0.2,
+                'arm_2_joint': -1.34,
+                'arm_3_joint': -0.2,
+                'arm_4_joint': 1.94,
+                'arm_5_joint': -1.57,
+                'arm_6_joint': 1.37,
+                'arm_7_joint': 0.0
+            })
+            
+            success = self.arm_group.go(wait=True)
+            self.arm_group.stop()
+            
+            if success:
+                rospy.loginfo("✅ Position de repos atteinte")
+            else:
+                rospy.logwarn("⚠️ Échec position de repos, essai alternatif...")
+                # Position alternative haute
+                safe_pos = [0.35, 0.0, self.safe_height_z]
+                safe_pose = self.create_pose(safe_pos, "transport")
+                self.arm_group.set_pose_target(safe_pose)
+                success = self.arm_group.go(wait=True)
+                self.arm_group.stop()
+            
+            rospy.sleep(0.5)
+            return success
+            
+        except Exception as e:
+            rospy.logerr(f"❌ Erreur position repos: {e}")
+            return False
+    
+    def go_to_safe_position(self):
+        """Aller à une position sûre au-dessus de la table."""
+        rospy.loginfo("🔼 Déplacement vers position sûre...")
+        
+        # Position sûre au-dessus du centre de la table
+        safe_pos = [self.table_center_x - 0.15, 0.0, self.safe_height_z]
+        safe_pose = self.create_pose(safe_pos, "survey")
         
         self.arm_group.set_max_velocity_scaling_factor(0.1)
         self.arm_group.set_pose_target(safe_pose)
@@ -187,264 +279,260 @@ class TiagoObjectPlacer:
         if success:
             rospy.loginfo("✅ Position sûre atteinte")
         else:
-            rospy.logwarn("⚠️  Échec position sûre")
+            rospy.logwarn("⚠️ Échec position sûre, essai avec joints...")
+            # Alternative: utiliser home position
+            return self.move_to_home_position()
         
         rospy.sleep(0.5)
         return success
     
-    def execute_vertical_movement(self, start_pos, end_pos, description):
-        """Exécuter un mouvement vertical contrôlé"""
-        rospy.loginfo(f"📏 {description}: {start_pos[2]:.3f}m -> {end_pos[2]:.3f}m")
+    def move_arm_cartesian(self, start_pos, end_pos, speed_factor=0.05):
+        """Exécuter un mouvement cartésien linéaire entre deux positions."""
+        rospy.loginfo(f"📏 Mouvement: ({start_pos[0]:.3f},{start_pos[1]:.3f},{start_pos[2]:.3f}) -> ({end_pos[0]:.3f},{end_pos[1]:.3f},{end_pos[2]:.3f})")
         
-        # Créer un chemin avec waypoints pour un mouvement doux
+        self.arm_group.set_max_velocity_scaling_factor(speed_factor)
+        
         waypoints = []
-        
-        # Point intermédiaire
-        mid_height = (start_pos[2] + end_pos[2]) / 2
-        mid_pos = [start_pos[0], start_pos[1], mid_height]
-        
-        waypoints.append(self.create_pose(mid_pos, "push"))
         waypoints.append(self.create_pose(end_pos, "push"))
-        
-        # Exécuter
-        self.arm_group.set_max_velocity_scaling_factor(0.05)
         
         try:
             (plan, fraction) = self.arm_group.compute_cartesian_path(
-                waypoints, 0.01, 0.0, True
+                waypoints, 
+                0.01,  # eef_step: résolution du chemin
+                0.0,   # jump_threshold: désactivé
+                True   # avoid_collisions
             )
             
-            if fraction > 0.5:
+            if fraction > self.cartesian_path_min_fraction:
+                rospy.loginfo(f"✅ Chemin planifié ({fraction*100:.0f}%)")
                 self.arm_group.execute(plan, wait=True)
+                self.arm_group.stop()
                 return True
             else:
-                rospy.logwarn(f"⚠️  Mouvement vertical limité (fraction: {fraction:.2f})")
-                return False
+                rospy.logwarn(f"⚠️ Chemin partiel ({fraction*100:.0f}%), essai mouvement direct...")
+                # Fallback: mouvement point-à-point
+                self.arm_group.set_pose_target(self.create_pose(end_pos, "push"))
+                success = self.arm_group.go(wait=True)
+                self.arm_group.stop()
+                return success
+                
         except Exception as e:
-            rospy.logerr(f"❌ Erreur mouvement vertical: {e}")
+            rospy.logerr(f"❌ Erreur mouvement cartésien: {e}")
             return False
     
-    def execute_push_movement(self, start_pixel, end_pixel, label):
-        """Exécuter le mouvement de poussée d'un objet dans la scène"""
-        rospy.loginfo(f"\n🤖 POUSSÉE DE {label.upper()}")
-        rospy.loginfo(f"📍 Scene start: ({start_pixel[0]:.1f}, {start_pixel[1]:.1f})")
-        rospy.loginfo(f"📍 Scene end: ({end_pixel[0]:.1f}, {end_pixel[1]:.1f})")
+    def push_object_to_target(self, label, start_world, end_world):
+        """
+        Pousser un objet de sa position initiale vers sa position finale.
         
-        # Convertir les positions de la scène en positions robot
-        approach_start = self.scene_pixel_to_robot_position(
-            start_pixel[0], start_pixel[1], 0.08
-        )
+        Séquence:
+        1. Aller au-dessus de la position initiale (hauteur sûre)
+        2. Descendre à la hauteur de poussée
+        3. Pousser vers la position finale
+        4. Remonter à la hauteur sûre
+        """
+        rospy.loginfo(f"\n🎯 DÉPLACEMENT DE {label.upper()}")
+        rospy.loginfo(f"   De: ({start_world[0]:.3f}, {start_world[1]:.3f})")
+        rospy.loginfo(f"   Vers: ({end_world[0]:.3f}, {end_world[1]:.3f})")
         
-        push_start = self.scene_pixel_to_robot_position(
-            start_pixel[0], start_pixel[1], 0.04
-        )
+        # Calculer la direction et la distance du mouvement
+        dx = end_world[0] - start_world[0]
+        dy = end_world[1] - start_world[1]
+        distance = math.sqrt(dx*dx + dy*dy)
+        rospy.loginfo(f"   Distance: {distance:.3f}m")
         
-        push_end = self.scene_pixel_to_robot_position(
-            end_pixel[0], end_pixel[1], 0.04
-        )
+        if distance < self.min_movement_distance:
+            rospy.loginfo(f"✅ {label} est déjà à la bonne position!")
+            return True
         
-        approach_end = self.scene_pixel_to_robot_position(
-            end_pixel[0], end_pixel[1], 0.08
-        )
-        
-        rospy.loginfo(f"🤖 Robot start: ({push_start[0]:.3f}, {push_start[1]:.3f})")
-        rospy.loginfo(f"🤖 Robot end: ({push_end[0]:.3f}, {push_end[1]:.3f})")
-        
-        # 1. Aller à la position d'approche
-        rospy.loginfo("1️⃣  Approche de l'objet")
-        self.arm_group.set_max_velocity_scaling_factor(self.arm_speed_slow)
-        self.arm_group.set_pose_target(self.create_pose(approach_start, "survey"))
-        if not self.arm_group.go(wait=True):
-            rospy.logwarn("⚠️  Échec approche")
-            return False
-        
-        # 2. Descente vers l'objet
-        rospy.loginfo("2️⃣  Descente vers l'objet")
-        if not self.execute_vertical_movement(approach_start, push_start, "Descente"):
-            rospy.logwarn("⚠️  Échec descente")
-            return False
-        
-        # 3. Poussée vers la position finale
-        rospy.loginfo("3️⃣  Poussée vers position finale")
-        
-        # Calculer la distance et diviser en segments si nécessaire
-        distance = math.sqrt(
-            (push_end[0] - push_start[0])**2 + 
-            (push_end[1] - push_start[1])**2
-        )
-        
-        if distance > 0.15:  # Si plus de 15cm, diviser
-            num_segments = max(2, int(distance / 0.08))
-            rospy.loginfo(f"📏 Poussée en {num_segments} segments ({distance:.3f}m)")
-            
-            for i in range(num_segments + 1):
-                t = i / num_segments
-                inter_x = push_start[0] + t * (push_end[0] - push_start[0])
-                inter_y = push_start[1] + t * (push_end[1] - push_start[1])
-                inter_pos = [inter_x, inter_y, push_start[2]]
-                
-                self.arm_group.set_max_velocity_scaling_factor(0.03)
-                self.arm_group.set_pose_target(self.create_pose(inter_pos, "push"))
-                if not self.arm_group.go(wait=True):
-                    rospy.logwarn(f"⚠️  Échec segment {i+1}")
-                    break
-                rospy.sleep(0.1)
+        # Point de départ légèrement avant l'objet (pour avoir de l'élan)
+        # On recule dans la direction opposée au mouvement
+        if distance > 0:
+            offset_x = -self.push_offset_distance * (dx / distance)
+            offset_y = -self.push_offset_distance * (dy / distance)
         else:
-            # Poussée directe
-            self.arm_group.set_max_velocity_scaling_factor(0.04)
-            self.arm_group.set_pose_target(self.create_pose(push_end, "push"))
+            offset_x = offset_y = 0
+        
+        # Positions clés du mouvement
+        approach_start = [start_world[0] + offset_x, start_world[1] + offset_y, self.approach_height_z]
+        push_start = [start_world[0] + offset_x, start_world[1] + offset_y, self.push_height_z]
+        push_end = [end_world[0], end_world[1], self.push_height_z]
+        lift_end = [end_world[0], end_world[1], self.approach_height_z]
+        
+        # ÉTAPE 1: Aller au-dessus de la position de départ
+        rospy.loginfo("  1️⃣ Approche au-dessus de l'objet...")
+        approach_pose = self.create_pose(approach_start, "push")
+        self.arm_group.set_max_velocity_scaling_factor(0.1)
+        self.arm_group.set_pose_target(approach_pose)
+        if not self.arm_group.go(wait=True):
+            rospy.logwarn("⚠️ Échec approche, nouvel essai...")
+            rospy.sleep(1.0)
             if not self.arm_group.go(wait=True):
-                rospy.logwarn("⚠️  Échec poussée directe")
+                rospy.logerr("❌ Impossible d'atteindre la position d'approche")
                 return False
+        self.arm_group.stop()
+        rospy.sleep(0.5)
         
-        # 4. Remontée
-        rospy.loginfo("4️⃣  Remontée")
-        if not self.execute_vertical_movement(push_end, approach_end, "Remontée"):
-            rospy.logwarn("⚠️  Échec remontée")
+        # ÉTAPE 2: Descendre à la hauteur de poussée
+        rospy.loginfo("  2️⃣ Descente vers l'objet...")
+        if not self.move_arm_cartesian(approach_start, push_start, 0.03):
+            rospy.logerr("❌ Échec descente")
+            return False
+        rospy.sleep(0.3)
         
-        rospy.loginfo(f"✅ {label} poussé avec succès")
+        # ÉTAPE 3: Pousser vers la position finale
+        rospy.loginfo("  3️⃣ Poussée vers la position finale...")
+        
+        # Si la distance est grande, diviser en segments
+        if distance > self.segment_distance_threshold:
+            num_segments = max(2, int(distance / self.segment_length))
+            rospy.loginfo(f"     Mouvement en {num_segments} segments")
+            
+            current_pos = push_start.copy()
+            for i in range(num_segments):
+                t = (i + 1) / num_segments
+                next_pos = [
+                    push_start[0] + t * (push_end[0] - push_start[0]),
+                    push_start[1] + t * (push_end[1] - push_start[1]),
+                    self.push_height_z
+                ]
+                
+                if not self.move_arm_cartesian(current_pos, next_pos, 0.03):
+                    rospy.logwarn(f"⚠️ Segment {i+1} échoué, poursuite...")
+                
+                current_pos = next_pos
+                rospy.sleep(0.2)
+        else:
+            # Mouvement direct pour courtes distances
+            if not self.move_arm_cartesian(push_start, push_end, 0.03):
+                rospy.logwarn("⚠️ Poussée partielle")
+        
+        rospy.sleep(0.3)
+        
+        # ÉTAPE 4: Remonter
+        rospy.loginfo("  4️⃣ Remontée...")
+        if not self.move_arm_cartesian(push_end, lift_end, 0.05):
+            rospy.logwarn("⚠️ Échec remontée, tentative directe...")
+            lift_pose = self.create_pose(lift_end, "push")
+            self.arm_group.set_pose_target(lift_pose)
+            self.arm_group.go(wait=True)
+            self.arm_group.stop()
+        
+        rospy.loginfo(f"✅ {label} déplacé avec succès!")
         return True
     
     def find_object_positions(self, label):
-        """Trouver les positions initiale et finale d'un objet dans la scène"""
-        init_pos = None
-        final_pos = None
-        
-        for obj in self.initial_positions:
-            if obj['label'].lower() == label.lower():
-                init_pos = (obj['x_pixel'], obj['y_pixel'])
-                break
-        
-        for obj in self.final_positions:
-            if obj['label'].lower() == label.lower():
-                final_pos = (obj['x_pixel'], obj['y_pixel'])
-                break
-        
-        return init_pos, final_pos
-    
-    def calibrate_scene(self):
-        """Calibrer la relation entre la scène image et le monde réel"""
-        rospy.loginfo("\n🔧 CALIBRATION DE LA SCÈNE")
-        
-        # Aller à une position centrale haute
-        center_pos = self.scene_pixel_to_robot_position(
-            self.scene_center_x, self.scene_center_y, 0.1
-        )
-        
-        rospy.loginfo(f"📍 Centre scène: pixel({self.scene_center_x}, {self.scene_center_y})")
-        rospy.loginfo(f"📍 Position robot: ({center_pos[0]:.3f}, {center_pos[1]:.3f}, {center_pos[2]:.3f})")
-        
-        self.arm_group.set_pose_target(self.create_pose(center_pos, "survey"))
-        self.arm_group.go(wait=True)
-        
-        rospy.loginfo("✅ Calibration prête")
-        rospy.sleep(1.0)
-        
-        # Retour en sécurité
-        self.go_to_safe_position()
+        """Trouver les positions initiale et finale d'un objet."""
+        init_world = self.get_object_world_position_initial(label)
+        final_world = self.get_object_world_position_final(label)
+        return init_world, final_world
     
     def run_placement(self):
-        """Exécuter le placement des objets dans la scène"""
+        """Exécuter le placement des objets pour dresser la table."""
         rospy.loginfo("\n" + "="*70)
-        rospy.loginfo("🎬 DÉMARRAGE DU RANGEMENT DANS LA SCÈNE")
+        rospy.loginfo("🍽️  DÉMARRAGE DU DRESSAGE DE TABLE")
         rospy.loginfo("="*70)
         
-        # Attendre
-        rospy.sleep(2.0)
+        # Attendre que tout soit initialisé
+        rospy.sleep(3.0)
         
         # ÉTAPE 1: Position initiale sûre
         rospy.loginfo("\n📋 ÉTAPE 1: POSITION INITIALE")
-        self.go_to_safe_position()
+        if not self.move_to_home_position():
+            rospy.logwarn("⚠️ Impossible d'atteindre la position initiale")
         
-        # ÉTAPE 2: Avancer le robot
-        rospy.loginfo("\n📋 ÉTAPE 2: APPROCHE")
-        self.move_base_forward(0.15)
+        # ÉTAPE 2: Avancer légèrement le robot vers la table (optionnel)
+        # rospy.loginfo("\n📋 ÉTAPE 2: APPROCHE DE LA TABLE")
+        # self.move_base_forward(0.10)
         
-        # ÉTAPE 3: Calibration
-        rospy.loginfo("\n📋 ÉTAPE 3: CALIBRATION")
-        self.calibrate_scene()
+        # ÉTAPE 3: Traitement des objets
+        # Ordre optimisé: d'abord les couverts (plus petits), puis le plat
+        # Ceci évite de bousculer les couverts quand on déplace le plat
+        rospy.loginfo("\n📋 ÉTAPE 2: RANGEMENT DES OBJETS")
         
-        # ÉTAPE 4: Traitement des objets
-        rospy.loginfo("\n📋 ÉTAPE 4: RANGEMENT DES OBJETS")
-        
-        # Ordre de traitement optimisé
         objects_to_process = ["fork", "knife", "plate"]
         successful_objects = []
+        failed_objects = []
         
         for label in objects_to_process:
             rospy.loginfo("\n" + "="*50)
             rospy.loginfo(f"🎯 TRAITEMENT: {label.upper()}")
             rospy.loginfo("="*50)
             
-            # Trouver les positions dans la scène
-            init_pixel, final_pixel = self.find_object_positions(label)
+            # Trouver les positions
+            init_world, final_world = self.find_object_positions(label)
             
-            if not init_pixel or not final_pixel:
-                rospy.logwarn(f"⚠️  Positions manquantes pour {label}")
+            if init_world is None or final_world is None:
+                rospy.logwarn(f"⚠️ Positions manquantes pour {label}")
+                failed_objects.append(label)
                 continue
             
             # Aller à une position sûre avant chaque objet
+            rospy.loginfo(f"🔄 Préparation pour {label}...")
             self.go_to_safe_position()
-            rospy.sleep(0.5)
+            rospy.sleep(1.0)
             
-            # Exécuter la poussée
+            # Exécuter le déplacement
             try:
-                if self.execute_push_movement(init_pixel, final_pixel, label):
+                if self.push_object_to_target(label, init_world, final_world):
                     successful_objects.append(label)
                     rospy.loginfo(f"✅ {label} rangé avec succès!")
                 else:
-                    rospy.logwarn(f"⚠️  Échec partiel pour {label}")
+                    failed_objects.append(label)
+                    rospy.logwarn(f"⚠️ Échec pour {label}")
                 
                 # Pause entre les objets
-                rospy.sleep(0.5)
+                rospy.sleep(1.0)
                 
             except Exception as e:
                 rospy.logerr(f"❌ Erreur avec {label}: {e}")
+                failed_objects.append(label)
                 self.go_to_safe_position()
                 rospy.sleep(1.0)
         
-        # Résumé
+        # Résumé final
         rospy.loginfo("\n" + "="*70)
-        rospy.loginfo("📊 RÉSUMÉ DE LA MISSION")
+        rospy.loginfo("📊 RÉSUMÉ DU DRESSAGE DE TABLE")
         rospy.loginfo("="*70)
         rospy.loginfo(f"✅ Objets réussis: {len(successful_objects)}/{len(objects_to_process)}")
-        rospy.loginfo(f"📋 Liste: {', '.join(successful_objects) if successful_objects else 'Aucun'}")
+        if successful_objects:
+            rospy.loginfo(f"   {', '.join(successful_objects)}")
+        if failed_objects:
+            rospy.loginfo(f"❌ Objets échoués: {', '.join(failed_objects)}")
         
-        if len(successful_objects) > 0:
-            rospy.loginfo("🎉 MISSION ACCOMPLIE !")
+        if len(successful_objects) == len(objects_to_process):
+            rospy.loginfo("\n🎉 TABLE PARFAITEMENT DRESSÉE !")
+        elif len(successful_objects) > 0:
+            rospy.loginfo("\n⚠️ Table partiellement dressée")
         else:
-            rospy.loginfo("⚠️  Mission terminée avec des difficultés")
+            rospy.loginfo("\n❌ Échec du dressage de table")
         
         # Position finale sûre
-        rospy.loginfo("\n📋 POSITION FINALE")
-        self.go_to_safe_position()
+        rospy.loginfo("\n📋 ÉTAPE FINALE: RETOUR POSITION DE REPOS")
+        self.move_to_home_position()
         
-        # Petit recul
-        twist = Twist()
-        twist.linear.x = -0.02
-        for _ in range(50):
-            self.cmd_vel_pub.publish(twist)
-            rospy.sleep(0.1)
+        rospy.loginfo("\n🤖 Système prêt")
         
-        rospy.loginfo("🤖 Système prêt")
-        rospy.spin()
+        # Garder le noeud actif pour permettre de voir le résultat
+        rospy.sleep(5.0)
     
     def run(self):
-        """Exécuter la séquence principale"""
+        """Exécuter la séquence principale."""
         try:
             self.run_placement()
         except KeyboardInterrupt:
             rospy.loginfo("\n🛑 Arrêt par l'utilisateur")
-            self.go_to_safe_position()
+            self.move_to_home_position()
         except Exception as e:
             rospy.logerr(f"\n💥 Erreur: {e}")
-            self.go_to_safe_position()
+            import traceback
+            traceback.print_exc()
+            self.move_to_home_position()
         finally:
             moveit_commander.roscpp_shutdown()
 
 def main():
     rospy.loginfo("\n" + "="*70)
-    rospy.loginfo("🤖 TIAGo - SYSTÈME DE RANGEMENT DANS LA SCÈNE")
+    rospy.loginfo("🤖 TIAGo - SYSTÈME DE DRESSAGE DE TABLE")
     rospy.loginfo("="*70)
     
     placer = TiagoObjectPlacer()
@@ -453,6 +541,8 @@ def main():
         placer.run()
     except Exception as e:
         rospy.logerr(f"💥 Erreur fatale: {e}")
+        import traceback
+        traceback.print_exc()
     
     rospy.loginfo("👋 Programme terminé")
 
