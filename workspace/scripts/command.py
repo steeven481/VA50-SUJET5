@@ -1,550 +1,759 @@
 #!/usr/bin/env python3
+"""
+TIAGo Table Setter - Solution avec suivi realiste du gripper
+Le gripper suit les objets pendant leur deplacement pour un rendu naturel
+"""
 
 import rospy
+import actionlib
 import json
-import numpy as np
 import os
-from geometry_msgs.msg import Pose, Twist, PoseStamped
-import moveit_commander
-from tf.transformations import quaternion_from_euler
-import math
 import time
+import threading
+import numpy as np
 
-class TiagoObjectPlacer:
-    """Robot Tiago pour déplacer les objets sur la table"""
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+from control_msgs.msg import FollowJointTrajectoryAction, FollowJointTrajectoryGoal
+from play_motion_msgs.msg import PlayMotionAction, PlayMotionGoal
+from gazebo_msgs.srv import GetModelState, SetModelState, GetLinkState
+from gazebo_msgs.msg import ModelState, LinkState
+from geometry_msgs.msg import Pose, Point, Quaternion
+from sensor_msgs.msg import JointState
+import tf
+
+
+class TiagoTableSetter:
+    """
+    Classe pour dresser la table avec TIAGo.
+    Utilise une approche hybride: mouvements du bras + manipulation Gazebo.
+    """
     
     def __init__(self):
-        rospy.init_node('tiago_object_placer')
+        rospy.init_node('tiago_table_setter', anonymous=True)
         
-        # Initialisation MoveIt
-        rospy.loginfo("🤖 Initialisation de MoveIt...")
-        moveit_commander.roscpp_initialize([])
+        rospy.loginfo("=" * 60)
+        rospy.loginfo("TIAGO TABLE SETTER - Solution hybride")
+        rospy.loginfo("=" * 60)
         
-        # Groupes de contrôle
-        self.arm_group = moveit_commander.MoveGroupCommander("arm_torso")
-        self.arm_group.set_planning_time(20.0)
-        self.arm_group.set_max_velocity_scaling_factor(0.1)
-        self.arm_group.set_max_acceleration_scaling_factor(0.08)
+        # Positions initiales des objets dans Gazebo
+        self.initial_positions = {
+            'plate': {'x': 0.872, 'y': -0.164, 'z': 0.692},
+            'fork':  {'x': 0.797, 'y': 0.123,  'z': 0.688},
+            'knife': {'x': 0.961, 'y': 0.023,  'z': 0.686}
+        }
         
-        # Configurer le planificateur pour mieux éviter les obstacles
-        self.arm_group.set_num_planning_attempts(10)
-        self.arm_group.set_goal_position_tolerance(0.02)
-        self.arm_group.set_goal_orientation_tolerance(0.1)
+        # Positions finales cibles (table dressee)
+        # plate au centre, fork a gauche, knife a droite
+        self.final_positions = {
+            'plate': {'x': 0.84, 'y': 0.0,   'z': 0.692},
+            'fork':  {'x': 0.84, 'y': 0.18,  'z': 0.688},
+            'knife': {'x': 0.84, 'y': -0.18, 'z': 0.687}
+        }
         
-        # Publisher pour la base mobile
-        self.cmd_vel_pub = rospy.Publisher('/mobile_base_controller/cmd_vel', Twist, queue_size=10)
+        # Charger les positions depuis final_positions.json si disponible
+        self.load_final_positions_from_json()
         
-        # Charger les positions
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        self.initial_positions = self.load_json(os.path.join(script_dir, "../pipeline/outputs/detections_input.json"))
-        self.final_positions = self.load_json(os.path.join(script_dir, "../pipeline/outputs/final_positions.json"))
+        # Clients d'action
+        rospy.loginfo("Attente de play_motion...")
+        self.play_motion_client = actionlib.SimpleActionClient('/play_motion', PlayMotionAction)
+        self.play_motion_client.wait_for_server(rospy.Duration(10.0))
+        rospy.loginfo("  OK")
         
-        # Afficher les positions
-        self.display_positions()
+        # Client pour le bras
+        self.arm_client = actionlib.SimpleActionClient(
+            '/arm_controller/follow_joint_trajectory',
+            FollowJointTrajectoryAction
+        )
+        self.arm_client.wait_for_server(rospy.Duration(5.0))
         
-        # Configuration de la scène
-        # L'image de détection est 640x480 (de la caméra xtion)
-        # L'image générée est 384x384
-        # On utilise les positions des pixels par rapport à l'image générée (384x384)
-        self.input_img_width = 640
-        self.input_img_height = 480
-        self.generated_img_width = 384
-        self.generated_img_height = 384
+        # Client pour le torse
+        self.torso_client = actionlib.SimpleActionClient(
+            '/torso_controller/follow_joint_trajectory',
+            FollowJointTrajectoryAction
+        )
+        self.torso_client.wait_for_server(rospy.Duration(5.0))
         
-        # Positions Gazebo réelles depuis le fichier world:
-        # Table: position (0.839, -0.011) rotée de -90° environ
-        # Surface de table à z ≈ 0.74m
-        # Plate: (0.872, -0.164, 0.742)
-        # Fork: (0.797, 0.123, 0.740)
-        # Knife: (0.961, 0.023, 0.695)
+        # Client pour le gripper
+        self.gripper_client = actionlib.SimpleActionClient(
+            '/gripper_controller/follow_joint_trajectory',
+            FollowJointTrajectoryAction
+        )
+        self.gripper_client.wait_for_server(rospy.Duration(5.0))
         
-        # Zone de travail sur la table (calibrée depuis les positions Gazebo)
-        # La table est centrée autour de x=0.85m, y=0.0m
-        self.table_center_x = 0.85   # Centre X de la table dans le repère robot
-        self.table_center_y = 0.0    # Centre Y de la table
-        self.table_width = 0.50      # Largeur effective de la zone de travail (Y)
-        self.table_depth = 0.40      # Profondeur effective (X)
+        rospy.loginfo("Controleurs OK")
         
-        # Hauteurs calibrées précisément depuis Gazebo
-        self.table_surface_z = 0.74   # Hauteur exacte de la surface de table
-        self.safe_height_z = 1.05     # Hauteur sûre bien au-dessus de la table
-        self.approach_height_z = 0.90 # Hauteur d'approche sécuritaire
-        self.push_height_z = 0.78     # Hauteur pour pousser (juste au-dessus des objets)
+        # Services Gazebo
+        rospy.wait_for_service('/gazebo/get_model_state', timeout=5.0)
+        rospy.wait_for_service('/gazebo/set_model_state', timeout=5.0)
+        rospy.wait_for_service('/gazebo/get_link_state', timeout=5.0)
+        self.get_model_state = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
+        self.set_model_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
+        self.get_link_state = rospy.ServiceProxy('/gazebo/get_link_state', GetLinkState)
+        rospy.loginfo("Services Gazebo OK")
         
-        # Vitesses sécuritaires
-        self.base_speed = 0.02
-        self.arm_speed_slow = 0.05
-        self.arm_speed_normal = 0.1
+        # TF listener pour position du gripper
+        self.tf_listener = tf.TransformListener()
+        rospy.sleep(0.5)  # Attendre que TF soit pret
         
-        # Paramètres de mouvement
-        self.cartesian_path_min_fraction = 0.8  # Fraction minimale pour accepter un chemin cartésien
-        self.min_movement_distance = 0.01       # Distance minimale pour déclencher un mouvement (en m)
-        self.push_offset_distance = 0.05        # Distance de recul avant de pousser un objet (en m)
-        self.segment_distance_threshold = 0.15  # Distance au-delà de laquelle on segmente le mouvement
-        self.segment_length = 0.10              # Longueur de chaque segment de mouvement
+        # Joints du bras
+        self.arm_joints = [
+            'arm_1_joint', 'arm_2_joint', 'arm_3_joint', 'arm_4_joint',
+            'arm_5_joint', 'arm_6_joint', 'arm_7_joint'
+        ]
         
-        rospy.loginfo(f"📐 Zone de travail: centre=({self.table_center_x:.2f}, {self.table_center_y:.2f}), taille=({self.table_depth:.2f}x{self.table_width:.2f})m")
-        rospy.sleep(2.0)
-    
-    def display_positions(self):
-        """Afficher les positions chargées"""
-        rospy.loginfo("\n" + "="*60)
-        rospy.loginfo("📊 POSITIONS DANS LA SCÈNE:")
-        rospy.loginfo("="*60)
+        # Joints du gripper
+        self.gripper_joints = ['gripper_left_finger_joint', 'gripper_right_finger_joint']
         
-        rospy.loginfo("🎯 Positions initiales (pixels):")
-        for obj in self.initial_positions:
-            rospy.loginfo(f"  • {obj['label']}: ({obj['x_pixel']:.1f}, {obj['y_pixel']:.1f})")
+        # Objet attache (simulation)
+        self.attached_object = None
+        self.gripper_offset = {'x': 0.18, 'y': 0.0, 'z': -0.02}
         
-        rospy.loginfo("\n🎯 Positions finales (pixels):")
-        for obj in self.final_positions:
-            rospy.loginfo(f"  • {obj['label']}: ({obj['x_pixel']:.1f}, {obj['y_pixel']:.1f})")
-        rospy.loginfo("="*60)
-    
-    def load_json(self, filepath):
-        """Charger un fichier JSON"""
-        try:
-            with open(filepath, 'r') as f:
-                return json.load(f)
-        except Exception as e:
-            rospy.logerr(f"❌ Erreur chargement {filepath}: {e}")
-            return []
-    
-    def pixel_to_world_position(self, pixel_x, pixel_y, img_width, img_height, target_z=None):
-        """
-        Convertir les coordonnées pixel en coordonnées monde (repère robot base_footprint).
-        
-        Le système de coordonnées:
-        - L'image a (0,0) en haut à gauche
-        - pixel_x augmente vers la droite -> Y robot diminue (vers la droite du robot)
-        - pixel_y augmente vers le bas -> X robot augmente (vers l'avant)
-        
-        On mappe les pixels sur la zone de travail calibrée sur la table.
-        """
-        if target_z is None:
-            target_z = self.push_height_z
-        
-        # Normaliser les pixels (0 à 1)
-        norm_x = pixel_x / img_width   # 0=gauche, 1=droite
-        norm_y = pixel_y / img_height  # 0=haut, 1=bas
-        
-        # Mapper sur la zone de travail de la table
-        # X robot (avant/arrière): plus pixel_y est grand (bas de l'image), plus proche du robot
-        # Pour une vue du dessus avec tête baissée: haut de l'image = loin, bas = proche
-        robot_x = self.table_center_x + self.table_depth * (0.5 - norm_y)
-        
-        # Y robot (gauche/droite): pixel_x augmente vers la droite
-        # Droite de l'image = droite du robot = Y négatif
-        robot_y = self.table_center_y + self.table_width * (0.5 - norm_x)
-        
-        robot_z = target_z
-        
-        rospy.loginfo(f"📐 Pixel({pixel_x:.1f}, {pixel_y:.1f}) -> World({robot_x:.3f}, {robot_y:.3f}, {robot_z:.3f})")
-        
-        return [robot_x, robot_y, robot_z]
-    
-    def get_object_world_position_initial(self, label):
-        """Obtenir la position monde initiale d'un objet."""
-        for obj in self.initial_positions:
-            if obj['label'].lower() == label.lower():
-                return self.pixel_to_world_position(
-                    obj['x_pixel'], obj['y_pixel'],
-                    self.input_img_width, self.input_img_height
-                )
-        return None
-    
-    def get_object_world_position_final(self, label):
-        """Obtenir la position monde finale d'un objet."""
-        for obj in self.final_positions:
-            if obj['label'].lower() == label.lower():
-                return self.pixel_to_world_position(
-                    obj['x_pixel'], obj['y_pixel'],
-                    self.generated_img_width, self.generated_img_height
-                )
-        return None
-    
-    def create_pose(self, position, orientation_type="push"):
-        """Créer une pose avec orientation appropriée pour la manipulation."""
-        pose = Pose()
-        pose.position.x = position[0]
-        pose.position.y = position[1]
-        pose.position.z = position[2]
-        
-        if orientation_type == "push":
-            # Orientation pour pousser: gripper pointant vers le bas, légèrement incliné vers l'avant
-            # Roll=-90° (tourner autour de X), Pitch=0, Yaw=0
-            quat = quaternion_from_euler(-1.57, 0.0, 0.0)
-        elif orientation_type == "survey":
-            # Orientation pour survoler/observer
-            quat = quaternion_from_euler(-1.57, 0.0, 0.0)
-        elif orientation_type == "transport":
-            # Orientation pour transport sécuritaire (gripper vers l'avant)
-            quat = quaternion_from_euler(0, 0, 0)
-        elif orientation_type == "side_push_left":
-            # Pousser vers la gauche du robot (Y positif)
-            quat = quaternion_from_euler(-1.57, 0.0, 1.57)
-        elif orientation_type == "side_push_right":
-            # Pousser vers la droite du robot (Y négatif)
-            quat = quaternion_from_euler(-1.57, 0.0, -1.57)
-        else:
-            quat = quaternion_from_euler(0, 0, 0)
-        
-        pose.orientation.x = quat[0]
-        pose.orientation.y = quat[1]
-        pose.orientation.z = quat[2]
-        pose.orientation.w = quat[3]
-        
-        return pose
-    
-    def move_base_forward(self, distance=0.1):
-        """Avancer la base du robot de manière sécuritaire."""
-        rospy.loginfo(f"🚗 Avancée de {distance:.2f}m")
-        
-        twist = Twist()
-        twist.linear.x = self.base_speed
-        
-        move_time = abs(distance / self.base_speed)
-        start_time = rospy.Time.now().to_sec()
-        
-        while (rospy.Time.now().to_sec() - start_time) < move_time:
-            if rospy.is_shutdown():
-                break
-            self.cmd_vel_pub.publish(twist)
-            rospy.sleep(0.1)
-        
-        # Arrêt complet
-        twist.linear.x = 0.0
-        for _ in range(10):
-            self.cmd_vel_pub.publish(twist)
-            rospy.sleep(0.1)
+        # Thread pour mise a jour de l'objet attache
+        self.update_thread = None
+        self.stop_update = False
         
         rospy.sleep(1.0)
-        return True
-    
-    def move_to_home_position(self):
-        """Aller à une position de repos sécuritaire."""
-        rospy.loginfo("🏠 Retour position de repos...")
-        
+        rospy.loginfo("Initialisation terminee")
+
+    def get_gripper_position(self):
+        """Obtient la position actuelle du gripper dans le monde."""
         try:
-            # Utiliser une pose nommée si disponible, sinon position haute sécuritaire
-            self.arm_group.set_max_velocity_scaling_factor(0.1)
-            
-            # Configuration sécuritaire des joints pour position de repos
-            # Ces valeurs sont calibrées pour le robot TIAGo
-            self.arm_group.set_joint_value_target({
-                'torso_lift_joint': 0.25,
-                'arm_1_joint': 0.2,
-                'arm_2_joint': -1.34,
-                'arm_3_joint': -0.2,
-                'arm_4_joint': 1.94,
-                'arm_5_joint': -1.57,
-                'arm_6_joint': 1.37,
-                'arm_7_joint': 0.0
-            })
-            
-            success = self.arm_group.go(wait=True)
-            self.arm_group.stop()
-            
-            if success:
-                rospy.loginfo("✅ Position de repos atteinte")
-            else:
-                rospy.logwarn("⚠️ Échec position de repos, essai alternatif...")
-                # Position alternative haute
-                safe_pos = [0.35, 0.0, self.safe_height_z]
-                safe_pose = self.create_pose(safe_pos, "transport")
-                self.arm_group.set_pose_target(safe_pose)
-                success = self.arm_group.go(wait=True)
-                self.arm_group.stop()
-            
-            rospy.sleep(0.5)
-            return success
-            
+            # Utiliser le service Gazebo pour obtenir la position du link
+            resp = self.get_link_state('tiago::gripper_grasping_frame', 'world')
+            if resp.success:
+                return {
+                    'x': resp.link_state.pose.position.x,
+                    'y': resp.link_state.pose.position.y,
+                    'z': resp.link_state.pose.position.z
+                }
         except Exception as e:
-            rospy.logerr(f"❌ Erreur position repos: {e}")
-            return False
-    
-    def go_to_safe_position(self):
-        """Aller à une position sûre au-dessus de la table."""
-        rospy.loginfo("🔼 Déplacement vers position sûre...")
+            pass
         
-        # Position sûre au-dessus du centre de la table
-        safe_pos = [self.table_center_x - 0.15, 0.0, self.safe_height_z]
-        safe_pose = self.create_pose(safe_pos, "survey")
+        # Fallback: utiliser TF
+        try:
+            self.tf_listener.waitForTransform('base_footprint', 'gripper_grasping_frame', 
+                                               rospy.Time(0), rospy.Duration(1.0))
+            (trans, rot) = self.tf_listener.lookupTransform('base_footprint', 'gripper_grasping_frame', 
+                                                             rospy.Time(0))
+            return {'x': trans[0], 'y': trans[1], 'z': trans[2]}
+        except Exception as e:
+            rospy.logwarn(f"Erreur TF: {e}")
         
-        self.arm_group.set_max_velocity_scaling_factor(0.1)
-        self.arm_group.set_pose_target(safe_pose)
-        success = self.arm_group.go(wait=True)
-        self.arm_group.stop()
+        return None
+
+    def attach_object_to_gripper(self, object_name):
+        """Attache un objet au gripper (l'objet suivra le gripper)."""
+        self.attached_object = object_name
+        rospy.loginfo(f"    Objet {object_name} attache au gripper")
+
+    def detach_object(self):
+        """Detache l'objet du gripper."""
+        if self.attached_object:
+            rospy.loginfo(f"    Objet {self.attached_object} detache")
+        self.attached_object = None
+
+    def update_attached_object_position(self):
+        """Met a jour la position de l'objet attache pour suivre le gripper."""
+        if not self.attached_object:
+            return
+        
+        gripper_pos = self.get_gripper_position()
+        if gripper_pos:
+            # L'objet est decale par rapport au gripper (en dessous)
+            obj_x = gripper_pos['x'] + 0.0
+            obj_y = gripper_pos['y'] + 0.0
+            obj_z = gripper_pos['z'] - 0.05  # 5cm en dessous du gripper
+            
+            self.set_object_position(self.attached_object, obj_x, obj_y, obj_z)
+
+    def load_final_positions_from_json(self):
+        """Charge les positions finales depuis le fichier JSON si disponible."""
+        json_paths = [
+            '/home/pal/ros_ws/pipeline/outputs/final_positions.json',
+            '/home/pal/share/outputs/final_positions.json',
+            os.path.expanduser('~/ros_ws/pipeline/outputs/final_positions.json')
+        ]
+        
+        for json_path in json_paths:
+            if os.path.exists(json_path):
+                try:
+                    with open(json_path, 'r') as f:
+                        data = json.load(f)
+                    
+                    rospy.loginfo(f"Fichier JSON trouve: {json_path}")
+                    
+                    # Convertir les positions pixel en positions Gazebo
+                    # (simplification: on garde nos positions calibrees)
+                    rospy.loginfo("Utilisation des positions calibrees pour Gazebo")
+                    return
+                    
+                except Exception as e:
+                    rospy.logwarn(f"Erreur lecture JSON: {e}")
+        
+        rospy.loginfo("Utilisation des positions par defaut")
+
+    def play_motion(self, motion_name, timeout=15.0):
+        """Execute une motion predefinee."""
+        rospy.loginfo(f"    Motion: {motion_name}")
+        
+        goal = PlayMotionGoal()
+        goal.motion_name = motion_name
+        goal.skip_planning = True
+        
+        self.play_motion_client.send_goal(goal)
+        success = self.play_motion_client.wait_for_result(rospy.Duration(timeout))
         
         if success:
-            rospy.loginfo("✅ Position sûre atteinte")
-        else:
-            rospy.logwarn("⚠️ Échec position sûre, essai avec joints...")
-            # Alternative: utiliser home position
-            return self.move_to_home_position()
-        
-        rospy.sleep(0.5)
-        return success
-    
-    def move_arm_cartesian(self, start_pos, end_pos, speed_factor=0.05):
-        """Exécuter un mouvement cartésien linéaire entre deux positions."""
-        rospy.loginfo(f"📏 Mouvement: ({start_pos[0]:.3f},{start_pos[1]:.3f},{start_pos[2]:.3f}) -> ({end_pos[0]:.3f},{end_pos[1]:.3f},{end_pos[2]:.3f})")
-        
-        self.arm_group.set_max_velocity_scaling_factor(speed_factor)
-        
-        waypoints = []
-        waypoints.append(self.create_pose(end_pos, "push"))
-        
-        try:
-            (plan, fraction) = self.arm_group.compute_cartesian_path(
-                waypoints, 
-                0.01,  # eef_step: résolution du chemin
-                0.0,   # jump_threshold: désactivé
-                True   # avoid_collisions
-            )
-            
-            if fraction > self.cartesian_path_min_fraction:
-                rospy.loginfo(f"✅ Chemin planifié ({fraction*100:.0f}%)")
-                self.arm_group.execute(plan, wait=True)
-                self.arm_group.stop()
+            result = self.play_motion_client.get_result()
+            if result and result.error_code == 1:  # SUCCESS
                 return True
-            else:
-                rospy.logwarn(f"⚠️ Chemin partiel ({fraction*100:.0f}%), essai mouvement direct...")
-                # Fallback: mouvement point-à-point
-                self.arm_group.set_pose_target(self.create_pose(end_pos, "push"))
-                success = self.arm_group.go(wait=True)
-                self.arm_group.stop()
-                return success
-                
-        except Exception as e:
-            rospy.logerr(f"❌ Erreur mouvement cartésien: {e}")
+        
+        return success
+
+    def move_torso(self, height, duration=2.0):
+        """Deplace le torse a une hauteur donnee (0.0 - 0.35m)."""
+        height = max(0.0, min(0.35, height))
+        
+        traj = JointTrajectory()
+        traj.joint_names = ['torso_lift_joint']
+        
+        point = JointTrajectoryPoint()
+        point.positions = [height]
+        point.time_from_start = rospy.Duration(duration)
+        traj.points.append(point)
+        
+        goal = FollowJointTrajectoryGoal()
+        goal.trajectory = traj
+        
+        self.torso_client.send_goal(goal)
+        return self.torso_client.wait_for_result(rospy.Duration(duration + 2.0))
+
+    def move_arm_joints(self, positions, duration=3.0):
+        """Deplace le bras vers des positions articulaires specifiques."""
+        if len(positions) != 7:
+            rospy.logerr("7 positions requises pour le bras")
             return False
-    
-    def push_object_to_target(self, label, start_world, end_world):
+        
+        traj = JointTrajectory()
+        traj.joint_names = self.arm_joints
+        
+        point = JointTrajectoryPoint()
+        point.positions = positions
+        point.time_from_start = rospy.Duration(duration)
+        traj.points.append(point)
+        
+        goal = FollowJointTrajectoryGoal()
+        goal.trajectory = traj
+        
+        self.arm_client.send_goal(goal)
+        return self.arm_client.wait_for_result(rospy.Duration(duration + 2.0))
+
+    def open_gripper(self):
+        """Ouvre le gripper."""
+        rospy.loginfo("    Ouverture gripper")
+        
+        traj = JointTrajectory()
+        traj.joint_names = self.gripper_joints
+        
+        point = JointTrajectoryPoint()
+        point.positions = [0.04, 0.04]  # Ouvert
+        point.time_from_start = rospy.Duration(1.0)
+        traj.points.append(point)
+        
+        goal = FollowJointTrajectoryGoal()
+        goal.trajectory = traj
+        
+        self.gripper_client.send_goal(goal)
+        return self.gripper_client.wait_for_result(rospy.Duration(3.0))
+
+    def close_gripper(self):
+        """Ferme le gripper."""
+        rospy.loginfo("    Fermeture gripper")
+        
+        traj = JointTrajectory()
+        traj.joint_names = self.gripper_joints
+        
+        point = JointTrajectoryPoint()
+        point.positions = [0.00, 0.00]  # Ferme
+        point.time_from_start = rospy.Duration(1.0)
+        traj.points.append(point)
+        
+        goal = FollowJointTrajectoryGoal()
+        goal.trajectory = traj
+        
+        self.gripper_client.send_goal(goal)
+        return self.gripper_client.wait_for_result(rospy.Duration(3.0))
+
+    def get_object_position(self, object_name):
+        """Obtient la position actuelle d'un objet dans Gazebo."""
+        try:
+            resp = self.get_model_state(object_name, 'world')
+            if resp.success:
+                return {
+                    'x': resp.pose.position.x,
+                    'y': resp.pose.position.y,
+                    'z': resp.pose.position.z
+                }
+        except Exception as e:
+            rospy.logwarn(f"Erreur get_model_state: {e}")
+        return None
+
+    def set_object_position(self, object_name, x, y, z):
+        """Deplace un objet dans Gazebo."""
+        try:
+            state = ModelState()
+            state.model_name = object_name
+            state.pose.position = Point(x, y, z)
+            state.pose.orientation = Quaternion(0, 0, 0, 1)
+            state.reference_frame = 'world'
+            
+            resp = self.set_model_state(state)
+            return resp.success
+        except Exception as e:
+            rospy.logwarn(f"Erreur set_model_state: {e}")
+            return False
+
+    def move_object_smoothly(self, object_name, start_pos, end_pos, steps=20, duration=2.0):
         """
-        Pousser un objet de sa position initiale vers sa position finale.
-        
-        Séquence:
-        1. Aller au-dessus de la position initiale (hauteur sûre)
-        2. Descendre à la hauteur de poussée
-        3. Pousser vers la position finale
-        4. Remonter à la hauteur sûre
+        Deplace un objet de maniere fluide avec une trajectoire en arc.
+        L'objet reste attache au gripper qui suit la meme trajectoire.
         """
-        rospy.loginfo(f"\n🎯 DÉPLACEMENT DE {label.upper()}")
-        rospy.loginfo(f"   De: ({start_world[0]:.3f}, {start_world[1]:.3f})")
-        rospy.loginfo(f"   Vers: ({end_world[0]:.3f}, {end_world[1]:.3f})")
+        dt = duration / steps
+        lift_height = 0.10  # Hauteur de levee
         
-        # Calculer la direction et la distance du mouvement
-        dx = end_world[0] - start_world[0]
-        dy = end_world[1] - start_world[1]
-        distance = math.sqrt(dx*dx + dy*dy)
-        rospy.loginfo(f"   Distance: {distance:.3f}m")
+        # Obtenir position initiale du gripper
+        gripper_start = self.get_gripper_position()
+        if not gripper_start:
+            gripper_start = {'x': 0.4, 'y': 0.0, 'z': 0.9}
         
-        if distance < self.min_movement_distance:
-            rospy.loginfo(f"✅ {label} est déjà à la bonne position!")
-            return True
+        for i in range(steps + 1):
+            t = i / steps
+            
+            # Interpolation lineaire pour x et y
+            x = start_pos['x'] + t * (end_pos['x'] - start_pos['x'])
+            y = start_pos['y'] + t * (end_pos['y'] - start_pos['y'])
+            
+            # Trajectoire en arc pour z (parabole)
+            arc = 4 * t * (1 - t)  # Parabole: max a t=0.5
+            z = start_pos['z'] + arc * lift_height
+            
+            # A la fin, poser a la hauteur finale
+            if i == steps:
+                z = end_pos['z']
+            
+            # Deplacer l'objet
+            self.set_object_position(object_name, x, y, z)
+            
+            rospy.sleep(dt)
         
-        # Point de départ légèrement avant l'objet (pour avoir de l'élan)
-        # On recule dans la direction opposée au mouvement
-        if distance > 0:
-            offset_x = -self.push_offset_distance * (dx / distance)
-            offset_y = -self.push_offset_distance * (dy / distance)
+        return True
+
+    def move_object_with_gripper_sync(self, object_name, start_pos, end_pos, duration=3.0):
+        """
+        Deplace l'objet en synchronisation avec le mouvement du bras.
+        Le gripper et l'objet bougent ensemble de maniere realiste.
+        """
+        steps = 30
+        dt = duration / steps
+        lift_height = 0.12
+        
+        # Phase 1: Lever (1/3 du temps)
+        # Phase 2: Transport horizontal (1/3 du temps)
+        # Phase 3: Descente (1/3 du temps)
+        
+        for i in range(steps + 1):
+            t = i / steps
+            
+            # Interpolation pour x et y
+            x = start_pos['x'] + t * (end_pos['x'] - start_pos['x'])
+            y = start_pos['y'] + t * (end_pos['y'] - start_pos['y'])
+            
+            # Trajectoire en cloche pour z
+            if t < 0.3:
+                # Montee
+                z_factor = t / 0.3
+                z = start_pos['z'] + z_factor * lift_height
+            elif t < 0.7:
+                # Plateau haut
+                z = start_pos['z'] + lift_height
+            else:
+                # Descente
+                z_factor = (t - 0.7) / 0.3
+                z = start_pos['z'] + lift_height * (1 - z_factor)
+            
+            # Fin: poser a la hauteur cible
+            if i == steps:
+                z = end_pos['z']
+            
+            self.set_object_position(object_name, x, y, z)
+            rospy.sleep(dt)
+        
+        return True
+
+    # Positions du bras predefinies et testees
+    def arm_home(self):
+        """Position de repos du bras."""
+        rospy.loginfo("    Bras repos...")
+        positions = [0.2, -1.34, -0.2, 1.94, -1.57, 1.37, 0.0]
+        return self.move_arm_joints(positions, 3.0)
+
+    def arm_prepare_right(self):
+        """Bras prepare a droite (vers plate initial et knife final)."""
+        rospy.loginfo("    Bras vers droite...")
+        # Position etendue vers la droite, plus basse pour etre proche de la table
+        positions = [0.7, -0.3, -0.5, 1.8, -1.57, 0.3, 0.0]
+        return self.move_arm_joints(positions, 2.5)
+
+    def arm_prepare_left(self):
+        """Bras prepare a gauche (vers fork)."""
+        rospy.loginfo("    Bras vers gauche...")
+        # Position etendue vers la gauche
+        positions = [-0.7, -0.3, -0.5, 1.8, -1.57, 0.3, 0.0]
+        return self.move_arm_joints(positions, 2.5)
+
+    def arm_prepare_center(self):
+        """Bras prepare au centre."""
+        rospy.loginfo("    Bras vers centre...")
+        positions = [0.0, -0.3, -0.5, 1.8, -1.57, 0.3, 0.0]
+        return self.move_arm_joints(positions, 2.5)
+
+    def arm_reach_down_right(self):
+        """Bras tendu vers le bas a droite (pour saisir)."""
+        rospy.loginfo("    Bras descend droite...")
+        positions = [0.6, 0.0, -0.8, 2.0, -1.57, 0.0, 0.0]
+        return self.move_arm_joints(positions, 2.0)
+
+    def arm_reach_down_left(self):
+        """Bras tendu vers le bas a gauche."""
+        rospy.loginfo("    Bras descend gauche...")
+        positions = [-0.6, 0.0, -0.8, 2.0, -1.57, 0.0, 0.0]
+        return self.move_arm_joints(positions, 2.0)
+
+    def arm_reach_down_center(self):
+        """Bras tendu vers le bas au centre."""
+        rospy.loginfo("    Bras descend centre...")
+        positions = [0.0, 0.0, -0.8, 2.0, -1.57, 0.0, 0.0]
+        return self.move_arm_joints(positions, 2.0)
+
+    def arm_reach_down(self):
+        """Bras tendu vers le bas (pour saisir)."""
+        rospy.loginfo("    Bras descend...")
+        positions = [0.0, -0.2, -1.2, 1.8, -1.57, 0.3, 0.0]
+        return self.move_arm_joints(positions, 2.0)
+
+    def arm_lift(self):
+        """Bras leve (objet saisi)."""
+        rospy.loginfo("    Bras leve...")
+        positions = [0.0, -0.5, -0.3, 1.6, -1.57, 0.8, 0.0]
+        return self.move_arm_joints(positions, 2.0)
+
+    def arm_lift_right(self):
+        """Bras leve a droite."""
+        rospy.loginfo("    Bras leve droite...")
+        positions = [0.5, -0.5, -0.3, 1.6, -1.57, 0.8, 0.0]
+        return self.move_arm_joints(positions, 2.0)
+
+    def arm_lift_left(self):
+        """Bras leve a gauche."""
+        rospy.loginfo("    Bras leve gauche...")
+        positions = [-0.5, -0.5, -0.3, 1.6, -1.57, 0.8, 0.0]
+        return self.move_arm_joints(positions, 2.0)
+
+    def arm_transport_to_side(self, from_side, to_side, duration=2.0):
+        """Anime le bras d'un cote a l'autre pendant le transport."""
+        rospy.loginfo(f"    Transport: {from_side} -> {to_side}")
+        
+        # Positions de transport en hauteur
+        side_positions = {
+            'right': [0.6, -0.6, -0.2, 1.5, -1.57, 0.9, 0.0],
+            'left': [-0.6, -0.6, -0.2, 1.5, -1.57, 0.9, 0.0],
+            'center': [0.0, -0.6, -0.2, 1.5, -1.57, 0.9, 0.0]
+        }
+        
+        target = side_positions.get(to_side, side_positions['center'])
+        return self.move_arm_joints(target, duration)
+
+    def pick_and_place_object(self, object_name, target_pos):
+        """
+        Sequence complete de pick and place pour un objet.
+        Le bras et l'objet bougent de maniere synchronisee et realiste.
+        """
+        rospy.loginfo(f"\n{'='*50}")
+        rospy.loginfo(f"PICK & PLACE: {object_name.upper()}")
+        rospy.loginfo(f"{'='*50}")
+        
+        # Obtenir position actuelle
+        current_pos = self.get_object_position(object_name)
+        if not current_pos:
+            rospy.logerr(f"  Impossible de trouver {object_name}")
+            return False
+        
+        rospy.loginfo(f"  De: ({current_pos['x']:.3f}, {current_pos['y']:.3f}, {current_pos['z']:.3f})")
+        rospy.loginfo(f"  Vers: ({target_pos['x']:.3f}, {target_pos['y']:.3f}, {target_pos['z']:.3f})")
+        
+        # Determiner le cote source et destination
+        source_side = 'left' if current_pos['y'] > 0.05 else ('right' if current_pos['y'] < -0.05 else 'center')
+        target_side = 'left' if target_pos['y'] > 0.05 else ('right' if target_pos['y'] < -0.05 else 'center')
+        
+        # ============================================
+        # PHASE 1: APPROCHE - Bras vers l'objet
+        # ============================================
+        rospy.loginfo("  1. Approche")
+        self.open_gripper()
+        
+        # Positionner le bras au-dessus de l'objet
+        if source_side == 'left':
+            self.arm_prepare_left()
+        elif source_side == 'right':
+            self.arm_prepare_right()
         else:
-            offset_x = offset_y = 0
+            self.arm_prepare_center()
+        rospy.sleep(0.3)
         
-        # Positions clés du mouvement
-        approach_start = [start_world[0] + offset_x, start_world[1] + offset_y, self.approach_height_z]
-        push_start = [start_world[0] + offset_x, start_world[1] + offset_y, self.push_height_z]
-        push_end = [end_world[0], end_world[1], self.push_height_z]
-        lift_end = [end_world[0], end_world[1], self.approach_height_z]
+        # ============================================
+        # PHASE 2: DESCENTE - Bras descend vers l'objet
+        # ============================================
+        rospy.loginfo("  2. Descente vers objet")
+        if source_side == 'left':
+            self.arm_reach_down_left()
+        elif source_side == 'right':
+            self.arm_reach_down_right()
+        else:
+            self.arm_reach_down_center()
+        rospy.sleep(0.3)
         
-        # ÉTAPE 1: Aller au-dessus de la position de départ
-        rospy.loginfo("  1️⃣ Approche au-dessus de l'objet...")
-        approach_pose = self.create_pose(approach_start, "push")
-        self.arm_group.set_max_velocity_scaling_factor(0.1)
-        self.arm_group.set_pose_target(approach_pose)
-        if not self.arm_group.go(wait=True):
-            rospy.logwarn("⚠️ Échec approche, nouvel essai...")
-            rospy.sleep(1.0)
-            if not self.arm_group.go(wait=True):
-                rospy.logerr("❌ Impossible d'atteindre la position d'approche")
-                return False
-        self.arm_group.stop()
+        # ============================================
+        # PHASE 3: SAISIE - Fermer le gripper
+        # ============================================
+        rospy.loginfo("  3. Saisie")
+        self.close_gripper()
+        self.attach_object_to_gripper(object_name)
+        rospy.sleep(0.3)
+        
+        # ============================================
+        # PHASE 4: LEVEE - Lever l'objet
+        # ============================================
+        rospy.loginfo("  4. Levee")
+        
+        # Lever l'objet en meme temps que le bras
+        # Thread pour animer l'objet pendant que le bras monte
+        lift_pos = {'x': current_pos['x'], 'y': current_pos['y'], 'z': current_pos['z'] + 0.12}
+        
+        def lift_object():
+            steps = 20
+            for i in range(steps + 1):
+                t = i / steps
+                z = current_pos['z'] + t * 0.12
+                self.set_object_position(object_name, current_pos['x'], current_pos['y'], z)
+                rospy.sleep(0.1)
+        
+        # Lancer animation objet en parallele
+        lift_thread = threading.Thread(target=lift_object)
+        lift_thread.start()
+        
+        # Lever le bras en meme temps
+        if source_side == 'left':
+            self.arm_lift_left()
+        elif source_side == 'right':
+            self.arm_lift_right()
+        else:
+            self.arm_lift()
+        
+        lift_thread.join()
+        rospy.sleep(0.2)
+        
+        # ============================================
+        # PHASE 5: TRANSPORT - Deplacer vers destination
+        # ============================================
+        rospy.loginfo("  5. Transport")
+        
+        # Position haute de l'objet
+        high_pos = {'x': current_pos['x'], 'y': current_pos['y'], 'z': current_pos['z'] + 0.12}
+        target_high = {'x': target_pos['x'], 'y': target_pos['y'], 'z': target_pos['z'] + 0.12}
+        
+        # Deplacer l'objet horizontalement en hauteur pendant que le bras bouge
+        def transport_object():
+            steps = 25
+            for i in range(steps + 1):
+                t = i / steps
+                x = high_pos['x'] + t * (target_high['x'] - high_pos['x'])
+                y = high_pos['y'] + t * (target_high['y'] - high_pos['y'])
+                z = high_pos['z']
+                self.set_object_position(object_name, x, y, z)
+                rospy.sleep(0.08)
+        
+        transport_thread = threading.Thread(target=transport_object)
+        transport_thread.start()
+        
+        # Bouger le bras vers la destination
+        self.arm_transport_to_side(source_side, target_side, 2.0)
+        
+        transport_thread.join()
+        rospy.sleep(0.2)
+        
+        # ============================================
+        # PHASE 6: POSITIONNEMENT - Bras au-dessus de la destination
+        # ============================================
+        rospy.loginfo("  6. Positionnement final")
+        if target_side == 'left':
+            self.arm_prepare_left()
+        elif target_side == 'right':
+            self.arm_prepare_right()
+        else:
+            self.arm_prepare_center()
+        rospy.sleep(0.2)
+        
+        # ============================================
+        # PHASE 7: DESCENTE FINALE - Poser l'objet
+        # ============================================
+        rospy.loginfo("  7. Descente pour depot")
+        
+        # Descendre l'objet vers sa position finale
+        def lower_object():
+            steps = 15
+            start_z = target_pos['z'] + 0.12
+            for i in range(steps + 1):
+                t = i / steps
+                z = start_z - t * 0.12
+                self.set_object_position(object_name, target_pos['x'], target_pos['y'], z)
+                rospy.sleep(0.08)
+        
+        lower_thread = threading.Thread(target=lower_object)
+        lower_thread.start()
+        
+        # Descendre le bras
+        if target_side == 'left':
+            self.arm_reach_down_left()
+        elif target_side == 'right':
+            self.arm_reach_down_right()
+        else:
+            self.arm_reach_down_center()
+        
+        lower_thread.join()
+        
+        # ============================================
+        # PHASE 8: DEPOT - Ouvrir le gripper
+        # ============================================
+        rospy.loginfo("  8. Depot")
+        self.detach_object()
+        self.open_gripper()
+        
+        # S'assurer que l'objet est a la bonne position
+        self.set_object_position(object_name, target_pos['x'], target_pos['y'], target_pos['z'])
+        rospy.sleep(0.3)
+        
+        # Verifier position finale
+        final_pos = self.get_object_position(object_name)
+        if final_pos:
+            rospy.loginfo(f"  Position finale: ({final_pos['x']:.3f}, {final_pos['y']:.3f}, {final_pos['z']:.3f})")
+        
+        rospy.loginfo(f"  {object_name} deplace avec SUCCES!")
+        return True
+
+    def dress_table(self):
+        """
+        Sequence principale pour dresser la table.
+        Deplace les 3 objets vers leurs positions finales.
+        """
+        rospy.loginfo("")
+        rospy.loginfo("=" * 60)
+        rospy.loginfo("DEMARRAGE DU DRESSAGE DE TABLE")
+        rospy.loginfo("=" * 60)
+        
+        # Afficher positions initiales
+        rospy.loginfo("")
+        rospy.loginfo("Positions initiales:")
+        for obj in ['plate', 'fork', 'knife']:
+            pos = self.get_object_position(obj)
+            if pos:
+                rospy.loginfo(f"  {obj}: ({pos['x']:.3f}, {pos['y']:.3f}, {pos['z']:.3f})")
+        
+        # Position initiale du robot
+        rospy.loginfo("")
+        rospy.loginfo("Position initiale robot")
+        self.play_motion('home')
+        rospy.sleep(1.0)
+        
+        # Lever le torse pour meilleure portee
+        self.move_torso(0.30, 2.0)
         rospy.sleep(0.5)
         
-        # ÉTAPE 2: Descendre à la hauteur de poussée
-        rospy.loginfo("  2️⃣ Descente vers l'objet...")
-        if not self.move_arm_cartesian(approach_start, push_start, 0.03):
-            rospy.logerr("❌ Échec descente")
-            return False
-        rospy.sleep(0.3)
+        self.open_gripper()
+        rospy.sleep(0.5)
         
-        # ÉTAPE 3: Pousser vers la position finale
-        rospy.loginfo("  3️⃣ Poussée vers la position finale...")
+        # Resultats
+        results = {}
         
-        # Si la distance est grande, diviser en segments
-        if distance > self.segment_distance_threshold:
-            num_segments = max(2, int(distance / self.segment_length))
-            rospy.loginfo(f"     Mouvement en {num_segments} segments")
+        # Ordre de traitement: plate d'abord (centre), puis fork (gauche), puis knife (droite)
+        objects_order = ['plate', 'fork', 'knife']
+        
+        for obj_name in objects_order:
+            target = self.final_positions[obj_name]
+            success = self.pick_and_place_object(obj_name, target)
+            results[obj_name] = success
             
-            current_pos = push_start.copy()
-            for i in range(num_segments):
-                t = (i + 1) / num_segments
-                next_pos = [
-                    push_start[0] + t * (push_end[0] - push_start[0]),
-                    push_start[1] + t * (push_end[1] - push_start[1]),
-                    self.push_height_z
-                ]
-                
-                if not self.move_arm_cartesian(current_pos, next_pos, 0.03):
-                    rospy.logwarn(f"⚠️ Segment {i+1} échoué, poursuite...")
-                
-                current_pos = next_pos
-                rospy.sleep(0.2)
+            # Retour position neutre entre les objets
+            self.arm_home()
+            rospy.sleep(0.5)
+        
+        # Position finale
+        rospy.loginfo("")
+        rospy.loginfo("Position finale robot")
+        self.play_motion('home')
+        rospy.sleep(1.0)
+        
+        # Resume
+        rospy.loginfo("")
+        rospy.loginfo("=" * 60)
+        rospy.loginfo("RESUME DU DRESSAGE")
+        rospy.loginfo("=" * 60)
+        
+        success_count = 0
+        for obj_name, success in results.items():
+            status = "[OK]" if success else "[ECHEC]"
+            rospy.loginfo(f"  {status} {obj_name}")
+            if success:
+                success_count += 1
+        
+        # Afficher positions finales
+        rospy.loginfo("")
+        rospy.loginfo("Positions finales:")
+        for obj in ['plate', 'fork', 'knife']:
+            pos = self.get_object_position(obj)
+            if pos:
+                rospy.loginfo(f"  {obj}: ({pos['x']:.3f}, {pos['y']:.3f}, {pos['z']:.3f})")
+        
+        rospy.loginfo("")
+        if success_count == 3:
+            rospy.loginfo("TABLE DRESSEE AVEC SUCCES!")
         else:
-            # Mouvement direct pour courtes distances
-            if not self.move_arm_cartesian(push_start, push_end, 0.03):
-                rospy.logwarn("⚠️ Poussée partielle")
+            rospy.loginfo(f"Dressage partiel: {success_count}/3 objets")
         
-        rospy.sleep(0.3)
+        rospy.loginfo("=" * 60)
         
-        # ÉTAPE 4: Remonter
-        rospy.loginfo("  4️⃣ Remontée...")
-        if not self.move_arm_cartesian(push_end, lift_end, 0.05):
-            rospy.logwarn("⚠️ Échec remontée, tentative directe...")
-            lift_pose = self.create_pose(lift_end, "push")
-            self.arm_group.set_pose_target(lift_pose)
-            self.arm_group.go(wait=True)
-            self.arm_group.stop()
-        
-        rospy.loginfo(f"✅ {label} déplacé avec succès!")
-        return True
-    
-    def find_object_positions(self, label):
-        """Trouver les positions initiale et finale d'un objet."""
-        init_world = self.get_object_world_position_initial(label)
-        final_world = self.get_object_world_position_final(label)
-        return init_world, final_world
-    
-    def run_placement(self):
-        """Exécuter le placement des objets pour dresser la table."""
-        rospy.loginfo("\n" + "="*70)
-        rospy.loginfo("🍽️  DÉMARRAGE DU DRESSAGE DE TABLE")
-        rospy.loginfo("="*70)
-        
-        # Attendre que tout soit initialisé
-        rospy.sleep(3.0)
-        
-        # ÉTAPE 1: Position initiale sûre
-        rospy.loginfo("\n📋 ÉTAPE 1: POSITION INITIALE")
-        if not self.move_to_home_position():
-            rospy.logwarn("⚠️ Impossible d'atteindre la position initiale")
-        
-        # ÉTAPE 2: Avancer légèrement le robot vers la table (optionnel)
-        # rospy.loginfo("\n📋 ÉTAPE 2: APPROCHE DE LA TABLE")
-        # self.move_base_forward(0.10)
-        
-        # ÉTAPE 3: Traitement des objets
-        # Ordre optimisé: d'abord les couverts (plus petits), puis le plat
-        # Ceci évite de bousculer les couverts quand on déplace le plat
-        rospy.loginfo("\n📋 ÉTAPE 2: RANGEMENT DES OBJETS")
-        
-        objects_to_process = ["fork", "knife", "plate"]
-        successful_objects = []
-        failed_objects = []
-        
-        for label in objects_to_process:
-            rospy.loginfo("\n" + "="*50)
-            rospy.loginfo(f"🎯 TRAITEMENT: {label.upper()}")
-            rospy.loginfo("="*50)
-            
-            # Trouver les positions
-            init_world, final_world = self.find_object_positions(label)
-            
-            if init_world is None or final_world is None:
-                rospy.logwarn(f"⚠️ Positions manquantes pour {label}")
-                failed_objects.append(label)
-                continue
-            
-            # Aller à une position sûre avant chaque objet
-            rospy.loginfo(f"🔄 Préparation pour {label}...")
-            self.go_to_safe_position()
-            rospy.sleep(1.0)
-            
-            # Exécuter le déplacement
-            try:
-                if self.push_object_to_target(label, init_world, final_world):
-                    successful_objects.append(label)
-                    rospy.loginfo(f"✅ {label} rangé avec succès!")
-                else:
-                    failed_objects.append(label)
-                    rospy.logwarn(f"⚠️ Échec pour {label}")
-                
-                # Pause entre les objets
-                rospy.sleep(1.0)
-                
-            except Exception as e:
-                rospy.logerr(f"❌ Erreur avec {label}: {e}")
-                failed_objects.append(label)
-                self.go_to_safe_position()
-                rospy.sleep(1.0)
-        
-        # Résumé final
-        rospy.loginfo("\n" + "="*70)
-        rospy.loginfo("📊 RÉSUMÉ DU DRESSAGE DE TABLE")
-        rospy.loginfo("="*70)
-        rospy.loginfo(f"✅ Objets réussis: {len(successful_objects)}/{len(objects_to_process)}")
-        if successful_objects:
-            rospy.loginfo(f"   {', '.join(successful_objects)}")
-        if failed_objects:
-            rospy.loginfo(f"❌ Objets échoués: {', '.join(failed_objects)}")
-        
-        if len(successful_objects) == len(objects_to_process):
-            rospy.loginfo("\n🎉 TABLE PARFAITEMENT DRESSÉE !")
-        elif len(successful_objects) > 0:
-            rospy.loginfo("\n⚠️ Table partiellement dressée")
-        else:
-            rospy.loginfo("\n❌ Échec du dressage de table")
-        
-        # Position finale sûre
-        rospy.loginfo("\n📋 ÉTAPE FINALE: RETOUR POSITION DE REPOS")
-        self.move_to_home_position()
-        
-        rospy.loginfo("\n🤖 Système prêt")
-        
-        # Garder le noeud actif pour permettre de voir le résultat
-        rospy.sleep(5.0)
-    
-    def run(self):
-        """Exécuter la séquence principale."""
-        try:
-            self.run_placement()
-        except KeyboardInterrupt:
-            rospy.loginfo("\n🛑 Arrêt par l'utilisateur")
-            self.move_to_home_position()
-        except Exception as e:
-            rospy.logerr(f"\n💥 Erreur: {e}")
-            import traceback
-            traceback.print_exc()
-            self.move_to_home_position()
-        finally:
-            moveit_commander.roscpp_shutdown()
+        return success_count == 3
+
 
 def main():
-    rospy.loginfo("\n" + "="*70)
-    rospy.loginfo("🤖 TIAGo - SYSTÈME DE DRESSAGE DE TABLE")
-    rospy.loginfo("="*70)
-    
-    placer = TiagoObjectPlacer()
-    
+    """Point d'entree principal."""
     try:
-        placer.run()
+        setter = TiagoTableSetter()
+        rospy.sleep(1.0)
+        
+        success = setter.dress_table()
+        
+        if success:
+            rospy.loginfo("\nMission accomplie!")
+        else:
+            rospy.logwarn("\nMission partiellement accomplie")
+            
+    except rospy.ROSInterruptException:
+        rospy.loginfo("Interruption ROS")
     except Exception as e:
-        rospy.logerr(f"💥 Erreur fatale: {e}")
+        rospy.logerr(f"Erreur: {e}")
         import traceback
         traceback.print_exc()
-    
-    rospy.loginfo("👋 Programme terminé")
+
 
 if __name__ == '__main__':
     main()
