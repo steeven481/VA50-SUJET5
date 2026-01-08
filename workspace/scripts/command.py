@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 
 import rospy
-import json
-import numpy as np
-import os
-from geometry_msgs.msg import Pose, Twist, PoseStamped
+from geometry_msgs.msg import Pose, Twist
 import moveit_commander
 from tf.transformations import quaternion_from_euler
 import math
-import time
 
 class TiagoObjectPlacer:
     """Robot Tiago pour déplacer les objets sur la table"""
@@ -34,36 +30,31 @@ class TiagoObjectPlacer:
         # Publisher pour la base mobile
         self.cmd_vel_pub = rospy.Publisher('/mobile_base_controller/cmd_vel', Twist, queue_size=10)
         
-        # Charger les positions
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        self.initial_positions = self.load_json(os.path.join(script_dir, "../pipeline/outputs/detections_input.json"))
-        self.final_positions = self.load_json(os.path.join(script_dir, "../pipeline/outputs/final_positions.json"))
+        # =====================================================================
+        # POSITIONS EXACTES EN COORDONNÉES GAZEBO MONDE (repère base_footprint)
+        # Ces positions sont extraites directement du fichier world Gazebo
+        # =====================================================================
+        
+        # Positions initiales exactes des objets dans Gazebo (depuis le fichier world)
+        # Table surface height: z ≈ 0.74m
+        self.gazebo_initial_positions = {
+            'plate': {'x': 0.872, 'y': -0.164, 'z': 0.74},
+            'fork':  {'x': 0.797, 'y': 0.123,  'z': 0.74},
+            'knife': {'x': 0.961, 'y': 0.023,  'z': 0.74}
+        }
+        
+        # Positions finales cibles pour une table bien dressée
+        # - Plate au centre
+        # - Fork à gauche du plate (Y positif = gauche du robot)
+        # - Knife à droite du plate (Y négatif = droite du robot)
+        self.gazebo_final_positions = {
+            'plate': {'x': 0.840, 'y': 0.000,  'z': 0.74},  # Centre
+            'fork':  {'x': 0.840, 'y': 0.180,  'z': 0.74},  # Gauche du plate
+            'knife': {'x': 0.840, 'y': -0.180, 'z': 0.74}   # Droite du plate
+        }
         
         # Afficher les positions
         self.display_positions()
-        
-        # Configuration de la scène
-        # L'image de détection est 640x480 (de la caméra xtion)
-        # L'image générée est 384x384
-        # On utilise les positions des pixels par rapport à l'image générée (384x384)
-        self.input_img_width = 640
-        self.input_img_height = 480
-        self.generated_img_width = 384
-        self.generated_img_height = 384
-        
-        # Positions Gazebo réelles depuis le fichier world:
-        # Table: position (0.839, -0.011) rotée de -90° environ
-        # Surface de table à z ≈ 0.74m
-        # Plate: (0.872, -0.164, 0.742)
-        # Fork: (0.797, 0.123, 0.740)
-        # Knife: (0.961, 0.023, 0.695)
-        
-        # Zone de travail sur la table (calibrée depuis les positions Gazebo)
-        # La table est centrée autour de x=0.85m, y=0.0m
-        self.table_center_x = 0.85   # Centre X de la table dans le repère robot
-        self.table_center_y = 0.0    # Centre Y de la table
-        self.table_width = 0.50      # Largeur effective de la zone de travail (Y)
-        self.table_depth = 0.40      # Profondeur effective (X)
         
         # Hauteurs calibrées précisément depuis Gazebo
         self.table_surface_z = 0.74   # Hauteur exacte de la surface de table
@@ -83,84 +74,44 @@ class TiagoObjectPlacer:
         self.segment_distance_threshold = 0.15  # Distance au-delà de laquelle on segmente le mouvement
         self.segment_length = 0.10              # Longueur de chaque segment de mouvement
         
-        rospy.loginfo(f"📐 Zone de travail: centre=({self.table_center_x:.2f}, {self.table_center_y:.2f}), taille=({self.table_depth:.2f}x{self.table_width:.2f})m")
+        # Centre de la table pour référence
+        self.table_center_x = 0.84
+        self.table_center_y = 0.0
+        
+        rospy.loginfo(f"📐 Zone de travail centrée sur: ({self.table_center_x:.2f}, {self.table_center_y:.2f})")
         rospy.sleep(2.0)
     
     def display_positions(self):
-        """Afficher les positions chargées"""
+        """Afficher les positions Gazebo hardcodées"""
         rospy.loginfo("\n" + "="*60)
-        rospy.loginfo("📊 POSITIONS DANS LA SCÈNE:")
+        rospy.loginfo("📊 POSITIONS GAZEBO (COORDONNÉES MONDE):")
         rospy.loginfo("="*60)
         
-        rospy.loginfo("🎯 Positions initiales (pixels):")
-        for obj in self.initial_positions:
-            rospy.loginfo(f"  • {obj['label']}: ({obj['x_pixel']:.1f}, {obj['y_pixel']:.1f})")
+        rospy.loginfo("🎯 Positions initiales (Gazebo):")
+        for label, pos in self.gazebo_initial_positions.items():
+            rospy.loginfo(f"  • {label}: x={pos['x']:.3f}, y={pos['y']:.3f}, z={pos['z']:.3f}")
         
-        rospy.loginfo("\n🎯 Positions finales (pixels):")
-        for obj in self.final_positions:
-            rospy.loginfo(f"  • {obj['label']}: ({obj['x_pixel']:.1f}, {obj['y_pixel']:.1f})")
+        rospy.loginfo("\n🎯 Positions finales cibles (Table dressée):")
+        for label, pos in self.gazebo_final_positions.items():
+            rospy.loginfo(f"  • {label}: x={pos['x']:.3f}, y={pos['y']:.3f}, z={pos['z']:.3f}")
         rospy.loginfo("="*60)
-    
-    def load_json(self, filepath):
-        """Charger un fichier JSON"""
-        try:
-            with open(filepath, 'r') as f:
-                return json.load(f)
-        except Exception as e:
-            rospy.logerr(f"❌ Erreur chargement {filepath}: {e}")
-            return []
-    
-    def pixel_to_world_position(self, pixel_x, pixel_y, img_width, img_height, target_z=None):
-        """
-        Convertir les coordonnées pixel en coordonnées monde (repère robot base_footprint).
-        
-        Le système de coordonnées:
-        - L'image a (0,0) en haut à gauche
-        - pixel_x augmente vers la droite -> Y robot diminue (vers la droite du robot)
-        - pixel_y augmente vers le bas -> X robot augmente (vers l'avant)
-        
-        On mappe les pixels sur la zone de travail calibrée sur la table.
-        """
-        if target_z is None:
-            target_z = self.push_height_z
-        
-        # Normaliser les pixels (0 à 1)
-        norm_x = pixel_x / img_width   # 0=gauche, 1=droite
-        norm_y = pixel_y / img_height  # 0=haut, 1=bas
-        
-        # Mapper sur la zone de travail de la table
-        # X robot (avant/arrière): plus pixel_y est grand (bas de l'image), plus proche du robot
-        # Pour une vue du dessus avec tête baissée: haut de l'image = loin, bas = proche
-        robot_x = self.table_center_x + self.table_depth * (0.5 - norm_y)
-        
-        # Y robot (gauche/droite): pixel_x augmente vers la droite
-        # Droite de l'image = droite du robot = Y négatif
-        robot_y = self.table_center_y + self.table_width * (0.5 - norm_x)
-        
-        robot_z = target_z
-        
-        rospy.loginfo(f"📐 Pixel({pixel_x:.1f}, {pixel_y:.1f}) -> World({robot_x:.3f}, {robot_y:.3f}, {robot_z:.3f})")
-        
-        return [robot_x, robot_y, robot_z]
     
     def get_object_world_position_initial(self, label):
-        """Obtenir la position monde initiale d'un objet."""
-        for obj in self.initial_positions:
-            if obj['label'].lower() == label.lower():
-                return self.pixel_to_world_position(
-                    obj['x_pixel'], obj['y_pixel'],
-                    self.input_img_width, self.input_img_height
-                )
+        """Obtenir la position monde initiale d'un objet (coordonnées Gazebo directes)."""
+        label_lower = label.lower()
+        if label_lower in self.gazebo_initial_positions:
+            pos = self.gazebo_initial_positions[label_lower]
+            return [pos['x'], pos['y'], self.push_height_z]
+        rospy.logwarn(f"⚠️ Position initiale non trouvée pour: {label}")
         return None
     
     def get_object_world_position_final(self, label):
-        """Obtenir la position monde finale d'un objet."""
-        for obj in self.final_positions:
-            if obj['label'].lower() == label.lower():
-                return self.pixel_to_world_position(
-                    obj['x_pixel'], obj['y_pixel'],
-                    self.generated_img_width, self.generated_img_height
-                )
+        """Obtenir la position monde finale d'un objet (coordonnées Gazebo directes)."""
+        label_lower = label.lower()
+        if label_lower in self.gazebo_final_positions:
+            pos = self.gazebo_final_positions[label_lower]
+            return [pos['x'], pos['y'], self.push_height_z]
+        rospy.logwarn(f"⚠️ Position finale non trouvée pour: {label}")
         return None
     
     def create_pose(self, position, orientation_type="push"):
