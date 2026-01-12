@@ -17,6 +17,7 @@
 cd src
 roslaunch tiago_gazebo.launch
 
+## Terminal 2 : lancement de la pipeline
 ./client.sh
 cd scripts
 python3 automation_node.py
