@@ -1,12 +1,22 @@
-Instructions pour lancer le projet : 
-Il faut un token hugging face pour pouvoir charger le modèle de génération de l'image.
+# Lancement du projet
 
+## Prérequis
+- Un **token Hugging Face** est nécessaire pour charger le modèle de génération d’images.
+
+> Exemple :
+> ```bash
+> export HUGGINGFACE_HUB_TOKEN="votre_token"
+> ```
+
+---
+
+## Démarrage (Terminal 1) : serveur + simulation Gazebo
+```bash
 ./server.sh
 ./client.sh
 cd src
 roslaunch tiago_gazebo.launch
 
-créer un autre terminal
 ./client.sh
 cd scripts
-python automation_node.py ou ./run_automation.sh
+python3 automation_node.py
